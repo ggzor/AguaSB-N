@@ -1,17 +1,47 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
+
+using Castle.Windsor;
+using Castle.Windsor.Installer;
+using NLog;
+
+using AguaSB.Views;
 
 namespace AguaSB.Individual.Pagos
 {
-    /// <summary>
-    /// Lógica de interacción para App.xaml
-    /// </summary>
     public partial class App : Application
     {
+        private static readonly Logger Log = LogManager.GetCurrentClassLogger();
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            var contenedor = new WindsorContainer();
+
+            try
+            {
+                Logging.Configurar();
+
+                contenedor.Install(FromAssembly.This());
+
+                contenedor.Resolve<IVentana>().Mostrar();
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex);
+            }
+            finally
+            {
+                try
+                {
+                    contenedor.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error al liberar");
+                }
+
+                Current.Shutdown();
+            }
+        }
     }
 }

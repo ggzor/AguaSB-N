@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AguaSB.Views;
+using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,19 +12,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace AguaSB.Individual.Pagos
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para VentanaPrincipal.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class VentanaPrincipal : Window, IVentana
     {
-        public MainWindow()
+        public VentanaPrincipal()
         {
             InitializeComponent();
         }
+
+        public void Mostrar() => ShowDialog();
     }
 }
