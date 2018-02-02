@@ -19,7 +19,7 @@ namespace AguaSB.Individual.Pagos
     /// <summary>
     /// Lógica de interacción para VentanaPrincipal.xaml
     /// </summary>
-    public partial class VentanaPrincipal : Window, IVentana
+    public partial class VentanaPrincipal : MetroWindow, IVentana
     {
         public VentanaPrincipal()
         {

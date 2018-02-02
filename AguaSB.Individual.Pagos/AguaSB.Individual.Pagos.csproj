@@ -90,6 +90,7 @@
     <Compile Include="VentanaPrincipal.xaml.cs">
       <DependentUpon>VentanaPrincipal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VentanaPrincipalViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Instaladores\Interfaz.cs" />
@@ -121,6 +122,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AguaSB.Views.Controles\AguaSB.Views.Controles.csproj">
+      <Project>{cde5d968-1ceb-43bd-9b4c-786130b6d948}</Project>
+      <Name>AguaSB.Views.Controles</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AguaSB.Views.Estilos\AguaSB.Views.Estilos.csproj">
       <Project>{acf0a419-99ea-43d4-99ca-a1a60488bf4c}</Project>
       <Name>AguaSB.Views.Estilos</Name>

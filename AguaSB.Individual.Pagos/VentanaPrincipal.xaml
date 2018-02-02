@@ -1,11 +1,36 @@
-﻿<Window x:Class="AguaSB.Individual.Pagos.VentanaPrincipal"
+﻿<metro:MetroWindow x:Class="AguaSB.Individual.Pagos.VentanaPrincipal"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AguaSB.Individual.Pagos"
-        mc:Ignorable="d" Title="Pagos" Height="300" Width="300">
-    <Grid>
+        xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:Controles="clr-namespace:AguaSB.Views.Controles;assembly=AguaSB.Views.Controles"
+        mc:Ignorable="d" Title="Pagos" 
+        EnableDWMDropShadow="True" BorderBrush="Black" BorderThickness="0"
+        TitleCharacterCasing="Normal" TitleForeground="Transparent"
+        WindowTitleBrush="{StaticResource PrimaryDarkBrush}"
+        WindowTransitionsEnabled="False"
+        WindowStartupLocation="CenterScreen">
+    <Grid Background="{StaticResource PrimaryDarkBrush}">
+        <StackPanel VerticalAlignment="Center">
+            <Controles:LogoAnimado/>
+        </StackPanel>
         
+        <StackPanel Margin="0 64" VerticalAlignment="Bottom" Opacity="0">
+            <StackPanel.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity" To="1" BeginTime="0:0:3.2"
+                                             EasingFunction="{StaticResource QuadraticOut}"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </StackPanel.Triggers>
+            <metro:ProgressRing Foreground="White" Width="36" Height="36"/>
+            <TextBlock Margin="0 20 0 0" HorizontalAlignment="Center" Style="{StaticResource w-l5}">
+                Verificando acceso a base de datos
+            </TextBlock>
+        </StackPanel>
     </Grid>
-</Window>
+</metro:MetroWindow>
