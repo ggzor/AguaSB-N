@@ -1,0 +1,6 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <PathGeometry x:Key="AguaSB">
+        m 15.12667,112.87153 c 3.905278,3.90529 64.446676,-1.95263 85.9305,-23.436452 17.25711,-17.257101 17.25711,-45.236931 0,-62.494036 -17.257102,-17.2571023 -45.236932,-17.2571023 -62.494034,0 C 17.079309,48.424869 11.226191,108.97106 15.12667,112.87153
+    </PathGeometry>
+</ResourceDictionary>
