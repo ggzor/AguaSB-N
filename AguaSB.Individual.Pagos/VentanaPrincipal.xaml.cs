@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Reactive.Linq;
 using System.Windows;
 
 using MahApps.Metro.Controls;
 using ReactiveUI;
 
 using AguaSB.Views;
+using AguaSB.Views.Controles.Animaciones;
 
 namespace AguaSB.Individual.Pagos
 {
@@ -17,6 +19,15 @@ namespace AguaSB.Individual.Pagos
             this.WhenActivated(d =>
             {
                 d(this.OneWayBind(ViewModel, vm => vm.MensajeCarga, v => v.MensajeCarga.Text));
+
+                d(this.WhenAnyObservable(v => v.ViewModel.ComenzandoCarga)
+                    .Subscribe(u => { FadeIn.SetDelay(PanelCarga, TimeSpan.FromSeconds(2.5)); FadeIn.Apply(PanelCarga); }));
+                d(this.WhenAnyObservable(v => v.ViewModel.Cargar)
+                    .Subscribe(u => FadeOut.Apply(PanelCarga)));
+
+                d(this.WhenAnyValue(v => v.ViewModel.Cargar)
+                    .SelectMany(c => c.Execute())
+                    .Subscribe());
             });
         }
 
