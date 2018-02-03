@@ -1,31 +1,38 @@
-﻿using AguaSB.Views;
-using MahApps.Metro.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
+using MahApps.Metro.Controls;
+using ReactiveUI;
+
+using AguaSB.Views;
 
 namespace AguaSB.Individual.Pagos
 {
-    /// <summary>
-    /// Lógica de interacción para VentanaPrincipal.xaml
-    /// </summary>
-    public partial class VentanaPrincipal : MetroWindow, IVentana
+    public partial class VentanaPrincipal : MetroWindow, IViewFor<VentanaPrincipalViewModel>, IVentana
     {
-        public VentanaPrincipal()
+        public VentanaPrincipal(VentanaPrincipalViewModel viewModel)
         {
+            DataContext = ViewModel = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
             InitializeComponent();
+            this.WhenActivated(d =>
+            {
+                d(this.OneWayBind(ViewModel, vm => vm.MensajeCarga, v => v.MensajeCarga.Text));
+            });
         }
 
         public void Mostrar() => ShowDialog();
+
+        #region IViewFor
+        object IViewFor.ViewModel { get => ViewModel; set => ViewModel = (VentanaPrincipalViewModel)value; }
+
+        public VentanaPrincipalViewModel ViewModel
+        {
+            get { return (VentanaPrincipalViewModel)GetValue(ViewModelProperty); }
+            set { SetValue(ViewModelProperty, value); }
+        }
+
+        public static readonly DependencyProperty ViewModelProperty =
+            DependencyProperty.Register(nameof(ViewModel), typeof(VentanaPrincipalViewModel), typeof(VentanaPrincipal), new PropertyMetadata(null));
+        #endregion
     }
 }

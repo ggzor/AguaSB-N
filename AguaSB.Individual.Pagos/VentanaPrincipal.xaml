@@ -28,7 +28,7 @@
                 </EventTrigger>
             </StackPanel.Triggers>
             <metro:ProgressRing Foreground="White" Width="36" Height="36"/>
-            <TextBlock Margin="0 20 0 0" HorizontalAlignment="Center" Style="{StaticResource w-l5}">
+            <TextBlock Name="MensajeCarga" Margin="0 20 0 0" HorizontalAlignment="Center" Style="{StaticResource w-l5}">
                 Verificando acceso a base de datos
             </TextBlock>
         </StackPanel>
