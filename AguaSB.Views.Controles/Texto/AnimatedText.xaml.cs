@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Animation;
 using AguaSB.Views.Controles.Animaciones;
 
 namespace AguaSB.Views.Controles.Texto
@@ -38,7 +37,7 @@ namespace AguaSB.Views.Controles.Texto
             if (Previous != null && Content.Children.Contains(Previous))
             {
                 var toRemove = Previous;
-                toRemove.Apply(onComplete: (s, a) => Content.Children.Remove(toRemove));
+                FadeOut.Apply(toRemove, onCompleted: (s, a) => Content.Children.Remove(toRemove));
             }
 
             Previous = new TextBlock

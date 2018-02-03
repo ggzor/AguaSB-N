@@ -53,6 +53,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animaciones\FadeCommon.cs" />
     <Compile Include="Animaciones\FadeDirection.cs" />
     <Compile Include="Animaciones\FadeIn.cs" />
     <Compile Include="Animaciones\FadeOut.cs" />
