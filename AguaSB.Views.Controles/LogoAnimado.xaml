@@ -57,7 +57,7 @@
                 <EventTrigger RoutedEvent="Loaded">
                     <BeginStoryboard>
                         <Storyboard>
-                            <DoubleAnimation Storyboard.TargetProperty="OpacityMask.Visual.Width" To="122" Duration="0:0:0.5" BeginTime="0:0:1.5"
+                            <DoubleAnimation Storyboard.TargetProperty="OpacityMask.Visual.Width" To="122" Duration="0:0:0.5" BeginTime="0:0:1.525"
                                              EasingFunction="{StaticResource QuadraticOut}"/>
                             <DoubleAnimation Storyboard.TargetProperty="RenderTransform.X" To="0" Duration="0:0:0.5" BeginTime="0:0:1.5"
                                              EasingFunction="{StaticResource QuadraticOut}"/>
