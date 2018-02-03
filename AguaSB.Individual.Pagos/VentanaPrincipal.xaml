@@ -37,8 +37,11 @@
                        Foreground="{StaticResource PrimaryErrorBrush}" Style="{StaticResource w-l4}">
                 Ocurrió un error durante la carga de los módulos de pagos
             </TextBlock>
-            <Button Margin="0 20 0 0" HorizontalAlignment="Center">
-                Reintentar
+            <Button Margin="0 20 0 0" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignFlatButton}"
+                    Foreground="White">
+                <TextBlock Style="{StaticResource w-n5}">
+                    Reintentar
+                </TextBlock>
             </Button>
         </StackPanel>
     </Grid>
