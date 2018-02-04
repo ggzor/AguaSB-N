@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AguaSB", "AguaSB\AguaSB.csproj", "{53828CE8-93AC-4B38-A386-2751A63DB786}"
 EndProject
@@ -12,6 +12,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AguaSB.Views.Estilos", "AguaSB.Views.Estilos\AguaSB.Views.Estilos.csproj", "{ACF0A419-99EA-43D4-99CA-A1A60488BF4C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AguaSB.Views.Controles", "AguaSB.Views.Controles\AguaSB.Views.Controles.csproj", "{CDE5D968-1CEB-43BD-9B4C-786130B6D948}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AguaSB.Extensiones", "AguaSB.Extensiones\AguaSB.Extensiones.csproj", "{DE76DF8B-6473-4DA3-B5E0-2506C56C93AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AguaSB.Extensiones.Views", "AguaSB.Extensiones.Views\AguaSB.Extensiones.Views.csproj", "{7427D46E-BCAB-4D2F-9BB2-0A5C25446480}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{CDE5D968-1CEB-43BD-9B4C-786130B6D948}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDE5D968-1CEB-43BD-9B4C-786130B6D948}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDE5D968-1CEB-43BD-9B4C-786130B6D948}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE76DF8B-6473-4DA3-B5E0-2506C56C93AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE76DF8B-6473-4DA3-B5E0-2506C56C93AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE76DF8B-6473-4DA3-B5E0-2506C56C93AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE76DF8B-6473-4DA3-B5E0-2506C56C93AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7427D46E-BCAB-4D2F-9BB2-0A5C25446480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7427D46E-BCAB-4D2F-9BB2-0A5C25446480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7427D46E-BCAB-4D2F-9BB2-0A5C25446480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7427D46E-BCAB-4D2F-9BB2-0A5C25446480}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
