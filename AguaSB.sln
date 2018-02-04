@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AguaSB.Extensiones", "AguaS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AguaSB.Extensiones.Views", "AguaSB.Extensiones.Views\AguaSB.Extensiones.Views.csproj", "{7427D46E-BCAB-4D2F-9BB2-0A5C25446480}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AguaSB.Interfaz", "AguaSB.Interfaz\AguaSB.Interfaz.csproj", "{71B4F316-7BEC-458B-890B-15B981448157}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{7427D46E-BCAB-4D2F-9BB2-0A5C25446480}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7427D46E-BCAB-4D2F-9BB2-0A5C25446480}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7427D46E-BCAB-4D2F-9BB2-0A5C25446480}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71B4F316-7BEC-458B-890B-15B981448157}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71B4F316-7BEC-458B-890B-15B981448157}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71B4F316-7BEC-458B-890B-15B981448157}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71B4F316-7BEC-458B-890B-15B981448157}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
