@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace AguaSB.Utilerias
+namespace AguaSB.Configuracion
 {
     public static class Global
     {
