@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FormateadorExcepcionesCompuesto.cs" />
+    <Compile Include="FormateadorExceptionNula.cs" />
     <Compile Include="FormateadorException.cs" />
     <Compile Include="IFormateadorExcepciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

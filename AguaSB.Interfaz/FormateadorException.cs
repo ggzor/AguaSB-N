@@ -6,6 +6,6 @@ namespace AguaSB.Interfaz
     {
         public string Formatear(Exception ex) => ex.Message;
 
-        public bool PuedeFormatear(Exception ex) => true;
+        public bool PuedeFormatear(Exception ex) => ex != null;
     }
 }

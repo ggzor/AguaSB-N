@@ -6,9 +6,9 @@ namespace AguaSB.Interfaz
 {
     public class FormateadorExcepcionesCompuesto : IFormateadorExcepciones
     {
-        public IReadOnlyCollection<IFormateadorExcepciones> Formateadores { get; }
+        public IEnumerable<IFormateadorExcepciones> Formateadores { get; }
 
-        public FormateadorExcepcionesCompuesto(IReadOnlyCollection<IFormateadorExcepciones> formateadores)
+        public FormateadorExcepcionesCompuesto(IEnumerable<IFormateadorExcepciones> formateadores)
         {
             Formateadores = formateadores ?? throw new ArgumentNullException(nameof(formateadores));
         }
