@@ -1,6 +1,6 @@
 ﻿namespace AguaSB.Extensiones
 {
-    public interface IExtension
+    public interface IExtension : IVersionable
     {
     }
 }

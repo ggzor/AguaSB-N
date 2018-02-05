@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace AguaSB.Extensiones.Views
 {
-    public interface IExtensionView : IExtension
+    /// <summary>
+    /// Nota: No implementar <see cref="IExtension"/> y esta interfaz juntos.
+    /// </summary>
+    public interface IExtensionView : IVersionable
     {
 
     }
