@@ -6,7 +6,7 @@ using AguaSB.Views;
 
 namespace AguaSB.Individual.Pagos.Instaladores
 {
-    public class Interfaz : IWindsorInstaller
+    public class InstalarInterfaz : IWindsorInstaller
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {

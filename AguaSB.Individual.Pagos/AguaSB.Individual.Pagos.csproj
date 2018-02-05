@@ -118,13 +118,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Instaladores\InstalarExtensiones.cs" />
     <Compile Include="VentanaPrincipal.xaml.cs">
       <DependentUpon>VentanaPrincipal.xaml</DependentUpon>
     </Compile>
     <Compile Include="VentanaPrincipalViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Instaladores\Interfaz.cs" />
+    <Compile Include="Instaladores\InstalarInterfaz.cs" />
     <Compile Include="Logging.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -153,6 +154,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AguaSB.Configuracion\AguaSB.Configuracion.csproj">
+      <Project>{140DE8CB-3E78-4E99-9AD4-FAF3B96B4542}</Project>
+      <Name>AguaSB.Configuracion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Extensiones.Views\AguaSB.Extensiones.Views.csproj">
+      <Project>{7427d46e-bcab-4d2f-9bb2-0a5c25446480}</Project>
+      <Name>AguaSB.Extensiones.Views</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Extensiones\AguaSB.Extensiones.csproj">
+      <Project>{de76df8b-6473-4da3-b5e0-2506c56c93ae}</Project>
+      <Name>AguaSB.Extensiones</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AguaSB.Views.Controles\AguaSB.Views.Controles.csproj">
       <Project>{cde5d968-1ceb-43bd-9b4c-786130b6d948}</Project>
       <Name>AguaSB.Views.Controles</Name>
