@@ -10,7 +10,7 @@ namespace AguaSB.Configuracion
     /// <summary>
     /// Utilerías para cargar configuraciones con facilidad. Es básicamente un adaptador para JSON.
     /// </summary>
-    public static class Configuracion
+    public static class Configuraciones
     {
         public const string ExtensionDeArchivos = ".json";
 

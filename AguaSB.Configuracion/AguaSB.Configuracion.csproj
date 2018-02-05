@@ -43,7 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuracion.cs" />
+    <Compile Include="Configuraciones.cs" />
+    <Compile Include="ConfiguracionExtensiones.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
