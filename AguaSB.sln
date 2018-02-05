@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AguaSB.Utilerias", "AguaSB.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AguaSB.Configuracion", "AguaSB.Configuracion\AguaSB.Configuracion.csproj", "{140DE8CB-3E78-4E99-9AD4-FAF3B96B4542}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AguaSB.Views.Conversores", "AguaSB.Views.Conversores\AguaSB.Views.Conversores.csproj", "{DD34BA73-BDC9-4989-9116-FBBC0DBCF3B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{140DE8CB-3E78-4E99-9AD4-FAF3B96B4542}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{140DE8CB-3E78-4E99-9AD4-FAF3B96B4542}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{140DE8CB-3E78-4E99-9AD4-FAF3B96B4542}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD34BA73-BDC9-4989-9116-FBBC0DBCF3B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD34BA73-BDC9-4989-9116-FBBC0DBCF3B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD34BA73-BDC9-4989-9116-FBBC0DBCF3B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD34BA73-BDC9-4989-9116-FBBC0DBCF3B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
