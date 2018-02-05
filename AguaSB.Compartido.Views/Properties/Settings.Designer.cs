@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AguaSB.Views.Compartido.Properties
+namespace AguaSB.Compartido.Views.Properties
 {
     
     

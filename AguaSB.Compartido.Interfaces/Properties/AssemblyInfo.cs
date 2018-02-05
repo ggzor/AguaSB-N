@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AguaSB.ViewModels.Compartido")]
+[assembly: AssemblyTitle("AguaSB.Compartido.Interfaces")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AguaSB.ViewModels.Compartido")]
+[assembly: AssemblyProduct("AguaSB.Compartido.Interfaces")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("667f8966-d527-4110-adb6-efd284869f99")]
+[assembly: Guid("b9344757-1740-4944-a09e-126cf76831d0")]
 
 // Version information for an assembly consists of the following four values:
 //
