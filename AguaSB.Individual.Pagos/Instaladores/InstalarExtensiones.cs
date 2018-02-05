@@ -1,5 +1,4 @@
-﻿using AguaSB.Configuracion;
-using Castle.MicroKernel.Registration;
+﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
@@ -14,7 +13,7 @@ namespace AguaSB.Individual.Pagos.Instaladores
         {
             container.Kernel.Resolver.AddSubResolver(new CollectionResolver(container.Kernel, true));
 
-            container.Register(EnsambladosEnExtensiones.BasedOn<IExtension>());
+            container.Register(EnsambladosEnExtensiones.BasedOn<IExtension>().WithServiceAllInterfaces());
         }
     }
 }

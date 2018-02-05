@@ -13,17 +13,18 @@ namespace AguaSB.Individual.Pagos.Instaladores
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Kernel.Resolver.AddSubResolver(new CollectionResolver(container.Kernel, true));
+            container.Kernel.Resolver.AddSubResolver(new CollectionResolver(container.Kernel));
 
             container.Register(
                 Component.For<IFormateadorExcepciones>()
                 .ImplementedBy<FormateadorExcepcionesCompuesto>());
 
-            container.Register(EnsambladosEnExtensiones.BasedOn<IFormateadorExcepciones>());
+            container.Register(EnsambladosEnExtensiones.BasedOn<IFormateadorExcepciones>().WithServiceAllInterfaces());
 
             container.Register(
                 Classes.FromAssemblyNamed("AguaSB.Interfaz")
-                .BasedOn<IFormateadorExcepciones>());
+                .BasedOn<IFormateadorExcepciones>()
+                .WithServiceAllInterfaces());
 
             container.Register(Component.For<VentanaPrincipalViewModel>());
             container.Register(
