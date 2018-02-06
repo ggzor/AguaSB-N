@@ -94,6 +94,9 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Windows" />
     <Reference Include="System.Xml" />
@@ -118,6 +121,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Instaladores\AutenticadorFalso.cs" />
+    <Compile Include="Instaladores\InstalarAutenticacion.cs" />
+    <Compile Include="Instaladores\InstalarCompartido.cs" />
+    <Compile Include="ProgressController.cs" />
     <Compile Include="Instaladores\InstalarExtensiones.cs" />
     <Compile Include="Instaladores\Instalacion.cs" />
     <Compile Include="VentanaPrincipal.xaml.cs">
@@ -145,7 +152,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -155,6 +164,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AguaSB.Autenticacion\AguaSB.Autenticacion.csproj">
+      <Project>{8C83953F-06A7-4F8A-ABE6-BB4153ABF99D}</Project>
+      <Name>AguaSB.Autenticacion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Compartido.Interfaces\AguaSB.Compartido.Interfaces.csproj">
+      <Project>{b9344757-1740-4944-a09e-126cf76831d0}</Project>
+      <Name>AguaSB.Compartido.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Compartido.ViewModels\AguaSB.Compartido.ViewModels.csproj">
+      <Project>{05c6d9ff-5c45-407e-88c7-0aa36cc33a42}</Project>
+      <Name>AguaSB.Compartido.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Compartido.Views\AguaSB.Compartido.Views.csproj">
+      <Project>{9724460f-410b-4973-b8df-8e3f447be78c}</Project>
+      <Name>AguaSB.Compartido.Views</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AguaSB.Configuracion\AguaSB.Configuracion.csproj">
       <Project>{140DE8CB-3E78-4E99-9AD4-FAF3B96B4542}</Project>
       <Name>AguaSB.Configuracion</Name>
@@ -175,9 +200,17 @@
       <Project>{cde5d968-1ceb-43bd-9b4c-786130b6d948}</Project>
       <Name>AguaSB.Views.Controles</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Views.Conversores\AguaSB.Views.Conversores.csproj">
+      <Project>{dd34ba73-bdc9-4989-9116-fbbc0dbcf3b2}</Project>
+      <Name>AguaSB.Views.Conversores</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AguaSB.Views.Estilos\AguaSB.Views.Estilos.csproj">
       <Project>{acf0a419-99ea-43d4-99ca-a1a60488bf4c}</Project>
       <Name>AguaSB.Views.Estilos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Views.Utilerias\AguaSB.Views.Utilerias.csproj">
+      <Project>{dc115ce2-1ee9-4b44-816e-5f59e76eab05}</Project>
+      <Name>AguaSB.Views.Utilerias</Name>
     </ProjectReference>
     <ProjectReference Include="..\AguaSB.Views\AguaSB.Views.csproj">
       <Project>{FEF2C4F0-9231-4246-A231-25E8A8831240}</Project>
