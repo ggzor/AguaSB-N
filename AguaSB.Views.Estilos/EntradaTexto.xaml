@@ -4,8 +4,8 @@
                     xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
                     xmlns:pe="clr-namespace:ControlzEx;assembly=MaterialDesignThemes.Wpf">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Conversores;component/Conversores.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.TextBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Conversores;component/Conversores.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.TextBox.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Sys:Double x:Key="TamanoLetra">12</Sys:Double>
