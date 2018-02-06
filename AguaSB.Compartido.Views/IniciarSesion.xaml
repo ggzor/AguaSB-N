@@ -28,7 +28,7 @@
             <TextBox Name="Usuario" Tag="Usuario" Foreground="White" Style="{StaticResource MaterialTextBox}"
                          util:FocusNext.Target="{Binding ElementName=Clave}"/>
             <PasswordBox Name="Clave" Tag="Contraseña" Foreground="White" Style="{StaticResource MaterialPasswordBox}"
-                             util:FocusNext.Target="{Binding ElementName=IniciarSesion}"/>
+                             util:FocusNext.Target="{Binding ElementName=Boton}"/>
 
             <TextBlock Name="Errores" TextWrapping="Wrap" Foreground="{StaticResource PrimaryErrorBrush}" Style="{StaticResource w-n5}">
                     Mensaje de error
