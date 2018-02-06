@@ -26,9 +26,9 @@
 
         <StackPanel Margin="0 60 0 0">
             <TextBox Name="Usuario" Tag="Usuario" Foreground="White" Style="{StaticResource MaterialTextBox}"
-                         util:FocusNext.Target="{Binding ElementName=Clave}"/>
+                     util:FocusNext.Target="{Binding ElementName=Clave}" util:TextFieldUtil.SelectAllOnFocus="True"/>
             <PasswordBox Name="Clave" Tag="Contraseña" Foreground="White" Style="{StaticResource MaterialPasswordBox}"
-                             util:FocusNext.Target="{Binding ElementName=Boton}"/>
+                         util:FocusNext.Target="{Binding ElementName=Boton}" util:PasswordBoxUtil.SelectAllOnFocus="True"/>
 
             <TextBlock Name="Errores" TextWrapping="Wrap" Foreground="{StaticResource PrimaryErrorBrush}" Style="{StaticResource w-n5}">
                     Mensaje de error
