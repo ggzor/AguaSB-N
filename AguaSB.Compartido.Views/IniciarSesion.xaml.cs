@@ -39,9 +39,9 @@ namespace AguaSB.Compartido.Views
         {
             var animacion = new DoubleAnimation
             {
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new BackEase { Amplitude = 0.5, EasingMode = EasingMode.EaseOut },
-                To = Contenido.ActualHeight / 2 - 30.0
+                Duration = TimeSpan.FromSeconds(0.50),
+                EasingFunction = new BackEase { Amplitude = 0.3, EasingMode = EasingMode.EaseOut },
+                To = (Contenido.ActualHeight / 2) - 30.0
             };
 
             animacion.Completed += (s, a) => Logo.Start = true;
