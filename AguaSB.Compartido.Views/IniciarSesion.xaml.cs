@@ -1,9 +1,11 @@
-﻿using AguaSB.Compartido.Interfaces;
-using AguaSB.Views.Conversores.Reactive;
-using ReactiveUI;
-using System.Reactive.Linq;
+﻿using System.Reactive.Linq;
 using System.Windows;
 using System.Windows.Controls;
+
+using ReactiveUI;
+
+using AguaSB.Compartido.Interfaces;
+using AguaSB.Views.Conversores.Reactive;
 
 namespace AguaSB.Compartido.Views
 {
@@ -37,5 +39,4 @@ namespace AguaSB.Compartido.Views
         public static readonly DependencyProperty ViewModelProperty =
             DependencyProperty.Register("ViewModel", typeof(IInicioSesion), typeof(IniciarSesion), new PropertyMetadata(null));
     }
-
 }
