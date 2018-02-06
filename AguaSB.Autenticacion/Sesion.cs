@@ -6,6 +6,7 @@ namespace AguaSB.Autenticacion
     {
         public string Usuario { get; }
         public string Clave { get; }
+        public DateTime Fecha { get; } = DateTime.Now;
 
         public Sesion(string usuario, string clave)
         {
