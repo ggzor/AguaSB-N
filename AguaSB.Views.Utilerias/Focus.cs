@@ -44,7 +44,7 @@ namespace AguaSB.Views.Utilerias
             if (GetTarget(elem) is UIElement target)
             {
                 if (target is IFocusable focusable)
-                    focusable.Focus();
+                    focusable.DoFocus();
                 else
                     target.Focus();
             }

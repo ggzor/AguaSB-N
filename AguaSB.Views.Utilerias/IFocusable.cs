@@ -2,6 +2,6 @@
 {
     public interface IFocusable
     {
-        void Focus();
+        void DoFocus();
     }
 }
