@@ -45,7 +45,9 @@
   <ItemGroup>
     <Compile Include="Focus.cs" />
     <Compile Include="IFocusable.cs" />
+    <Compile Include="PasswordBoxUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextFieldUtil.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
