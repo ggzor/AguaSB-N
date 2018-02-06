@@ -4,5 +4,7 @@
         <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.Button.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="MaterialFlatButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}"/>
+    <Style x:Key="MaterialFlatButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+    </Style>
 </ResourceDictionary>
