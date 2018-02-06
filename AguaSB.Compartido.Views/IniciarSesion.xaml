@@ -17,14 +17,14 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <StackPanel>
-        <Controles:LogoAnimado>
+    <StackPanel Name="Contenido">
+        <Controles:LogoAnimado Name="Logo">
             <Controles:LogoAnimado.RenderTransform>
                 <TranslateTransform Y="0"/>
             </Controles:LogoAnimado.RenderTransform>
         </Controles:LogoAnimado>
 
-        <StackPanel Margin="0 60 0 0">
+        <StackPanel Name="Interfaz" Margin="0 60 0 0">
             <TextBox Name="Usuario" Tag="Usuario" Foreground="White" Style="{StaticResource MaterialTextBox}"
                      util:FocusNext.Target="{Binding ElementName=Clave}" util:TextFieldUtil.SelectAllOnFocus="True"/>
             <PasswordBox Name="Clave" Tag="Contraseña" Foreground="White" Style="{StaticResource MaterialPasswordBox}"
