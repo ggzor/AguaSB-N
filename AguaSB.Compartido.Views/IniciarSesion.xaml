@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="AguaSB.Compartido.Views.IniciarSesion"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:util="clr-namespace:AguaSB.Views.Utilerias;assembly=AguaSB.Views.Utilerias"
+             xmlns:Controles="clr-namespace:AguaSB.Views.Controles;assembly=AguaSB.Views.Controles"
+             mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="500">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Estilos;component/Botones.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Estilos;component/Colores.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Estilos;component/EntradaTexto.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Estilos;component/Textos.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <StackPanel>
+        <Controles:LogoAnimado>
+            <Controles:LogoAnimado.RenderTransform>
+                <TranslateTransform Y="0"/>
+            </Controles:LogoAnimado.RenderTransform>
+        </Controles:LogoAnimado>
+
+        <StackPanel Margin="0 60 0 0">
+            <TextBox Name="Usuario" Tag="Usuario" Foreground="White" Style="{StaticResource MaterialTextBox}"
+                         util:FocusNext.Target="{Binding ElementName=Clave}"/>
+            <PasswordBox Name="Clave" Tag="Contraseña" Foreground="White" Style="{StaticResource MaterialPasswordBox}"
+                             util:FocusNext.Target="{Binding ElementName=IniciarSesion}"/>
+
+            <TextBlock Name="Errores" TextWrapping="Wrap" Foreground="{StaticResource PrimaryErrorBrush}" Style="{StaticResource w-n5}">
+                    Mensaje de error
+            </TextBlock>
+
+            <Button Name="Boton" Margin="0 40 0 0" HorizontalAlignment="Center" Style="{StaticResource MaterialFlatButton}">
+                <TextBlock Style="{StaticResource w-n5}">
+                        Continuar
+                </TextBlock>
+            </Button>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

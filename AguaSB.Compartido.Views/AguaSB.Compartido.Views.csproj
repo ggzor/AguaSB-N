@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MaterialDesignColors, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.3\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.3.2.1033, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.3.2-ci1033\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="ReactiveUI, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ReactiveUI.8.0.0-alpha0117\lib\net45\ReactiveUI.dll</HintPath>
     </Reference>
@@ -75,6 +81,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IniciarSesion.xaml.cs">
+      <DependentUpon>IniciarSesion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -98,6 +107,38 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="IniciarSesion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AguaSB.Autenticacion\AguaSB.Autenticacion.csproj">
+      <Project>{8C83953F-06A7-4F8A-ABE6-BB4153ABF99D}</Project>
+      <Name>AguaSB.Autenticacion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Compartido.Interfaces\AguaSB.Compartido.Interfaces.csproj">
+      <Project>{B9344757-1740-4944-A09E-126CF76831D0}</Project>
+      <Name>AguaSB.Compartido.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Views.Controles\AguaSB.Views.Controles.csproj">
+      <Project>{cde5d968-1ceb-43bd-9b4c-786130b6d948}</Project>
+      <Name>AguaSB.Views.Controles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Views.Conversores\AguaSB.Views.Conversores.csproj">
+      <Project>{dd34ba73-bdc9-4989-9116-fbbc0dbcf3b2}</Project>
+      <Name>AguaSB.Views.Conversores</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Views.Estilos\AguaSB.Views.Estilos.csproj">
+      <Project>{acf0a419-99ea-43d4-99ca-a1a60488bf4c}</Project>
+      <Name>AguaSB.Views.Estilos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Views.Utilerias\AguaSB.Views.Utilerias.csproj">
+      <Project>{dc115ce2-1ee9-4b44-816e-5f59e76eab05}</Project>
+      <Name>AguaSB.Views.Utilerias</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

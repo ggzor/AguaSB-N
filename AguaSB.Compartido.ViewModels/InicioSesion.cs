@@ -46,8 +46,7 @@ namespace AguaSB.Compartido.ViewModels
 
             IniciarSesion = ReactiveCommand.CreateFromTask(IniciarSesionImpl);
 
-            errores = IniciarSesion.ThrownExceptions
-                .Select(e =>
+            errores = IniciarSesion.ThrownExceptions.Select(e =>
                 {
                     if (formateadorExcepciones.PuedeFormatear(e))
                         return formateadorExcepciones.Formatear(e);
@@ -56,14 +55,19 @@ namespace AguaSB.Compartido.ViewModels
                 })
                 .ToProperty(this, x => x.Errores);
 
-            tieneErrores = this.WhenAnyObservable(x => x.IniciarSesion.ThrownExceptions, x => x.IniciarSesion.IsExecuting,
-                (ex, enEjecucion) => ex != null && !enEjecucion)
+            tieneErrores = IniciarSesion
+                .StartWith((Sesion)null)
+                .Timestamp()
+                .CombineLatest(
+                    IniciarSesion.ThrownExceptions
+                    .StartWith((Exception)null)
+                    .Timestamp(),
+                    (Sesion, Excepcion) => (Sesion, Excepcion))
+                .Select(v => v.Sesion.Timestamp < v.Excepcion.Timestamp && v.Excepcion.Value != null)
                 .ToProperty(this, x => x.TieneErrores);
+
         }
 
-        private Task<Sesion> IniciarSesionImpl()
-        {
-            return Task.FromResult<Sesion>(null);
-        }
+        private Task<Sesion> IniciarSesionImpl() => Task.Run(() => Autenticador.Autenticar(Usuario, Clave));
     }
 }
