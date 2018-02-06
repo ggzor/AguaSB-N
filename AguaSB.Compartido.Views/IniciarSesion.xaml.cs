@@ -6,10 +6,11 @@ using ReactiveUI;
 
 using AguaSB.Compartido.Interfaces;
 using AguaSB.Views.Conversores.Reactive;
+using AguaSB.Views.Utilerias;
 
 namespace AguaSB.Compartido.Views
 {
-    public partial class IniciarSesion : UserControl, IViewFor<IInicioSesion>
+    public partial class IniciarSesion : UserControl, IViewFor<IInicioSesion>, IFocusable
     {
         public IniciarSesion()
         {
@@ -28,6 +29,9 @@ namespace AguaSB.Compartido.Views
             });
         }
 
+        public void DoFocus() => Usuario.Focus();
+
+        #region IViewFor
         object IViewFor.ViewModel { get => ViewModel; set => ViewModel = (IInicioSesion)value; }
 
         public IInicioSesion ViewModel
@@ -38,5 +42,6 @@ namespace AguaSB.Compartido.Views
 
         public static readonly DependencyProperty ViewModelProperty =
             DependencyProperty.Register("ViewModel", typeof(IInicioSesion), typeof(IniciarSesion), new PropertyMetadata(null));
+        #endregion
     }
 }
