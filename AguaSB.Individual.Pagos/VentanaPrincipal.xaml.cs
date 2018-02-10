@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Reactive.Linq;
 using System.Windows;
 
 using MahApps.Metro.Controls;
 using ReactiveUI;
 
-using AguaSB.Views;
 using AguaSB.Compartido.Interfaces;
+using AguaSB.Views;
+using AguaSB.Views.Controles.Animaciones;
 
 namespace AguaSB.Individual.Pagos
 {
@@ -20,6 +22,25 @@ namespace AguaSB.Individual.Pagos
             InitializeComponent();
 
             Activated += (s, a) => InicioSesion.DoFocus();
+
+            this.WhenActivated(d =>
+            {
+                d(this.WhenAnyObservable(v => v.InicioSesionViewModel.IniciarSesion)
+                    .SelectMany(c => Observable.Return(c).Delay(TimeSpan.FromSeconds(3.5)))
+                    .ObserveOnDispatcher()
+                    .Subscribe(s =>
+                    {
+                        PanelCarga.Visibility = Visibility.Visible;
+                        FadeIn.Apply(PanelCarga);
+                    }));
+
+                d(this.WhenAnyObservable(v => v.ViewModel.Cargar)
+                    .Subscribe(u => FadeOut.Apply(PanelCarga,
+                        onCompleted: (s, a) => PanelCarga.Visibility = Visibility.Hidden)));
+
+                d(this.OneWayBind(ViewModel, vm => vm.ProgresoCarga.Title, v => v.MensajeCarga.Text));
+                d(this.OneWayBind(ViewModel, vm => vm.ProgresoCarga.Subtitle, v => v.SubmensajeCarga.Text));
+            });
         }
 
         public void Mostrar() => ShowDialog();

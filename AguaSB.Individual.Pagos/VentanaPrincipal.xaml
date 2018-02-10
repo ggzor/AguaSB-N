@@ -26,5 +26,15 @@
         <compartido:IniciarSesion Name="InicioSesion" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center"
                                   anim:FadeIn.Delay="0:0:0.75" anim:FadeIn.StartWith="True" Opacity="0"
                                   ViewModel="{Binding ElementName=This, Path=InicioSesionViewModel}"/>
+
+        <StackPanel Name="PanelCarga" Margin="0 64" VerticalAlignment="Bottom" Opacity="0" Visibility="Hidden">
+            <metro:ProgressRing Foreground="White" Width="36" Height="36"/>
+            <TextBlock Name="MensajeCarga" Margin="0 20 0 0" HorizontalAlignment="Center" Style="{StaticResource w-l5}">
+                Verificando acceso a base de datos
+            </TextBlock>
+            <TextBlock Name="SubmensajeCarga" HorizontalAlignment="Center" Style="{StaticResource w-l6}">
+                1/2
+            </TextBlock>
+        </StackPanel>
     </Grid>
 </metro:MetroWindow>
