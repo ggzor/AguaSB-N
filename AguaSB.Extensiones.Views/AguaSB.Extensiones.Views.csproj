@@ -50,6 +50,10 @@
       <Project>{de76df8b-6473-4da3-b5e0-2506c56c93ae}</Project>
       <Name>AguaSB.Extensiones</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Views\AguaSB.Views.csproj">
+      <Project>{fef2c4f0-9231-4246-a231-25e8a8831240}</Project>
+      <Name>AguaSB.Views</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
