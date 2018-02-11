@@ -29,26 +29,17 @@ namespace AguaSB.Individual.Pagos
                 this.WhenAnyObservable(v => v.Autenticacion.Autenticar)
                     .SelectMany(c => Observable.Return(c).Delay(TimeSpan.FromSeconds(3.5)))
                     .ObserveOnDispatcher()
-                    .Subscribe(s =>
-                    {
-                        PanelCarga.Visibility = Visibility.Visible;
-                        FadeIn.Apply(PanelCarga);
-                    }).DisposeWith(d);
+                    .Subscribe(s => FadeIn.Apply(PanelCarga))
+                    .DisposeWith(d);
 
                 this.WhenAnyObservable(v => v.ViewModel.Cargar)
                      .SelectMany(c => Observable.Return(c).Delay(TimeSpan.FromSeconds(1)))
                      .ObserveOnDispatcher()
                      .Subscribe(u =>
                      {
-                         FadeOut.Apply(PanelCarga,
-                             onCompletedEH: (s, a) => PanelCarga.Visibility = Visibility.Hidden);
+                         FadeOut.Apply(PanelCarga);
                          FadeOut.Apply(InicioSesion,
-                             onCompletedEH: (s, a) =>
-                             {
-                                 InicioSesion.Visibility = Visibility.Hidden;
-                                 MenuExtensiones.Visibility = Visibility.Visible;
-                                 FadeIn.Apply(MenuExtensiones);
-                             });
+                             onCompleted: () => FadeIn.Apply(MenuExtensiones));
                      }).DisposeWith(d);
 
                 this.OneWayBind(ViewModel, vm => vm.MenuExtensiones, v => v.MenuExtensiones.ViewModel).DisposeWith(d);

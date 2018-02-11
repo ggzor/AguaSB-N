@@ -48,11 +48,7 @@ namespace AguaSB.Compartido.Views
 
             FadeOut.SetDuration(Interfaz, TimeSpan.FromSeconds(0.5));
             FadeOut.Apply(Interfaz,
-                onCompletedEH: (s, a) =>
-                {
-                    Interfaz.Visibility = Visibility.Hidden;
-                    Logo.RenderTransform.BeginAnimation(TranslateTransform.YProperty, animacion);
-                });
+                onCompleted: () => Logo.RenderTransform.BeginAnimation(TranslateTransform.YProperty, animacion));
         }
 
         public void DoFocus() => Usuario.Focus();
