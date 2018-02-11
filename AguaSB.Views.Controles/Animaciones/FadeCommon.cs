@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+
 using MoreLinq;
 
 namespace AguaSB.Views.Controles.Animaciones
@@ -13,7 +14,7 @@ namespace AguaSB.Views.Controles.Animaciones
         public static readonly TimeSpan DefaultDuration = TimeSpan.FromSeconds(1.0);
         public static readonly QuadraticEase DefaultEase = new QuadraticEase { EasingMode = EasingMode.EaseOut };
 
-        public static void Apply(FrameworkElement elem, FadeDirection direction, EventHandler onCompleted, double targetOpacity,
+        public static void Apply(FrameworkElement elem, double targetOpacity, FadeDirection direction, Action onCompleted, EventHandler onCompletedEH,
             double? push, TimeSpan? delay, TimeSpan duration, IEasingFunction easing)
         {
             var fadeAnimation = new DoubleAnimation
@@ -34,7 +35,7 @@ namespace AguaSB.Views.Controles.Animaciones
             };
 
             Storyboard.SetTargetProperty(fadeAnimation, new PropertyPath(nameof(elem.Opacity)));
-            Storyboard.SetTargetProperty(pushAnimation, new PropertyPath($"{nameof(elem.RenderTransform)}{TryFindTranslateTransformPath(elem)}{dir}"));
+            Storyboard.SetTargetProperty(pushAnimation, new PropertyPath(nameof(elem.RenderTransform) + TryFindTranslateTransformPath(elem) + dir));
 
             var storyboard = new Storyboard
             {
@@ -45,7 +46,10 @@ namespace AguaSB.Views.Controles.Animaciones
                 storyboard.Children.Add(pushAnimation);
 
             if (onCompleted != null)
-                storyboard.Completed += onCompleted;
+                storyboard.Completed += (s, a) => onCompleted();
+
+            if (onCompletedEH != null)
+                storyboard.Completed += onCompletedEH;
 
             elem.BeginStoryboard(storyboard);
         }
@@ -93,10 +97,14 @@ namespace AguaSB.Views.Controles.Animaciones
                     return $".Children[{g.Children.IndexOf(tts.Single())}]";
                 }
                 else
+                {
                     throw new InvalidOperationException("There is more than one translate transform in the specified object.");
+                }
             }
             else
-                throw new NotImplementedException("Deeply nested transforms are not supported.");
+            {
+                throw new InvalidOperationException("Deeply nested transforms are not supported.");
+            }
         }
     }
 }

@@ -41,9 +41,9 @@ namespace AguaSB.Individual.Pagos
                      .Subscribe(u =>
                      {
                          FadeOut.Apply(PanelCarga,
-                             onCompleted: (s, a) => PanelCarga.Visibility = Visibility.Hidden);
+                             onCompletedEH: (s, a) => PanelCarga.Visibility = Visibility.Hidden);
                          FadeOut.Apply(InicioSesion,
-                             onCompleted: (s, a) =>
+                             onCompletedEH: (s, a) =>
                              {
                                  InicioSesion.Visibility = Visibility.Hidden;
                                  MenuExtensiones.Visibility = Visibility.Visible;

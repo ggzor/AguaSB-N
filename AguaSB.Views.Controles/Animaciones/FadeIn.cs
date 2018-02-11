@@ -44,6 +44,12 @@ namespace AguaSB.Views.Controles.Animaciones
         public static void SetFrom(FrameworkElement elem, FadeDirection direction) => elem.SetValue(FromProperty, direction);
         public static FadeDirection GetFrom(FrameworkElement elem) => (FadeDirection)elem.GetValue(FromProperty);
 
+        public static readonly DependencyProperty HandleVisibilityProperty =
+            DependencyProperty.RegisterAttached("HandleVisibility", typeof(bool), typeof(FadeIn), new PropertyMetadata(true));
+
+        public static void SetHandleVisibility(FrameworkElement elem, bool val) => elem.SetValue(HandleVisibilityProperty, val);
+        public static bool GetHandleVisibility(FrameworkElement elem) => (bool)elem.GetValue(HandleVisibilityProperty);
+
         /// <summary>
         /// The amount of displacement that is going to be applied in the specified direction.
         /// </summary>
@@ -79,7 +85,12 @@ namespace AguaSB.Views.Controles.Animaciones
             }
         }
 
-        public static void Apply(FrameworkElement elem, FadeDirection direction = FadeDirection.None, EventHandler onCompleted = null) =>
-            FadeCommon.Apply(elem, direction, onCompleted, 1.0, GetPush(elem), GetDelay(elem), GetDuration(elem), GetEasing(elem));
+        public static void Apply(FrameworkElement elem, FadeDirection direction = FadeDirection.None, Action onCompleted = null, EventHandler onCompletedEH = null)
+        {
+            elem.Opacity = 0;
+            elem.Visibility = Visibility.Visible;
+
+            FadeCommon.Apply(elem, 1.0, direction, onCompleted, onCompletedEH, GetPush(elem), GetDelay(elem), GetDuration(elem), GetEasing(elem));
+        }
     }
 }

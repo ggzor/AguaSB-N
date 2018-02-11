@@ -37,7 +37,7 @@ namespace AguaSB.Views.Controles.Texto
             if (Previous != null && Content.Children.Contains(Previous))
             {
                 var toRemove = Previous;
-                FadeOut.Apply(toRemove, onCompleted: (s, a) => Content.Children.Remove(toRemove));
+                FadeOut.Apply(toRemove, onCompletedEH: (s, a) => Content.Children.Remove(toRemove));
             }
 
             Previous = new TextBlock
