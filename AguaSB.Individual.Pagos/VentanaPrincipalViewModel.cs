@@ -1,33 +1,38 @@
-﻿using AguaSB.Autenticacion;
-using AguaSB.Compartido.Interfaces;
-using AguaSB.Extensiones.Views;
-using AguaSB.ViewModels.Controles;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
 using Castle.Windsor;
 using Castle.Windsor.Installer;
 using ReactiveUI;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+
+using AguaSB.Autenticacion;
+using AguaSB.Compartido.Interfaces;
+using AguaSB.Extensiones;
+using AguaSB.Extensiones.Views;
+using AguaSB.ViewModels.Controles;
 
 namespace AguaSB.Individual.Pagos
 {
     public sealed class VentanaPrincipalViewModel : ReactiveObject
     {
-        public IAutenticacion Autenticacion { get; }
-
         public ProgressText ProgresoCarga { get; } = new ProgressText();
 
-        public ReactiveCommand<Sesion, IEnumerable<IExtensionView>> Cargar { get; }
+        public ReactiveCommand<Sesion, AgregadoExtensiones> Cargar { get; }
 
-        public VentanaPrincipalViewModel(IAutenticacion autenticacion)
+        public IAutenticacion Autenticacion { get; }
+        public IEnumerable<Type> TiposExtensiones { get; }
+
+        public VentanaPrincipalViewModel(IAutenticacion autenticacion, IEnumerable<Type> tiposExtensiones)
         {
             Autenticacion = autenticacion ?? throw new ArgumentNullException(nameof(autenticacion));
+            TiposExtensiones = tiposExtensiones ?? throw new ArgumentNullException(nameof(tiposExtensiones));
 
-            Cargar = ReactiveCommand.CreateFromTask<Sesion, IEnumerable<IExtensionView>>(CargarImpl);
+            Cargar = ReactiveCommand.CreateFromTask<Sesion, AgregadoExtensiones>(CargarImpl);
             Autenticacion.Autenticar.InvokeCommand(Cargar);
         }
 
-        public async Task<IEnumerable<IExtensionView>> CargarImpl(Sesion sesion)
+        public async Task<AgregadoExtensiones> CargarImpl(Sesion sesion)
         {
             await Task.Delay(3000);
 
@@ -45,7 +50,7 @@ namespace AguaSB.Individual.Pagos
             ProgresoCarga.Set("Cargando interfaz", "El programa podría dejar de responder por unos momentos");
             await Task.Delay(100);
 
-            var extensiones = contenedor.ResolveAll<IExtensionView>();
+            var extensiones = new CargadorExtensionesWindsor(contenedor, TiposExtensiones).Cargar(sesion);
 
             ProgresoCarga.Set("Carga completa");
 
