@@ -51,12 +51,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAutenticacion.cs" />
+    <Compile Include="ICargadorExtensiones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AguaSB.Autenticacion\AguaSB.Autenticacion.csproj">
       <Project>{8c83953f-06a7-4f8a-abe6-bb4153abf99d}</Project>
       <Name>AguaSB.Autenticacion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Extensiones\AguaSB.Extensiones.csproj">
+      <Project>{DE76DF8B-6473-4DA3-B5E0-2506C56C93AE}</Project>
+      <Name>AguaSB.Extensiones</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
