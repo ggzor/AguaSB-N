@@ -5,18 +5,18 @@ using System.Windows.Controls;
 
 using ReactiveUI;
 
-using AguaSB.Compartido.Interfaces;
 using AguaSB.Views.Conversores.Reactive;
 using AguaSB.Views.Utilerias;
 using System.Windows.Media.Animation;
 using System.Windows.Media;
 using AguaSB.Views.Controles.Animaciones;
+using AguaSB.Compartido.ViewModels;
 
 namespace AguaSB.Compartido.Views
 {
-    public partial class IniciarSesion : UserControl, IViewFor<IInicioSesion>, IFocusable
+    public partial class AutenticacionPorUsuarioView : UserControl, IViewFor<AutenticacionPorUsuario>, IFocusable
     {
-        public IniciarSesion()
+        public AutenticacionPorUsuarioView()
         {
             InitializeComponent();
 
@@ -29,9 +29,9 @@ namespace AguaSB.Compartido.Views
                 d(this.OneWayBind(ViewModel, vm => vm.Errores, v => v.Errores.Text));
                 d(this.OneWayBind(ViewModel, vm => vm.TieneErrores, v => v.Errores.Visibility, BoolToVisibility.Convert));
 
-                d(this.BindCommand(ViewModel, v => v.IniciarSesion, v => v.Boton));
+                d(this.BindCommand(ViewModel, v => v.Autenticar, v => v.Boton));
 
-                d(this.WhenAnyObservable(v => v.ViewModel.IniciarSesion).Subscribe(s => Completar()));
+                d(this.WhenAnyObservable(v => v.ViewModel.Autenticar).Subscribe(s => Completar()));
             });
         }
 
@@ -58,16 +58,20 @@ namespace AguaSB.Compartido.Views
         public void DoFocus() => Usuario.Focus();
 
         #region IViewFor
-        object IViewFor.ViewModel { get => ViewModel; set => ViewModel = (IInicioSesion)value; }
-
-        public IInicioSesion ViewModel
+        public AutenticacionPorUsuario ViewModel
         {
-            get { return (IInicioSesion)GetValue(ViewModelProperty); }
+            get { return (AutenticacionPorUsuario)GetValue(ViewModelProperty); }
             set { SetValue(ViewModelProperty, value); }
         }
 
         public static readonly DependencyProperty ViewModelProperty =
-            DependencyProperty.Register("ViewModel", typeof(IInicioSesion), typeof(IniciarSesion), new PropertyMetadata(null));
+            DependencyProperty.Register(nameof(ViewModel), typeof(AutenticacionPorUsuario), typeof(AutenticacionPorUsuarioView), new PropertyMetadata(null));
+
+        object IViewFor.ViewModel
+        {
+            get => ViewModel;
+            set => ViewModel = (AutenticacionPorUsuario)value;
+        }
         #endregion
     }
 }

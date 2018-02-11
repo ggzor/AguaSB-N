@@ -24,9 +24,9 @@
     </Window.Resources>
 
     <Grid Background="{StaticResource PrimaryDarkBrush}" SnapsToDevicePixels="True" UseLayoutRounding="True">
-        <compartido:IniciarSesion Name="InicioSesion" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                  anim:FadeIn.Delay="0:0:0.75" anim:FadeIn.StartWith="True" Opacity="0"
-                                  ViewModel="{Binding ElementName=This, Path=InicioSesionViewModel}"/>
+        <compartido:AutenticacionPorUsuarioView Name="InicioSesion" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                              anim:FadeIn.Delay="0:0:0.75" anim:FadeIn.StartWith="True" Opacity="0"
+                                              ViewModel="{Binding ElementName=This, Path=Autenticacion}"/>
 
         <StackPanel Name="PanelCarga" Margin="0 64" VerticalAlignment="Bottom" Opacity="0" Visibility="Hidden">
             <metro:ProgressRing Foreground="White" Width="36" Height="36"/>

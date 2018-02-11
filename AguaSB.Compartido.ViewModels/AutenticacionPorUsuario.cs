@@ -1,16 +1,18 @@
-﻿using AguaSB.Autenticacion;
-using AguaSB.Compartido.Interfaces;
-using AguaSB.Interfaz;
-using ReactiveUI;
-using System;
+﻿using System;
 using System.Linq;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
 
+using ReactiveUI;
+
+using AguaSB.Autenticacion;
+using AguaSB.Compartido.Interfaces;
+using AguaSB.Interfaz;
+
 namespace AguaSB.Compartido.ViewModels
 {
-    public class InicioSesion : ReactiveObject, IInicioSesion
+    public class AutenticacionPorUsuario : ReactiveObject, IAutenticacion
     {
         private string usuario;
 
@@ -28,9 +30,9 @@ namespace AguaSB.Compartido.ViewModels
             set { this.RaiseAndSetIfChanged(ref clave, value); }
         }
 
-        public ReactiveCommand<Unit, Sesion> IniciarSesion { get; }
+        #region Interfaz
+        public ReactiveCommand<Unit, Sesion> Autenticar { get; }
 
-        #region Utilerias
         private readonly ObservableAsPropertyHelper<string> errores;
         public string Errores => errores.Value;
 
@@ -40,13 +42,13 @@ namespace AguaSB.Compartido.ViewModels
 
         public IAutenticador Autenticador { get; }
 
-        public InicioSesion(IAutenticador autenticador, IFormateadorExcepciones formateadorExcepciones)
+        public AutenticacionPorUsuario(IAutenticador autenticador, IFormateadorExcepciones formateadorExcepciones)
         {
             Autenticador = autenticador ?? throw new ArgumentNullException(nameof(autenticador));
 
-            IniciarSesion = ReactiveCommand.CreateFromTask(IniciarSesionImpl);
+            Autenticar = ReactiveCommand.CreateFromTask(AutenticarImpl);
 
-            errores = IniciarSesion.ThrownExceptions.Select(e =>
+            errores = Autenticar.ThrownExceptions.Select(e =>
                 {
                     if (formateadorExcepciones.PuedeFormatear(e))
                         return formateadorExcepciones.Formatear(e);
@@ -55,11 +57,11 @@ namespace AguaSB.Compartido.ViewModels
                 })
                 .ToProperty(this, x => x.Errores);
 
-            tieneErrores = IniciarSesion
+            tieneErrores = Autenticar
                 .StartWith((Sesion)null)
                 .Timestamp()
                 .CombineLatest(
-                    IniciarSesion.ThrownExceptions
+                    Autenticar.ThrownExceptions
                     .StartWith((Exception)null)
                     .Timestamp(),
                     (Sesion, Excepcion) => (Sesion, Excepcion))
@@ -68,6 +70,6 @@ namespace AguaSB.Compartido.ViewModels
 
         }
 
-        private Task<Sesion> IniciarSesionImpl() => Task.Run(() => Autenticador.Autenticar(Usuario, Clave));
+        private Task<Sesion> AutenticarImpl() => Task.Run(() => Autenticador.Autenticar(Usuario, Clave));
     }
 }

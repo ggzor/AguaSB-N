@@ -13,19 +13,19 @@ namespace AguaSB.Individual.Pagos
 {
     public partial class VentanaPrincipal : MetroWindow, IViewFor<VentanaPrincipalViewModel>, IVentana
     {
-        public IInicioSesion InicioSesionViewModel { get; }
+        public IAutenticacion Autenticacion { get; }
 
-        public VentanaPrincipal(VentanaPrincipalViewModel viewModel, IInicioSesion inicioSesion)
+        public VentanaPrincipal(VentanaPrincipalViewModel viewModel, IAutenticacion autenticacion)
         {
             DataContext = ViewModel = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
-            InicioSesionViewModel = inicioSesion ?? throw new ArgumentNullException(nameof(inicioSesion));
+            Autenticacion = autenticacion ?? throw new ArgumentNullException(nameof(autenticacion));
             InitializeComponent();
 
             Activated += (s, a) => InicioSesion.DoFocus();
 
             this.WhenActivated(d =>
             {
-                d(this.WhenAnyObservable(v => v.InicioSesionViewModel.IniciarSesion)
+                d(this.WhenAnyObservable(v => v.Autenticacion.Autenticar)
                     .SelectMany(c => Observable.Return(c).Delay(TimeSpan.FromSeconds(3.5)))
                     .ObserveOnDispatcher()
                     .Subscribe(s =>

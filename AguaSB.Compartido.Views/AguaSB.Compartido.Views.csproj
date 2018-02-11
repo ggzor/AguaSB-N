@@ -82,8 +82,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IniciarSesion.xaml.cs">
-      <DependentUpon>IniciarSesion.xaml</DependentUpon>
+    <Compile Include="AutenticacionPorUsuarioView.xaml.cs">
+      <DependentUpon>AutenticacionPorUsuarioView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -110,7 +110,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="IniciarSesion.xaml">
+    <Page Include="AutenticacionPorUsuarioView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -123,6 +123,10 @@
     <ProjectReference Include="..\AguaSB.Compartido.Interfaces\AguaSB.Compartido.Interfaces.csproj">
       <Project>{B9344757-1740-4944-A09E-126CF76831D0}</Project>
       <Name>AguaSB.Compartido.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Compartido.ViewModels\AguaSB.Compartido.ViewModels.csproj">
+      <Project>{05C6D9FF-5C45-407E-88C7-0AA36CC33A42}</Project>
+      <Name>AguaSB.Compartido.ViewModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\AguaSB.Views.Controles\AguaSB.Views.Controles.csproj">
       <Project>{cde5d968-1ceb-43bd-9b4c-786130b6d948}</Project>

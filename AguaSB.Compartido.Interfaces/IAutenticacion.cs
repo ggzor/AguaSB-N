@@ -1,15 +1,15 @@
 ﻿using System.Reactive;
+
 using ReactiveUI;
+
 using AguaSB.Autenticacion;
 
 namespace AguaSB.Compartido.Interfaces
 {
-    public interface IInicioSesion
+    public interface IAutenticacion
     {
-        string Usuario { get; set; }
-        string Clave { get; set; }
+        ReactiveCommand<Unit, Sesion> Autenticar { get; }
 
-        ReactiveCommand<Unit, Sesion> IniciarSesion { get; }
         string Errores { get; }
         bool TieneErrores { get; }
     }

@@ -13,18 +13,18 @@ namespace AguaSB.Individual.Pagos
 {
     public sealed class VentanaPrincipalViewModel : ReactiveObject
     {
-        public IInicioSesion InicioSesion { get; }
+        public IAutenticacion Autenticacion { get; }
 
         public ProgressText ProgresoCarga { get; } = new ProgressText();
 
         public ReactiveCommand<Sesion, IEnumerable<IExtensionView>> Cargar { get; }
 
-        public VentanaPrincipalViewModel(IInicioSesion inicioSesion)
+        public VentanaPrincipalViewModel(IAutenticacion autenticacion)
         {
-            InicioSesion = inicioSesion ?? throw new ArgumentNullException(nameof(inicioSesion));
+            Autenticacion = autenticacion ?? throw new ArgumentNullException(nameof(autenticacion));
 
             Cargar = ReactiveCommand.CreateFromTask<Sesion, IEnumerable<IExtensionView>>(CargarImpl);
-            InicioSesion.IniciarSesion.InvokeCommand(Cargar);
+            Autenticacion.Autenticar.InvokeCommand(Cargar);
         }
 
         public async Task<IEnumerable<IExtensionView>> CargarImpl(Sesion sesion)
