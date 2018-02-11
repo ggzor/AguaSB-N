@@ -199,6 +199,10 @@
       <Project>{71B4F316-7BEC-458B-890B-15B981448157}</Project>
       <Name>AguaSB.Interfaz</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Pagos.Views\AguaSB.Pagos.Views.csproj">
+      <Project>{411f3038-35d3-4275-a634-b3eed455258b}</Project>
+      <Name>AguaSB.Pagos.Views</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AguaSB.Views.Controles\AguaSB.Views.Controles.csproj">
       <Project>{cde5d968-1ceb-43bd-9b4c-786130b6d948}</Project>
       <Name>AguaSB.Views.Controles</Name>
