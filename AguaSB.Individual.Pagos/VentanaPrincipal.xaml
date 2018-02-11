@@ -7,6 +7,7 @@
         xmlns:anim="clr-namespace:AguaSB.Views.Controles.Animaciones;assembly=AguaSB.Views.Controles"
         xmlns:textos="clr-namespace:AguaSB.Views.Controles.Texto;assembly=AguaSB.Views.Controles"
         xmlns:compartido="clr-namespace:AguaSB.Compartido.Views;assembly=AguaSB.Compartido.Views"
+        xmlns:local="clr-namespace:AguaSB.Individual.Pagos"                   
         mc:Ignorable="d" Title="Pagos" 
         EnableDWMDropShadow="True" BorderBrush="Black" BorderThickness="0"
         TitleCharacterCasing="Normal" TitleForeground="Transparent"
@@ -33,5 +34,7 @@
             <textos:ProgressTextView Margin="0 20 0 0" ViewModel="{Binding ElementName=This, Path=ViewModel.ProgresoCarga}"
                                      TitleStyle="{StaticResource w-l5}" SubtitleStyle="{StaticResource w-l6}"/>
         </StackPanel>
+
+        <local:MenuExtensionesView x:Name="MenuExtensiones" Opacity="0" Visibility="Hidden"/>
     </Grid>
 </metro:MetroWindow>

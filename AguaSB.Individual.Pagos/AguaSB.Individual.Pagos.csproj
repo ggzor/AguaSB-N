@@ -137,6 +137,10 @@
     <Compile Include="Instaladores\InstalarCompartido.cs" />
     <Compile Include="Instaladores\InstalarExtensiones.cs" />
     <Compile Include="Instaladores\Instalacion.cs" />
+    <Compile Include="MenuExtensiones.cs" />
+    <Compile Include="MenuExtensionesView.xaml.cs">
+      <DependentUpon>MenuExtensionesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VentanaPrincipal.xaml.cs">
       <DependentUpon>VentanaPrincipal.xaml</DependentUpon>
     </Compile>
@@ -234,6 +238,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="MenuExtensionesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VentanaPrincipal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

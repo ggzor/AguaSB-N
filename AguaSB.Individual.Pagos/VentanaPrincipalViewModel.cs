@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 using ReactiveUI;
@@ -6,6 +7,7 @@ using ReactiveUI;
 using AguaSB.Autenticacion;
 using AguaSB.Compartido.Interfaces;
 using AguaSB.Extensiones;
+using AguaSB.Extensiones.Views;
 using AguaSB.ViewModels.Controles;
 
 namespace AguaSB.Individual.Pagos
@@ -13,6 +15,13 @@ namespace AguaSB.Individual.Pagos
     public sealed class VentanaPrincipalViewModel : ReactiveObject
     {
         public ProgressText ProgresoCarga { get; } = new ProgressText();
+
+        private MenuExtensiones menuExtensiones;
+        public MenuExtensiones MenuExtensiones
+        {
+            get { return menuExtensiones; }
+            set { this.RaiseAndSetIfChanged(ref menuExtensiones, value); }
+        }
 
         public ReactiveCommand<Sesion, AgregadoExtensiones> Cargar { get; }
 
@@ -32,12 +41,12 @@ namespace AguaSB.Individual.Pagos
         {
             await Task.Delay(3000).ConfigureAwait(true); // Esperar animación
 
-            ProgresoCarga.Set("Registrando componentes");
-
             ProgresoCarga.Set("Cargando interfaz", "El programa podría dejar de responder por unos momentos");
             var extensiones = CargadorExtensiones.Cargar(sesion);
 
             ProgresoCarga.Set("Carga completa");
+
+            MenuExtensiones = new MenuExtensiones(extensiones.Obtener(typeof(IExtensionMenu)).Cast<IExtensionMenu>());
 
             return extensiones;
         }

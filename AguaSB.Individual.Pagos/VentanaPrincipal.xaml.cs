@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Windows;
 
@@ -25,21 +26,32 @@ namespace AguaSB.Individual.Pagos
 
             this.WhenActivated(d =>
             {
-                d(this.WhenAnyObservable(v => v.Autenticacion.Autenticar)
+                this.WhenAnyObservable(v => v.Autenticacion.Autenticar)
                     .SelectMany(c => Observable.Return(c).Delay(TimeSpan.FromSeconds(3.5)))
                     .ObserveOnDispatcher()
                     .Subscribe(s =>
                     {
                         PanelCarga.Visibility = Visibility.Visible;
                         FadeIn.Apply(PanelCarga);
-                    }));
+                    }).DisposeWith(d);
 
-                d(this.WhenAnyObservable(v => v.ViewModel.Cargar)
-                    .SelectMany(c => Observable.Return(c).Delay(TimeSpan.FromSeconds(1)))
-                    .ObserveOnDispatcher()
-                    .Subscribe(u => 
-                    FadeOut.Apply(PanelCarga,
-                        onCompleted: (s, a) => PanelCarga.Visibility = Visibility.Hidden)));
+                this.WhenAnyObservable(v => v.ViewModel.Cargar)
+                     .SelectMany(c => Observable.Return(c).Delay(TimeSpan.FromSeconds(1)))
+                     .ObserveOnDispatcher()
+                     .Subscribe(u =>
+                     {
+                         FadeOut.Apply(PanelCarga,
+                             onCompleted: (s, a) => PanelCarga.Visibility = Visibility.Hidden);
+                         FadeOut.Apply(InicioSesion,
+                             onCompleted: (s, a) =>
+                             {
+                                 InicioSesion.Visibility = Visibility.Hidden;
+                                 MenuExtensiones.Visibility = Visibility.Visible;
+                                 FadeIn.Apply(MenuExtensiones);
+                             });
+                     }).DisposeWith(d);
+
+                this.OneWayBind(ViewModel, vm => vm.MenuExtensiones, v => v.MenuExtensiones.ViewModel).DisposeWith(d);
             });
         }
 
