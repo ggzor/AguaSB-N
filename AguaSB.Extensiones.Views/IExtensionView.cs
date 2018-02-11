@@ -6,7 +6,5 @@ namespace AguaSB.Extensiones.Views
     public interface IExtensionView : IExtension
     {
         IView View { get; }
-
-        FrameworkElement Icono { get; }
     }
 }

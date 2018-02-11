@@ -6,7 +6,7 @@ using System.Windows.Controls;
 
 namespace AguaSB.Pagos.Views
 {
-    public class Extension : IExtensionView
+    public class Extension : IExtensionMenu
     {
         public IView View { get; }
 
