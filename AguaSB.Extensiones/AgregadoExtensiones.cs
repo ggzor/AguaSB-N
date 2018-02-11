@@ -3,16 +3,39 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+using MoreLinq;
+
 namespace AguaSB.Extensiones
 {
-    public sealed class AgregadoExtensiones
+    public sealed class AgregadoExtensiones : IEnumerable<IExtension>
     {
-        private readonly Dictionary<Type, IEnumerable> Registro = new Dictionary<Type, IEnumerable>();
+        private readonly Dictionary<Type, List<IExtension>> extensiones = new Dictionary<Type, List<IExtension>>();
 
-        public void Registrar<T>(IEnumerable<T> extensiones) where T : IExtension =>
-            Registro.Add(typeof(T), extensiones);
+        public AgregadoExtensiones()
+        {
+        }
 
-        public IEnumerable<T> Obtener<T>() where T : IExtension =>
-            Registro[typeof(T)].OfType<T>();
+        public AgregadoExtensiones(IEnumerable<IExtension> extensiones) =>
+            extensiones.ForEach(Registrar);
+
+        public IEnumerable<IExtension> Todas => extensiones.Values.SelectMany(e => e);
+
+        public void Registrar(IExtension extension)
+        {
+            var tipo = extension.GetType();
+
+            if (!extensiones.ContainsKey(tipo))
+                extensiones[tipo] = new List<IExtension>();
+
+            extensiones[tipo].Add(extension);
+        }
+
+        public IEnumerable<IExtension> Obtener(Type tipo) => extensiones[tipo];
+
+        public void Registrar(IEnumerable<IExtension> extensiones) =>
+            extensiones.ForEach(Registrar);
+
+        public IEnumerator<IExtension> GetEnumerator() => Todas.GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }
