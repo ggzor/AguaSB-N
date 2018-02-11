@@ -128,10 +128,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AutorizadorCualquierExtension.cs" />
     <Compile Include="CargadorExtensionesWindsor.cs" />
     <Compile Include="CargadorExtensionesAutorizadas.cs" />
     <Compile Include="Instaladores\AutenticadorFalso.cs" />
     <Compile Include="Instaladores\InstalarAutenticacion.cs" />
+    <Compile Include="Instaladores\InstalarCargaExtensiones.cs" />
     <Compile Include="Instaladores\InstalarCompartido.cs" />
     <Compile Include="Instaladores\InstalarExtensiones.cs" />
     <Compile Include="Instaladores\Instalacion.cs" />

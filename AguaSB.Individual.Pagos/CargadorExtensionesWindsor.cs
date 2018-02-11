@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using Castle.Windsor;
 
@@ -24,8 +25,8 @@ namespace AguaSB.Individual.Pagos
         {
             var resultado = new AgregadoExtensiones();
 
-            //foreach (var tipoExtension in TiposExtensiones)
-              //  resultado.Registrar(tipoExtension, Contenedor.ResolveAll(tipoExtension));
+            foreach (var tipoExtension in TiposExtensiones)
+                resultado.Registrar(Contenedor.ResolveAll(tipoExtension).OfType<IExtension>());
 
             return resultado;
         }
