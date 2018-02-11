@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregadoExtensiones.cs" />
     <Compile Include="IExtension.cs" />
     <Compile Include="IVersionable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
