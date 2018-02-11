@@ -6,6 +6,6 @@ namespace AguaSB.Views
     {
         FrameworkElement View { get; }
 
-        void Entrar(object informacion);
+        void Entrar();
     }
 }
