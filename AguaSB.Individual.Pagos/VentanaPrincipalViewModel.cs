@@ -1,9 +1,12 @@
 ﻿using AguaSB.Autenticacion;
 using AguaSB.Compartido.Interfaces;
+using AguaSB.Extensiones.Views;
+using AguaSB.ViewModels.Controles;
+using Castle.Windsor;
+using Castle.Windsor.Installer;
 using ReactiveUI;
 using System;
-using System.Reactive;
-using System.Threading;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AguaSB.Individual.Pagos
@@ -12,42 +15,41 @@ namespace AguaSB.Individual.Pagos
     {
         public IInicioSesion InicioSesion { get; }
 
-        public ProgressController ProgresoCarga { get; } = new ProgressController();
+        public ProgressText ProgresoCarga { get; } = new ProgressText();
 
-        public ReactiveCommand<Sesion, Unit> Cargar { get; }
+        public ReactiveCommand<Sesion, IEnumerable<IExtensionView>> Cargar { get; }
 
         public VentanaPrincipalViewModel(IInicioSesion inicioSesion)
         {
             InicioSesion = inicioSesion ?? throw new ArgumentNullException(nameof(inicioSesion));
 
-            Cargar = ReactiveCommand.CreateFromTask<Sesion>(CargarImpl);
+            Cargar = ReactiveCommand.CreateFromTask<Sesion, IEnumerable<IExtensionView>>(CargarImpl);
             InicioSesion.IniciarSesion.InvokeCommand(Cargar);
         }
 
-        public async Task CargarImpl(Sesion sesion)
+        public async Task<IEnumerable<IExtensionView>> CargarImpl(Sesion sesion)
         {
-            Console.WriteLine($"{sesion.Usuario} !!! {sesion.Clave}");
-
             await Task.Delay(3000);
 
-            ProgresoCarga.Set("Iniciando carga");
+            ProgresoCarga.Set("Registrando componentes");
 
-            await Task.Delay(2000);
+            var contenedor = await Task.Run(() =>
+            {
+                var k = new WindsorContainer();
 
-            ProgresoCarga.Set("Cargando componentes", "1/2");
+                k.Install(FromAssembly.This());
 
-            await Task.Delay(2000);
-
-            ProgresoCarga.Set("Cargando componentes", "2/2");
-
-            await Task.Delay(2000);
+                return k;
+            });
 
             ProgresoCarga.Set("Cargando interfaz", "El programa podría dejar de responder por unos momentos");
             await Task.Delay(100);
 
-            Thread.Sleep(2000);
+            var extensiones = contenedor.ResolveAll<IExtensionView>();
 
-            ProgresoCarga.Set("Completado");
+            ProgresoCarga.Set("Carga completa");
+
+            return extensiones;
         }
     }
 }

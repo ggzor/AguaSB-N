@@ -35,11 +35,11 @@ namespace AguaSB.Individual.Pagos
                     }));
 
                 d(this.WhenAnyObservable(v => v.ViewModel.Cargar)
-                    .Subscribe(u => FadeOut.Apply(PanelCarga,
+                    .SelectMany(c => Observable.Return(c).Delay(TimeSpan.FromSeconds(1)))
+                    .ObserveOnDispatcher()
+                    .Subscribe(u => 
+                    FadeOut.Apply(PanelCarga,
                         onCompleted: (s, a) => PanelCarga.Visibility = Visibility.Hidden)));
-
-                d(this.OneWayBind(ViewModel, vm => vm.ProgresoCarga.Title, v => v.MensajeCarga.Text));
-                d(this.OneWayBind(ViewModel, vm => vm.ProgresoCarga.Subtitle, v => v.SubmensajeCarga.Text));
             });
         }
 

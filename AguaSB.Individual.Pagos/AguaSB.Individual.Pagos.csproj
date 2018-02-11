@@ -131,7 +131,6 @@
     <Compile Include="Instaladores\AutenticadorFalso.cs" />
     <Compile Include="Instaladores\InstalarAutenticacion.cs" />
     <Compile Include="Instaladores\InstalarCompartido.cs" />
-    <Compile Include="ProgressController.cs" />
     <Compile Include="Instaladores\InstalarExtensiones.cs" />
     <Compile Include="Instaladores\Instalacion.cs" />
     <Compile Include="VentanaPrincipal.xaml.cs">
@@ -204,6 +203,10 @@
     <ProjectReference Include="..\AguaSB.Pagos.Views\AguaSB.Pagos.Views.csproj">
       <Project>{411f3038-35d3-4275-a634-b3eed455258b}</Project>
       <Name>AguaSB.Pagos.Views</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AguaSB.ViewModels.Controles\AguaSB.ViewModels.Controles.csproj">
+      <Project>{9FE14771-E82A-4912-9F4E-3CD90E2DCFF5}</Project>
+      <Name>AguaSB.ViewModels.Controles</Name>
     </ProjectReference>
     <ProjectReference Include="..\AguaSB.Views.Controles\AguaSB.Views.Controles.csproj">
       <Project>{cde5d968-1ceb-43bd-9b4c-786130b6d948}</Project>
