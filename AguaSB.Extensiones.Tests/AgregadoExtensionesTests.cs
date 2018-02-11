@@ -64,6 +64,15 @@ namespace AguaSB.Extensiones.Tests
             CollectionAssert.AreEquivalent(extensiones, agregadoExtensiones);
         }
 
+        [Test]
+        public void DeberiaRegistrarExtensionConTodasSusInterfaces_CuandoExtensionImplementaMultiplesInterfaces()
+        {
+            var (tiposInterfazExtension, extension) = RegistrarCualquierExtensionConMultiplesInterfaces();
+
+            foreach (var tipoExtension in tiposInterfazExtension)
+                CollectionAssert.Contains(AgregadoExtensiones.Obtener(tipoExtension), extension);
+        }
+
         private IExtension RegistrarCualquierExtension()
         {
             var extension = Cualquiera.Create<IExtension>();
@@ -90,6 +99,22 @@ namespace AguaSB.Extensiones.Tests
             var registro2 = (typeof(Extension2), Cualquiera.CreateMany<Extension2>());
 
             return new(Type, IEnumerable<IExtension>)[] { registro1, registro2 }.Take(cantidad);
+        }
+
+        private (IEnumerable<Type> TiposImplementados, IExtension extension) RegistrarCualquierExtensionConMultiplesInterfaces()
+        {
+            var tiposInterfazExtension = new[] {
+                typeof(IExtension),
+                typeof(IExtensionTipo1),
+                typeof(IExtensionTipo2),
+                typeof(IExtensionTipo3),
+                typeof(ExtensionConMultiplesInterfaces)
+            };
+
+            var extension = new ExtensionConMultiplesInterfaces();
+            AgregadoExtensiones.Registrar(extension);
+
+            return (tiposInterfazExtension, extension);
         }
 
         private abstract class ExtensionBase : IExtension
@@ -126,6 +151,14 @@ namespace AguaSB.Extensiones.Tests
             public Extension2() : base("E2")
             {
             }
+        }
+
+        private interface IExtensionTipo1 : IExtension { }
+        private interface IExtensionTipo2 : IExtension { }
+        private interface IExtensionTipo3 : IExtensionTipo1 { }
+
+        private class ExtensionConMultiplesInterfaces : IExtensionTipo2, IExtensionTipo3
+        {
         }
     }
 }

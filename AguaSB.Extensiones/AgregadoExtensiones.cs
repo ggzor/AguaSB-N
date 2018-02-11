@@ -18,17 +18,29 @@ namespace AguaSB.Extensiones
         public AgregadoExtensiones(IEnumerable<IExtension> extensiones) =>
             extensiones.ForEach(Registrar);
 
-        public IEnumerable<IExtension> Todas => extensiones.Values.SelectMany(e => e);
+        public IEnumerable<IExtension> Todas =>
+            extensiones.Values
+                .SelectMany(e => e)
+                .Distinct();
 
         public void Registrar(IExtension extension)
         {
-            var tipo = extension.GetType();
+            var todasInterfaces = ExtraerTiposInterfacesDerivadosDeExtension(extension.GetType())
+                .Concat(new[] { typeof(IExtension), extension.GetType() });
 
-            if (!extensiones.ContainsKey(tipo))
-                extensiones[tipo] = new List<IExtension>();
+            foreach (var interfaz in todasInterfaces)
+            {
+                if (!extensiones.ContainsKey(interfaz))
+                    extensiones[interfaz] = new List<IExtension>();
 
-            extensiones[tipo].Add(extension);
+                extensiones[interfaz].Add(extension);
+            }
         }
+
+        private static IEnumerable<Type> ExtraerTiposInterfacesDerivadosDeExtension(Type tipo) =>
+            from tipoInterfaz in tipo.GetInterfaces()
+            where tipoInterfaz.GetInterfaces().Contains(typeof(IExtension))
+            select tipoInterfaz;
 
         public IEnumerable<IExtension> Obtener(Type tipo) => extensiones[tipo];
 
