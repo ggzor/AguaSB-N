@@ -14,6 +14,8 @@ namespace AguaSB.Individual.Pagos
 {
     public partial class VentanaPrincipal : MetroWindow, IViewFor<VentanaPrincipalViewModel>, IVentana
     {
+        internal MenuExtensionesView Menu { get; }
+
         public IAutenticacion Autenticacion { get; }
 
         public VentanaPrincipal(VentanaPrincipalViewModel viewModel, IAutenticacion autenticacion)
@@ -22,27 +24,26 @@ namespace AguaSB.Individual.Pagos
             Autenticacion = autenticacion ?? throw new ArgumentNullException(nameof(autenticacion));
             InitializeComponent();
 
+            Menu = MenuExtensiones;
+
             Activated += (s, a) => InicioSesion.DoFocus();
 
-            this.WhenActivated(d =>
+            (this).WhenActivated(d =>
             {
-                this.WhenAnyObservable(v => v.Autenticacion.Autenticar)
+                (this).WhenAnyObservable(v => v.Autenticacion.Autenticar)
                     .SelectMany(c => Observable.Return(c).Delay(TimeSpan.FromSeconds(3.5)))
                     .ObserveOnDispatcher()
                     .Subscribe(s => FadeIn.Apply(PanelCarga))
                     .DisposeWith(d);
 
-                this.WhenAnyObservable(v => v.ViewModel.Cargar)
+                (this).WhenAnyObservable(v => v.ViewModel.Cargar)
                      .SelectMany(c => Observable.Return(c).Delay(TimeSpan.FromSeconds(1)))
                      .ObserveOnDispatcher()
                      .Subscribe(u =>
                      {
                          FadeOut.Apply(PanelCarga);
-                         FadeOut.Apply(InicioSesion,
-                             onCompleted: () => FadeIn.Apply(MenuExtensiones));
+                         FadeOut.Apply(InicioSesion, onCompleted: () => CambiarMenu.Aplicar(this));
                      }).DisposeWith(d);
-
-                this.OneWayBind(ViewModel, vm => vm.MenuExtensiones, v => v.MenuExtensiones.ViewModel).DisposeWith(d);
             });
         }
 

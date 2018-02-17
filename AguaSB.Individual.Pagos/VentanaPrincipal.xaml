@@ -8,7 +8,7 @@
         xmlns:textos="clr-namespace:AguaSB.Views.Controles.Texto;assembly=AguaSB.Views.Controles"
         xmlns:compartido="clr-namespace:AguaSB.Compartido.Views;assembly=AguaSB.Compartido.Views"
         xmlns:local="clr-namespace:AguaSB.Individual.Pagos"                   
-        mc:Ignorable="d" Title="Pagos" 
+        mc:Ignorable="d" Title="Pagos"
         EnableDWMDropShadow="True" BorderBrush="Black" BorderThickness="0"
         TitleCharacterCasing="Normal" TitleForeground="Transparent"
         WindowTitleBrush="{StaticResource PrimaryDarkBrush}"
@@ -24,6 +24,19 @@
         </ResourceDictionary>
     </Window.Resources>
 
+    <metro:MetroWindow.TitleTemplate>
+        <DataTemplate>
+            <TextBlock Margin="12 5" Text="{Binding}"/>
+        </DataTemplate>
+    </metro:MetroWindow.TitleTemplate>
+
+    <metro:MetroWindow.WindowButtonCommands>
+        <metro:WindowButtonCommands Template="{DynamicResource MahApps.Metro.Templates.WindowButtonCommands.Win10}"
+                                    LightMinButtonStyle="{StaticResource WhiteButtonStyle}"
+                                    LightMaxButtonStyle="{StaticResource WhiteButtonStyle}"
+                                    LightCloseButtonStyle="{StaticResource RedButtonStyle}"/>
+    </metro:MetroWindow.WindowButtonCommands>
+
     <Grid Background="{StaticResource PrimaryDarkBrush}" SnapsToDevicePixels="True" UseLayoutRounding="True">
         <compartido:AutenticacionPorUsuarioView Name="InicioSesion" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center"
                                               anim:FadeIn.Delay="0:0:0.75" anim:FadeIn.StartWith="True" Opacity="0"
@@ -35,6 +48,7 @@
                                      TitleStyle="{StaticResource w-l5}" SubtitleStyle="{StaticResource w-l6}"/>
         </StackPanel>
 
-        <local:MenuExtensionesView x:Name="MenuExtensiones" Opacity="0" Visibility="Hidden"/>
+        <local:MenuExtensionesView x:Name="MenuExtensiones" ViewModel="{Binding ElementName=This, Path=ViewModel.MenuExtensiones}"
+                                   Opacity="0.0" Visibility="Hidden"/>
     </Grid>
 </metro:MetroWindow>

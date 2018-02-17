@@ -20,6 +20,8 @@
                 <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Estilos;component/Colores.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Estilos;component/Iconos.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Estilos;component/Textos.xaml" />
+
+                <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Estilos;component/Modern/ComandosVentanas.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

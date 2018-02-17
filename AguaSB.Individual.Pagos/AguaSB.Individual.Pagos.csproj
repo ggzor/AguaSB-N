@@ -131,6 +131,7 @@
     <Compile Include="AutorizadorCualquierExtension.cs" />
     <Compile Include="CargadorExtensionesWindsor.cs" />
     <Compile Include="CargadorExtensionesAutorizadas.cs" />
+    <Compile Include="CambiarMenu.cs" />
     <Compile Include="Instaladores\AutenticadorFalso.cs" />
     <Compile Include="Instaladores\InstalarAutenticacion.cs" />
     <Compile Include="Instaladores\InstalarCargaExtensiones.cs" />
