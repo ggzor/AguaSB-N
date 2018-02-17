@@ -1,23 +1,24 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:Sys="clr-namespace:System;assembly=mscorlib"
-                    xmlns:local="clr-namespace:AguaSB.Views.Estilos">
+                    xmlns:Sys="clr-namespace:System;assembly=mscorlib">
     <!--
         Código de textos:
-            [w|b]-[l|n|h]<n>
+            <tono>-<peso><tamaño>
         
-        La primera parte indica el tono:
+        tono := [w | b]
             w = blanco
             b = negro
     
-        La segunda indica el peso de la fuente:
+        peso := [l | n | h | u]
             l = ligera
             n = normal
             h = pesada     
             u = ultra pesada
     
-        Finalmente, la n representa el tamaño (1-6)
+        tamaño := 1..6 (como los h1..h6 de HTML)
     -->
+    
+    <!--Pesos-->
     <Style x:Key="l" TargetType="TextBlock">
         <Setter Property="FontFamily" Value="Segoe UI Semilight"/>
     </Style>
@@ -31,6 +32,23 @@
         <Setter Property="FontWeight" Value="DemiBold"/>
     </Style>
 
+    <Style x:Key="u" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+    <!--Tamaños-->
+    <Sys:Double x:Key="t1">36.0</Sys:Double>
+    <Sys:Double x:Key="t2">24.0</Sys:Double>
+    <Sys:Double x:Key="t3">21.0</Sys:Double>
+    <Sys:Double x:Key="t4">18.0</Sys:Double>
+    <Sys:Double x:Key="t5">16.0</Sys:Double>
+    <Sys:Double x:Key="t6">14.0</Sys:Double>
+
+    
+    <!--CÓDIGO AUTOGENERADO-->
+    
+    <!--Bases blancas-->
     <Style x:Key="w-l" TargetType="TextBlock" BasedOn="{StaticResource l}">
         <Setter Property="Foreground" Value="White"/>
     </Style>
@@ -42,16 +60,39 @@
     <Style x:Key="w-h" TargetType="TextBlock" BasedOn="{StaticResource h}">
         <Setter Property="Foreground" Value="White"/>
     </Style>
-    
-    <Sys:Double x:Key="t1">36.0</Sys:Double>
-    <Sys:Double x:Key="t2">24.0</Sys:Double>
-    <Sys:Double x:Key="t3">21.0</Sys:Double>
-    <Sys:Double x:Key="t4">18.0</Sys:Double>
-    <Sys:Double x:Key="t5">16.0</Sys:Double>
-    <Sys:Double x:Key="t6">14.0</Sys:Double>
-    
+
+    <Style x:Key="w-u" TargetType="TextBlock" BasedOn="{StaticResource u}">
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+
+    <!--Bases negras-->
+    <Style x:Key="b-l" TargetType="TextBlock" BasedOn="{StaticResource l}">
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+
+    <Style x:Key="b-n" TargetType="TextBlock" BasedOn="{StaticResource n}">
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+
+    <Style x:Key="b-h" TargetType="TextBlock" BasedOn="{StaticResource h}">
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+
+    <Style x:Key="b-u" TargetType="TextBlock" BasedOn="{StaticResource u}">
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+    <!---->
+
     <Style x:Key="w-l1" TargetType="TextBlock" BasedOn="{StaticResource w-l}">
         <Setter Property="FontSize" Value="{StaticResource t1}"/>
+    </Style>
+
+    <Style x:Key="w-l2" TargetType="TextBlock" BasedOn="{StaticResource w-l}">
+        <Setter Property="FontSize" Value="{StaticResource t2}"/>
+    </Style>
+
+    <Style x:Key="w-l3" TargetType="TextBlock" BasedOn="{StaticResource w-l}">
+        <Setter Property="FontSize" Value="{StaticResource t3}"/>
     </Style>
 
     <Style x:Key="w-l4" TargetType="TextBlock" BasedOn="{StaticResource w-l}">
@@ -66,6 +107,18 @@
         <Setter Property="FontSize" Value="{StaticResource t6}"/>
     </Style>
 
+    <Style x:Key="w-n1" TargetType="TextBlock" BasedOn="{StaticResource w-n}">
+        <Setter Property="FontSize" Value="{StaticResource t1}"/>
+    </Style>
+
+    <Style x:Key="w-n2" TargetType="TextBlock" BasedOn="{StaticResource w-n}">
+        <Setter Property="FontSize" Value="{StaticResource t2}"/>
+    </Style>
+
+    <Style x:Key="w-n3" TargetType="TextBlock" BasedOn="{StaticResource w-n}">
+        <Setter Property="FontSize" Value="{StaticResource t3}"/>
+    </Style>
+
     <Style x:Key="w-n4" TargetType="TextBlock" BasedOn="{StaticResource w-n}">
         <Setter Property="FontSize" Value="{StaticResource t4}"/>
     </Style>
@@ -74,11 +127,151 @@
         <Setter Property="FontSize" Value="{StaticResource t5}"/>
     </Style>
 
+    <Style x:Key="w-n6" TargetType="TextBlock" BasedOn="{StaticResource w-n}">
+        <Setter Property="FontSize" Value="{StaticResource t6}"/>
+    </Style>
+
     <Style x:Key="w-h1" TargetType="TextBlock" BasedOn="{StaticResource w-h}">
         <Setter Property="FontSize" Value="{StaticResource t1}"/>
     </Style>
 
+    <Style x:Key="w-h2" TargetType="TextBlock" BasedOn="{StaticResource w-h}">
+        <Setter Property="FontSize" Value="{StaticResource t2}"/>
+    </Style>
+
+    <Style x:Key="w-h3" TargetType="TextBlock" BasedOn="{StaticResource w-h}">
+        <Setter Property="FontSize" Value="{StaticResource t3}"/>
+    </Style>
+
     <Style x:Key="w-h4" TargetType="TextBlock" BasedOn="{StaticResource w-h}">
         <Setter Property="FontSize" Value="{StaticResource t4}"/>
+    </Style>
+
+    <Style x:Key="w-h5" TargetType="TextBlock" BasedOn="{StaticResource w-h}">
+        <Setter Property="FontSize" Value="{StaticResource t5}"/>
+    </Style>
+
+    <Style x:Key="w-h6" TargetType="TextBlock" BasedOn="{StaticResource w-h}">
+        <Setter Property="FontSize" Value="{StaticResource t6}"/>
+    </Style>
+
+    <Style x:Key="w-u1" TargetType="TextBlock" BasedOn="{StaticResource w-u}">
+        <Setter Property="FontSize" Value="{StaticResource t1}"/>
+    </Style>
+
+    <Style x:Key="w-u2" TargetType="TextBlock" BasedOn="{StaticResource w-u}">
+        <Setter Property="FontSize" Value="{StaticResource t2}"/>
+    </Style>
+
+    <Style x:Key="w-u3" TargetType="TextBlock" BasedOn="{StaticResource w-u}">
+        <Setter Property="FontSize" Value="{StaticResource t3}"/>
+    </Style>
+
+    <Style x:Key="w-u4" TargetType="TextBlock" BasedOn="{StaticResource w-u}">
+        <Setter Property="FontSize" Value="{StaticResource t4}"/>
+    </Style>
+
+    <Style x:Key="w-u5" TargetType="TextBlock" BasedOn="{StaticResource w-u}">
+        <Setter Property="FontSize" Value="{StaticResource t5}"/>
+    </Style>
+
+    <Style x:Key="w-u6" TargetType="TextBlock" BasedOn="{StaticResource w-u}">
+        <Setter Property="FontSize" Value="{StaticResource t6}"/>
+    </Style>
+
+    <Style x:Key="b-l1" TargetType="TextBlock" BasedOn="{StaticResource b-l}">
+        <Setter Property="FontSize" Value="{StaticResource t1}"/>
+    </Style>
+
+    <Style x:Key="b-l2" TargetType="TextBlock" BasedOn="{StaticResource b-l}">
+        <Setter Property="FontSize" Value="{StaticResource t2}"/>
+    </Style>
+
+    <Style x:Key="b-l3" TargetType="TextBlock" BasedOn="{StaticResource b-l}">
+        <Setter Property="FontSize" Value="{StaticResource t3}"/>
+    </Style>
+
+    <Style x:Key="b-l4" TargetType="TextBlock" BasedOn="{StaticResource b-l}">
+        <Setter Property="FontSize" Value="{StaticResource t4}"/>
+    </Style>
+
+    <Style x:Key="b-l5" TargetType="TextBlock" BasedOn="{StaticResource b-l}">
+        <Setter Property="FontSize" Value="{StaticResource t5}"/>
+    </Style>
+
+    <Style x:Key="b-l6" TargetType="TextBlock" BasedOn="{StaticResource b-l}">
+        <Setter Property="FontSize" Value="{StaticResource t6}"/>
+    </Style>
+
+    <Style x:Key="b-n1" TargetType="TextBlock" BasedOn="{StaticResource b-n}">
+        <Setter Property="FontSize" Value="{StaticResource t1}"/>
+    </Style>
+
+    <Style x:Key="b-n2" TargetType="TextBlock" BasedOn="{StaticResource b-n}">
+        <Setter Property="FontSize" Value="{StaticResource t2}"/>
+    </Style>
+
+    <Style x:Key="b-n3" TargetType="TextBlock" BasedOn="{StaticResource b-n}">
+        <Setter Property="FontSize" Value="{StaticResource t3}"/>
+    </Style>
+
+    <Style x:Key="b-n4" TargetType="TextBlock" BasedOn="{StaticResource b-n}">
+        <Setter Property="FontSize" Value="{StaticResource t4}"/>
+    </Style>
+
+    <Style x:Key="b-n5" TargetType="TextBlock" BasedOn="{StaticResource b-n}">
+        <Setter Property="FontSize" Value="{StaticResource t5}"/>
+    </Style>
+
+    <Style x:Key="b-n6" TargetType="TextBlock" BasedOn="{StaticResource b-n}">
+        <Setter Property="FontSize" Value="{StaticResource t6}"/>
+    </Style>
+
+    <Style x:Key="b-h1" TargetType="TextBlock" BasedOn="{StaticResource b-h}">
+        <Setter Property="FontSize" Value="{StaticResource t1}"/>
+    </Style>
+
+    <Style x:Key="b-h2" TargetType="TextBlock" BasedOn="{StaticResource b-h}">
+        <Setter Property="FontSize" Value="{StaticResource t2}"/>
+    </Style>
+
+    <Style x:Key="b-h3" TargetType="TextBlock" BasedOn="{StaticResource b-h}">
+        <Setter Property="FontSize" Value="{StaticResource t3}"/>
+    </Style>
+
+    <Style x:Key="b-h4" TargetType="TextBlock" BasedOn="{StaticResource b-h}">
+        <Setter Property="FontSize" Value="{StaticResource t4}"/>
+    </Style>
+
+    <Style x:Key="b-h5" TargetType="TextBlock" BasedOn="{StaticResource b-h}">
+        <Setter Property="FontSize" Value="{StaticResource t5}"/>
+    </Style>
+
+    <Style x:Key="b-h6" TargetType="TextBlock" BasedOn="{StaticResource b-h}">
+        <Setter Property="FontSize" Value="{StaticResource t6}"/>
+    </Style>
+
+    <Style x:Key="b-u1" TargetType="TextBlock" BasedOn="{StaticResource b-u}">
+        <Setter Property="FontSize" Value="{StaticResource t1}"/>
+    </Style>
+
+    <Style x:Key="b-u2" TargetType="TextBlock" BasedOn="{StaticResource b-u}">
+        <Setter Property="FontSize" Value="{StaticResource t2}"/>
+    </Style>
+
+    <Style x:Key="b-u3" TargetType="TextBlock" BasedOn="{StaticResource b-u}">
+        <Setter Property="FontSize" Value="{StaticResource t3}"/>
+    </Style>
+
+    <Style x:Key="b-u4" TargetType="TextBlock" BasedOn="{StaticResource b-u}">
+        <Setter Property="FontSize" Value="{StaticResource t4}"/>
+    </Style>
+
+    <Style x:Key="b-u5" TargetType="TextBlock" BasedOn="{StaticResource b-u}">
+        <Setter Property="FontSize" Value="{StaticResource t5}"/>
+    </Style>
+
+    <Style x:Key="b-u6" TargetType="TextBlock" BasedOn="{StaticResource b-u}">
+        <Setter Property="FontSize" Value="{StaticResource t6}"/>
     </Style>
 </ResourceDictionary>
