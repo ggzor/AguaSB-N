@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using Ploeh.AutoFixture;
+using AutoFixture;
 using System;
 
 namespace AguaSB.Views.Conversores.Tests

@@ -5,8 +5,8 @@ using System.Linq;
 using MoreLinq;
 
 using NUnit.Framework;
-using Ploeh.AutoFixture;
-using Ploeh.AutoFixture.AutoNSubstitute;
+using AutoFixture;
+using AutoFixture.AutoNSubstitute;
 
 namespace AguaSB.Extensiones.Tests
 {

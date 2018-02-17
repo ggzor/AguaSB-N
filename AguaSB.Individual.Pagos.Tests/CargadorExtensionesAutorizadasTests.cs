@@ -2,8 +2,8 @@
 
 using NSubstitute;
 using NUnit.Framework;
-using Ploeh.AutoFixture;
-using Ploeh.AutoFixture.AutoNSubstitute;
+using AutoFixture;
+using AutoFixture.AutoNSubstitute;
 
 using AguaSB.Compartido.Interfaces;
 using AguaSB.Extensiones;
