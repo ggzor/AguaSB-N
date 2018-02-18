@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Reactive.Disposables;
+using System.Windows;
 using System.Windows.Controls;
 
 using ReactiveUI;
@@ -10,6 +11,10 @@ namespace AguaSB.Individual.Pagos
         public MenuExtensionesView()
         {
             InitializeComponent();
+            this.WhenActivated(d =>
+            {
+                this.OneWayBind(ViewModel, vm => vm.Extensiones, v => v.IconosMenu.ItemsSource).DisposeWith(d);
+            });
         }
 
         #region IViewFor

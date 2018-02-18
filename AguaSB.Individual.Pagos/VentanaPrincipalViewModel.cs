@@ -46,7 +46,10 @@ namespace AguaSB.Individual.Pagos
 
             ProgresoCarga.Set("Carga completa");
 
-            MenuExtensiones = new MenuExtensiones(extensiones.Obtener(typeof(IExtensionMenu)).Cast<IExtensionMenu>());
+            MenuExtensiones = new MenuExtensiones(
+                extensiones.Obtener(typeof(IExtensionMenu))
+                .Cast<IExtensionMenu>()
+                .ToArray());
 
             return extensiones;
         }

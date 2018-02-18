@@ -1,15 +1,23 @@
-﻿using AguaSB.Extensiones.Views;
-using ReactiveUI;
-using System;
+﻿using System;
 using System.Collections.Generic;
+
+using AguaSB.Extensiones.Views;
+
+using ReactiveUI;
 
 namespace AguaSB.Individual.Pagos
 {
     public class MenuExtensiones : ReactiveObject
     {
-        public IEnumerable<IExtensionMenu> Extensiones { get; }
+        private IReadOnlyCollection<IExtensionMenu> extensiones;
 
-        public MenuExtensiones(IEnumerable<IExtensionMenu> extensiones)
+        public IReadOnlyCollection<IExtensionMenu> Extensiones
+        {
+            get { return extensiones; }
+            set { this.RaiseAndSetIfChanged(ref extensiones, value); }
+        }
+
+        public MenuExtensiones(IReadOnlyCollection<IExtensionMenu> extensiones)
         {
             Extensiones = extensiones ?? throw new ArgumentNullException(nameof(extensiones));
         }
