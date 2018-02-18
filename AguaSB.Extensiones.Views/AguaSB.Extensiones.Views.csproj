@@ -31,18 +31,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MahApps.Metro.IconPacks, Version=2.0.0.31, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.2.0.0\lib\net46\MahApps.Metro.IconPacks.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Menu\ExtensionMenuView.xaml.cs">
+      <DependentUpon>ExtensionMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\IconoMenuEstatico.xaml.cs">
+      <DependentUpon>IconoMenuEstatico.xaml</DependentUpon>
+    </Compile>
     <Compile Include="IExtensionMenu.cs" />
     <Compile Include="IExtensionView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -52,10 +63,27 @@
       <Project>{de76df8b-6473-4da3-b5e0-2506c56c93ae}</Project>
       <Name>AguaSB.Extensiones</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Views.Estilos\AguaSB.Views.Estilos.csproj">
+      <Project>{acf0a419-99ea-43d4-99ca-a1a60488bf4c}</Project>
+      <Name>AguaSB.Views.Estilos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AguaSB.Views\AguaSB.Views.csproj">
       <Project>{fef2c4f0-9231-4246-a231-25e8a8831240}</Project>
       <Name>AguaSB.Views</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Menu\ExtensionMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Menu\IconoMenuEstatico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="AguaSB.Extensiones.Views.Menu.ExtensionMenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" Name="This">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Estilos;component/Colores.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Estilos;component/Textos.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <Duration x:Key="Duracion">0:0:0.06125</Duration>
+            <Sys:Double x:Key="Escala">0.975</Sys:Double>
+            <QuadraticEase x:Key="Easing" EasingMode="EaseOut"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Button Width="190" Height="190">
+        <Button.Template>
+            <ControlTemplate TargetType="Button">
+                <Border Name="Borde" Background="White" BorderThickness="2">
+                    <ContentPresenter Name="Contenido" RenderTransformOrigin="0.5, 0.5">
+                        <ContentPresenter.RenderTransform>
+                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                        </ContentPresenter.RenderTransform>
+                    </ContentPresenter>
+                </Border>
+                <ControlTemplate.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter TargetName="Borde" Property="BorderBrush">
+                            <Setter.Value>
+                                <SolidColorBrush Color="#e6e6e6"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                    <Trigger Property="IsPressed" Value="True">
+                        <Setter TargetName="Borde" Property="BorderBrush">
+                            <Setter.Value>
+                                <SolidColorBrush Color="#cccccc"/>
+                            </Setter.Value>
+                        </Setter>
+                        <Trigger.EnterActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="Contenido" Storyboard.TargetProperty="RenderTransform.ScaleX" 
+                                                     To="{StaticResource Escala}" Duration="{StaticResource Duracion}" EasingFunction="{StaticResource Easing}"/>
+                                    <DoubleAnimation Storyboard.TargetName="Contenido" Storyboard.TargetProperty="RenderTransform.ScaleY" 
+                                                     To="{StaticResource Escala}" Duration="{StaticResource Duracion}" EasingFunction="{StaticResource Easing}"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </Trigger.EnterActions>
+                        <Trigger.ExitActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="Contenido" Storyboard.TargetProperty="RenderTransform.ScaleX" 
+                                                     To="1" Duration="{StaticResource Duracion}" EasingFunction="{StaticResource Easing}"/>
+                                    <DoubleAnimation Storyboard.TargetName="Contenido" Storyboard.TargetProperty="RenderTransform.ScaleY" 
+                                                     To="1" Duration="{StaticResource Duracion}" EasingFunction="{StaticResource Easing}"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </Trigger.ExitActions>
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+        </Button.Template>
+
+        <StackPanel DataContext="{Binding ElementName=This}" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ContentControl Content="{Binding Extension.Icono}" HorizontalAlignment="Center"/>
+            <TextBlock Margin="0 10 0 0" Text="{Binding Extension.Titulo}" TextWrapping="Wrap" TextAlignment="Center" Style="{StaticResource b-l5}"/>
+            <TextBlock Text="{Binding Extension.Descripcion}" TextWrapping="Wrap" TextAlignment="Center" Opacity="0.7" Style="{StaticResource b-l6}"/>
+        </StackPanel>
+    </Button>
+</UserControl>
