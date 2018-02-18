@@ -5,12 +5,12 @@ using System.Windows.Controls;
 
 using ReactiveUI;
 
+using AguaSB.Views.Animaciones;
+using AguaSB.Compartido.ViewModels;
 using AguaSB.Views.Conversores.Reactive;
 using AguaSB.Views.Utilerias;
 using System.Windows.Media.Animation;
 using System.Windows.Media;
-using AguaSB.Views.Controles.Animaciones;
-using AguaSB.Compartido.ViewModels;
 
 namespace AguaSB.Compartido.Views
 {

@@ -217,6 +217,10 @@
       <Project>{9FE14771-E82A-4912-9F4E-3CD90E2DCFF5}</Project>
       <Name>AguaSB.ViewModels.Controles</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Views.Animaciones\AguaSB.Views.Animaciones.csproj">
+      <Project>{49641a85-bfcf-4ac4-aa20-2eb09c5c20a4}</Project>
+      <Name>AguaSB.Views.Animaciones</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AguaSB.Views.Controles\AguaSB.Views.Controles.csproj">
       <Project>{cde5d968-1ceb-43bd-9b4c-786130b6d948}</Project>
       <Name>AguaSB.Views.Controles</Name>

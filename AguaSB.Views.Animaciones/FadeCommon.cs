@@ -6,7 +6,7 @@ using System.Windows.Media.Animation;
 
 using MoreLinq;
 
-namespace AguaSB.Views.Controles.Animaciones
+namespace AguaSB.Views.Animaciones
 {
     internal static class FadeCommon
     {

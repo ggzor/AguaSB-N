@@ -128,6 +128,10 @@
       <Project>{05C6D9FF-5C45-407E-88C7-0AA36CC33A42}</Project>
       <Name>AguaSB.Compartido.ViewModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Views.Animaciones\AguaSB.Views.Animaciones.csproj">
+      <Project>{49641A85-BFCF-4AC4-AA20-2EB09C5C20A4}</Project>
+      <Name>AguaSB.Views.Animaciones</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AguaSB.Views.Controles\AguaSB.Views.Controles.csproj">
       <Project>{cde5d968-1ceb-43bd-9b4c-786130b6d948}</Project>
       <Name>AguaSB.Views.Controles</Name>

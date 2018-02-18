@@ -2,24 +2,24 @@
 using System.Windows;
 using System.Windows.Media.Animation;
 
-namespace AguaSB.Views.Controles.Animaciones
+namespace AguaSB.Views.Animaciones
 {
-    public static class FadeOut
+    public static class FadeIn
     {
         public static readonly DependencyProperty DelayProperty =
-            DependencyProperty.RegisterAttached("Delay", typeof(TimeSpan?), typeof(FadeOut), new PropertyMetadata(TimeSpan.Zero));
+            DependencyProperty.RegisterAttached("Delay", typeof(TimeSpan?), typeof(FadeIn), new PropertyMetadata(TimeSpan.Zero));
 
         public static void SetDelay(FrameworkElement elem, TimeSpan? val) => elem.SetValue(DelayProperty, val);
         public static TimeSpan? GetDelay(FrameworkElement elem) => (TimeSpan?)elem.GetValue(DelayProperty);
 
         public static readonly DependencyProperty DurationProperty =
-            DependencyProperty.RegisterAttached("Duration", typeof(TimeSpan), typeof(FadeOut), new PropertyMetadata(FadeCommon.DefaultDuration));
+            DependencyProperty.RegisterAttached("Duration", typeof(TimeSpan), typeof(FadeIn), new PropertyMetadata(FadeCommon.DefaultDuration));
 
         public static void SetDuration(FrameworkElement elem, TimeSpan val) => elem.SetValue(DurationProperty, val);
         public static TimeSpan GetDuration(FrameworkElement elem) => (TimeSpan)elem.GetValue(DurationProperty);
 
         public static readonly DependencyProperty EasingProperty =
-            DependencyProperty.RegisterAttached("Easing", typeof(IEasingFunction), typeof(FadeOut),
+            DependencyProperty.RegisterAttached("Easing", typeof(IEasingFunction), typeof(FadeIn),
                 new PropertyMetadata(FadeCommon.DefaultEase));
 
         public static void SetEasing(FrameworkElement elem, IEasingFunction val) => elem.SetValue(EasingProperty, val);
@@ -29,7 +29,7 @@ namespace AguaSB.Views.Controles.Animaciones
         /// Set to false if you want to ignore the animation.
         /// </summary>
         public static readonly DependencyProperty FirstTimeProperty =
-            DependencyProperty.RegisterAttached("FirstTime", typeof(bool), typeof(FadeOut), new PropertyMetadata(true));
+            DependencyProperty.RegisterAttached("FirstTime", typeof(bool), typeof(FadeIn), new PropertyMetadata(true));
 
         public static void SetFirstTime(FrameworkElement elem, bool val) => elem.SetValue(FirstTimeProperty, val);
         public static bool GetFirstTime(FrameworkElement elem) => (bool)elem.GetValue(FirstTimeProperty);
@@ -38,14 +38,14 @@ namespace AguaSB.Views.Controles.Animaciones
         /// Set <see cref="StartWithProperty"/> first if required.
         /// </summary>
         public static readonly DependencyProperty FromProperty =
-            DependencyProperty.RegisterAttached("From", typeof(FadeDirection), typeof(FadeOut),
+            DependencyProperty.RegisterAttached("From", typeof(FadeDirection), typeof(FadeIn),
                 new PropertyMetadata(FadeCommon.DefaultDirection, (o, a) => Configure((FrameworkElement)o)));
 
         public static void SetFrom(FrameworkElement elem, FadeDirection direction) => elem.SetValue(FromProperty, direction);
         public static FadeDirection GetFrom(FrameworkElement elem) => (FadeDirection)elem.GetValue(FromProperty);
 
         public static readonly DependencyProperty HandleVisibilityProperty =
-            DependencyProperty.RegisterAttached("HandleVisibility", typeof(bool), typeof(FadeOut), new PropertyMetadata(true));
+            DependencyProperty.RegisterAttached("HandleVisibility", typeof(bool), typeof(FadeIn), new PropertyMetadata(true));
 
         public static void SetHandleVisibility(FrameworkElement elem, bool val) => elem.SetValue(HandleVisibilityProperty, val);
         public static bool GetHandleVisibility(FrameworkElement elem) => (bool)elem.GetValue(HandleVisibilityProperty);
@@ -54,7 +54,7 @@ namespace AguaSB.Views.Controles.Animaciones
         /// The amount of displacement that is going to be applied in the specified direction.
         /// </summary>
         public static readonly DependencyProperty PushProperty =
-            DependencyProperty.RegisterAttached("Push", typeof(double?), typeof(FadeOut), new PropertyMetadata(null));
+            DependencyProperty.RegisterAttached("Push", typeof(double?), typeof(FadeIn), new PropertyMetadata(null));
 
         public static void SetPush(FrameworkElement elem, double? val) => elem.SetValue(PushProperty, val);
         public static double? GetPush(FrameworkElement elem) => (double?)elem.GetValue(PushProperty);
@@ -64,7 +64,7 @@ namespace AguaSB.Views.Controles.Animaciones
         /// Intended to be a binding.
         /// </summary>
         public static readonly DependencyProperty StartWithProperty =
-            DependencyProperty.RegisterAttached("StartWith", typeof(bool?), typeof(FadeOut),
+            DependencyProperty.RegisterAttached("StartWith", typeof(bool?), typeof(FadeIn),
                 new PropertyMetadata(null, (o, a) => TryStart((FrameworkElement)o, (bool)a.NewValue)));
 
         public static void SetStartWith(FrameworkElement elem, bool? val) => elem.SetValue(StartWithProperty, val);
@@ -85,14 +85,12 @@ namespace AguaSB.Views.Controles.Animaciones
             }
         }
 
-        public static void Apply(FrameworkElement elem, FadeDirection direction = FadeDirection.None, Action onCompleted = null, EventHandler onCompletedEH = null) =>
-            FadeCommon.Apply(
-                elem, 0.0,
-                direction, () =>
-                {
-                    elem.Visibility = Visibility.Hidden;
-                    onCompleted?.Invoke();
-                }, onCompletedEH,
-                GetPush(elem), GetDelay(elem), GetDuration(elem), GetEasing(elem));
+        public static void Apply(FrameworkElement elem, FadeDirection direction = FadeDirection.None, Action onCompleted = null, EventHandler onCompletedEH = null)
+        {
+            elem.Opacity = 0;
+            elem.Visibility = Visibility.Visible;
+
+            FadeCommon.Apply(elem, 1.0, direction, onCompleted, onCompletedEH, GetPush(elem), GetDelay(elem), GetDuration(elem), GetEasing(elem));
+        }
     }
 }

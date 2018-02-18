@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using AguaSB.Views.Controles.Animaciones;
+using AguaSB.Views.Animaciones;
 
 namespace AguaSB.Views.Controles.Texto
 {

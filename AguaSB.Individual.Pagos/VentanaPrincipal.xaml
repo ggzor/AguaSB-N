@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
-        xmlns:anim="clr-namespace:AguaSB.Views.Controles.Animaciones;assembly=AguaSB.Views.Controles"
+        xmlns:anim="clr-namespace:AguaSB.Views.Animaciones;assembly=AguaSB.Views.Animaciones"
         xmlns:textos="clr-namespace:AguaSB.Views.Controles.Texto;assembly=AguaSB.Views.Controles"
         xmlns:compartido="clr-namespace:AguaSB.Compartido.Views;assembly=AguaSB.Compartido.Views"
         xmlns:local="clr-namespace:AguaSB.Individual.Pagos"                   

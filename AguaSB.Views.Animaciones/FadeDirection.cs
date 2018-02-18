@@ -1,4 +1,4 @@
-﻿namespace AguaSB.Views.Controles.Animaciones
+﻿namespace AguaSB.Views.Animaciones
 {
     public enum FadeDirection
     {

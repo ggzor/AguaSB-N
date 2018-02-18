@@ -8,7 +8,7 @@ using ReactiveUI;
 
 using AguaSB.Compartido.Interfaces;
 using AguaSB.Views;
-using AguaSB.Views.Controles.Animaciones;
+using AguaSB.Views.Animaciones;
 
 namespace AguaSB.Individual.Pagos
 {

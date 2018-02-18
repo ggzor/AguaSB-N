@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-using AguaSB.Views.Controles.Animaciones;
+using AguaSB.Views.Animaciones;
 
 namespace AguaSB.Individual.Pagos
 {
