@@ -93,6 +93,10 @@
       <Project>{DE76DF8B-6473-4DA3-B5E0-2506C56C93AE}</Project>
       <Name>AguaSB.Extensiones</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Views.Navegacion\AguaSB.Views.Navegacion.csproj">
+      <Project>{747D050E-0340-4A2F-897E-95DE9D7D4E5B}</Project>
+      <Name>AguaSB.Views.Navegacion</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AguaSB.Views\AguaSB.Views.csproj">
       <Project>{FEF2C4F0-9231-4246-A231-25E8A8831240}</Project>
       <Name>AguaSB.Views</Name>
