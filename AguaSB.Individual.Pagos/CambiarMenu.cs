@@ -30,9 +30,7 @@ namespace AguaSB.Individual.Pagos
 
             ventana.TitleForeground = Brushes.Black;
 
-            FadeIn.SetDuration(ventana.Menu, duracion.Add(TimeSpan.FromSeconds(0.2)));
-            FadeIn.SetEasing(ventana.Menu, easing);
-            FadeIn.Apply(ventana.Menu);
+            ScaleIn.Apply(ventana.Menu);
         }
     }
 }
