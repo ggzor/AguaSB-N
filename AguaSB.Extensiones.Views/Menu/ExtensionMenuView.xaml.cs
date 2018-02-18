@@ -5,6 +5,8 @@ namespace AguaSB.Extensiones.Views.Menu
 {
     public partial class ExtensionMenuView : UserControl
     {
+
+
         public ExtensionMenuView()
         {
             InitializeComponent();

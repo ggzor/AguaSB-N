@@ -1,5 +1,4 @@
 ﻿using AguaSB.Views;
-using System.Windows;
 
 namespace AguaSB.Extensiones.Views
 {
