@@ -49,6 +49,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AguaSB.Scripts", "AguaSB.Sc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AguaSB.Views.Animaciones", "AguaSB.Views.Animaciones\AguaSB.Views.Animaciones.csproj", "{49641A85-BFCF-4AC4-AA20-2EB09C5C20A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AguaSB.Views.Navegacion", "AguaSB.Views.Navegacion\AguaSB.Views.Navegacion.csproj", "{747D050E-0340-4A2F-897E-95DE9D7D4E5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +149,10 @@ Global
 		{49641A85-BFCF-4AC4-AA20-2EB09C5C20A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49641A85-BFCF-4AC4-AA20-2EB09C5C20A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49641A85-BFCF-4AC4-AA20-2EB09C5C20A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{747D050E-0340-4A2F-897E-95DE9D7D4E5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{747D050E-0340-4A2F-897E-95DE9D7D4E5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{747D050E-0340-4A2F-897E-95DE9D7D4E5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{747D050E-0340-4A2F-897E-95DE9D7D4E5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
