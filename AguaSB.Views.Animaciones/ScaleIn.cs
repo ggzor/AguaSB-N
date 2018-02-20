@@ -7,18 +7,18 @@ namespace AguaSB.Views.Animaciones
 {
     public static class ScaleIn
     {
-        public static void Apply(FrameworkElement elem)
+        public static void Apply(FrameworkElement elem, Action onCompleted = null)
         {
             SetUpElement(elem);
-            BeginAnimations(elem);
+            BeginAnimations(elem, onCompleted);
         }
 
-        private const double InitialScale = 0.85;
-        private const double InitialOpacity = 0.2;
-        private const double RenderTransformOrigin = 0.5;
+        public const double InitialScale = 0.85;
+        public const double InitialOpacity = 0.2;
+        public const double RenderTransformOrigin = 0.5;
 
-        private static readonly TimeSpan Duration = TimeSpan.FromMilliseconds(500);
-        private static readonly IEasingFunction EasingFunction = new PowerEase() { Power = 5, EasingMode = EasingMode.EaseOut };
+        public static readonly TimeSpan Duration = TimeSpan.FromMilliseconds(500);
+        public static readonly IEasingFunction EasingFunction = new PowerEase() { Power = 5, EasingMode = EasingMode.EaseOut };
         private static DoubleAnimation DoubleAnimationTo(double to) => new DoubleAnimation(to, Duration) { EasingFunction = EasingFunction };
 
         private static void SetUpElement(FrameworkElement elem)
@@ -29,9 +29,15 @@ namespace AguaSB.Views.Animaciones
             elem.Visibility = Visibility.Visible;
         }
 
-        private static void BeginAnimations(FrameworkElement elem) =>
-            new Storyboard() { Children = SetUpAnimations() }
-                .Begin(elem);
+        private static void BeginAnimations(FrameworkElement elem, Action onCompleted)
+        {
+            var animaciones = new Storyboard() { Children = SetUpAnimations() };
+
+            if (onCompleted != null)
+                animaciones.Completed += (s, a) => onCompleted.Invoke();
+
+            animaciones.Begin(elem);
+        }
 
         private static TimelineCollection SetUpAnimations()
         {
