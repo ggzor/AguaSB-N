@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="AguaSB.Individual.Pagos.Views.IniciarSesionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:compartido="clr-namespace:AguaSB.Compartido.Views;assembly=AguaSB.Compartido.Views"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="1024"
+             Name="This">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Estilos;component/Colores.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Background="{StaticResource PrimaryDarkBrush}">
+        <compartido:AutenticacionPorUsuarioView Name="Autenticacion" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Grid>
+</UserControl>

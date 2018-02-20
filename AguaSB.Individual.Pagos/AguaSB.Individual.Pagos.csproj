@@ -59,6 +59,9 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=2.3.2.1036, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.2.3.2-ci1036\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="MoreLinq, Version=2.10.21623.0, Culture=neutral, PublicKeyToken=384d532d7e88985d, processorArchitecture=MSIL">
+      <HintPath>..\packages\morelinq.2.10.0\lib\net40\MoreLinq.dll</HintPath>
+    </Reference>
     <Reference Include="NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.5.0.0-beta07\lib\net45\NLog.dll</HintPath>
     </Reference>
@@ -131,21 +134,28 @@
     <Compile Include="AutorizadorCualquierExtension.cs" />
     <Compile Include="CargadorExtensionesWindsor.cs" />
     <Compile Include="CargadorExtensionesAutorizadas.cs" />
-    <Compile Include="CambiarMenu.cs" />
     <Compile Include="Instaladores\AutenticadorFalso.cs" />
     <Compile Include="Instaladores\InstalarAutenticacion.cs" />
     <Compile Include="Instaladores\InstalarCargaExtensiones.cs" />
     <Compile Include="Instaladores\InstalarCompartido.cs" />
     <Compile Include="Instaladores\InstalarExtensiones.cs" />
     <Compile Include="Instaladores\Instalacion.cs" />
+    <Compile Include="Views\IniciarSesionView.xaml.cs">
+      <DependentUpon>IniciarSesionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IViewPrincipal.cs" />
     <Compile Include="MenuExtensiones.cs" />
     <Compile Include="MenuExtensionesView.xaml.cs">
       <DependentUpon>MenuExtensionesView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NavegadorViewsPrincipales.cs" />
     <Compile Include="VentanaPrincipal.xaml.cs">
       <DependentUpon>VentanaPrincipal.xaml</DependentUpon>
     </Compile>
     <Compile Include="VentanaPrincipalViewModel.cs" />
+    <Compile Include="Views\PrincipalView.xaml.cs">
+      <DependentUpon>PrincipalView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Instaladores\InstalarInterfaz.cs" />
@@ -251,6 +261,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\IniciarSesionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PrincipalView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

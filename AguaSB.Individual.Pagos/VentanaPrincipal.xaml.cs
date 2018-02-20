@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Windows;
@@ -6,7 +7,9 @@ using System.Windows;
 using MahApps.Metro.Controls;
 using ReactiveUI;
 
-using AguaSB.Compartido.Interfaces;
+using AguaSB.Compartido.ViewModels;
+using AguaSB.Extensiones.Views;
+using AguaSB.Individual.Pagos.Views;
 using AguaSB.Views;
 using AguaSB.Views.Animaciones;
 
@@ -14,23 +17,23 @@ namespace AguaSB.Individual.Pagos
 {
     public partial class VentanaPrincipal : MetroWindow, IViewFor<VentanaPrincipalViewModel>, IVentana
     {
-        internal MenuExtensionesView Menu { get; }
-
-        public IAutenticacion Autenticacion { get; }
-
-        public VentanaPrincipal(VentanaPrincipalViewModel viewModel, IAutenticacion autenticacion)
+        public VentanaPrincipal(VentanaPrincipalViewModel viewModel, AutenticacionPorUsuario autenticacion)
         {
             DataContext = ViewModel = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
-            Autenticacion = autenticacion ?? throw new ArgumentNullException(nameof(autenticacion));
             InitializeComponent();
 
-            Menu = MenuExtensiones;
+            var autenticacionView = new IniciarSesionView(autenticacion);
+            var extensionesView = new PrincipalView(
+                ViewModel.Cargar.Select(a => a.Obtener<IExtensionMenu>().ToArray()));
 
-            Activated += (s, a) => InicioSesion.DoFocus();
+            PanelPrincipal.Children.Add(autenticacionView);
+            var navegador = new NavegadorViewsPrincipales(this, PanelPrincipal);
+
+            Activated += (s, a) => autenticacionView.DoFocus();
 
             (this).WhenActivated(d =>
             {
-                (this).WhenAnyObservable(v => v.Autenticacion.Autenticar)
+                (this).WhenAnyObservable(v => v.ViewModel.Autenticacion.Autenticar)
                     .SelectMany(c => Observable.Return(c).Delay(TimeSpan.FromSeconds(3.5)))
                     .ObserveOnDispatcher()
                     .Subscribe(s => FadeIn.Apply(PanelCarga))
@@ -39,11 +42,8 @@ namespace AguaSB.Individual.Pagos
                 (this).WhenAnyObservable(v => v.ViewModel.Cargar)
                      .SelectMany(c => Observable.Return(c).Delay(TimeSpan.FromSeconds(1)))
                      .ObserveOnDispatcher()
-                     .Subscribe(u =>
-                     {
-                         FadeOut.Apply(PanelCarga);
-                         FadeOut.Apply(InicioSesion, onCompleted: () => CambiarMenu.Aplicar(this));
-                     }).DisposeWith(d);
+                     .Subscribe(u => FadeOut.Apply(PanelCarga, onCompleted: () => navegador.IrA(extensionesView)))
+                     .DisposeWith(d);
             });
         }
 

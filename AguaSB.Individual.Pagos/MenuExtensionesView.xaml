@@ -30,7 +30,7 @@
                 <icons:PackIconModern Margin="0 8 0 6" Kind="Magnify" Width="12" Height="12" Foreground="#89000000" 
                                       HorizontalAlignment="Right" VerticalAlignment="Top"/>
 
-                <TextBox Margin="0" Padding="0 0 12 0" FontSize="{StaticResource t5}" Style="{StaticResource MaterialTextBox}"
+                <TextBox Name="Busqueda" Margin="0" Padding="0 0 12 0" FontSize="{StaticResource t5}" Style="{StaticResource MaterialTextBox}"
                          material:HintAssist.IsFloating="False" BorderBrush="#70000000"
                          Tag="Buscar una herramienta de trabajo"/>
             </Grid>
@@ -58,11 +58,6 @@
                     </Setter>
                 </Style>
             </ListView.ItemContainerStyle>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <menu:ExtensionMenuView Extension="{Binding}"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </UserControl>

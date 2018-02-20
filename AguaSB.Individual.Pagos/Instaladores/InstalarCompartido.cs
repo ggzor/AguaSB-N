@@ -8,7 +8,9 @@ namespace AguaSB.Individual.Pagos.Instaladores
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Classes.FromAssemblyNamed("AguaSB.Compartido.ViewModels").Pick().WithServiceDefaultInterfaces());
+            container.Register(Classes.FromAssemblyNamed("AguaSB.Compartido.ViewModels").Pick()
+                .WithServiceDefaultInterfaces()
+                .WithServiceSelf());
         }
     }
 }

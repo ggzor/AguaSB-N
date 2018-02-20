@@ -1,21 +1,38 @@
-﻿using System.Reactive.Disposables;
+﻿using System;
+using System.Linq;
+using System.Reactive.Disposables;
+using System.Reactive.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
 using ReactiveUI;
 
+using AguaSB.Extensiones.Views.Menu;
+using AguaSB.Views.Utilerias;
+
 namespace AguaSB.Individual.Pagos
 {
-    public partial class MenuExtensionesView : UserControl, IViewFor<MenuExtensiones>
+    public partial class MenuExtensionesView : UserControl, IViewFor<MenuExtensiones>, IFocusable
     {
         public MenuExtensionesView()
         {
             InitializeComponent();
             this.WhenActivated(d =>
             {
-                this.OneWayBind(ViewModel, vm => vm.Extensiones, v => v.IconosMenu.ItemsSource).DisposeWith(d);
+                var viewsObservable = this.WhenAnyValue(v => v.ViewModel.Extensiones)
+                    .Select(c => c.Select(e => new ExtensionMenuView { Extension = e }));
+
+                viewsObservable.Subscribe(c => IconosMenu.ItemsSource = c)
+                    .DisposeWith(d);
+
+                ExtensionSeleccionada = viewsObservable
+                    .Select(c => c.Select(e => e.Seleccionada).Merge());
             });
         }
+
+        public void DoFocus() => Busqueda.Focus();
+
+        public IObservable<IObservable<ExtensionMenuView>> ExtensionSeleccionada { get; private set; }
 
         #region IViewFor
         public MenuExtensiones ViewModel
