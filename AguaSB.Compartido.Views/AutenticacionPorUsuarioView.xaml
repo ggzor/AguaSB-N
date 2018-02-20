@@ -13,6 +13,8 @@
                 <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Estilos;component/Colores.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Estilos;component/EntradaTexto.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Estilos;component/Textos.xaml"/>
+                
+                <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Estilos;component/Material/TemaBlanco.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
