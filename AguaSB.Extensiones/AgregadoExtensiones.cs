@@ -44,6 +44,8 @@ namespace AguaSB.Extensiones
 
         public IEnumerable<IExtension> Obtener(Type tipo) => extensiones[tipo];
 
+        public IEnumerable<T> Obtener<T>() where T : IExtension => Obtener(typeof(T)).Cast<T>();
+
         public void Registrar(IEnumerable<IExtension> extensiones) =>
             extensiones.ForEach(Registrar);
 

@@ -36,6 +36,17 @@ namespace AguaSB.Extensiones.Tests
         }
 
         [Test]
+        public void DeberiaObtenerListaConExtensionRegistradaDelTipoEspecificado_CuandoSeRegistraUnaExtension()
+        {
+            var extension = new Extension();
+            AgregadoExtensiones.Registrar(extension);
+
+            var extensionesRecibidas = AgregadoExtensiones.Obtener<Extension>();
+
+            CollectionAssert.Contains(extensionesRecibidas, extension);
+        }
+
+        [Test]
         public void DeberiaObtenerListasDistintasConExtensionesRegistradasPorTipo_CuandoSeRegistranExtensionesDeMultiplesTipos()
         {
             foreach (var (tipo, extensiones) in RegistrarMultiplesTiposExtensiones())
@@ -137,6 +148,13 @@ namespace AguaSB.Extensiones.Tests
             }
 
             public override string ToString() => $"{Alias}({Numero})";
+        }
+
+        private class Extension : ExtensionBase
+        {
+            public Extension() : base("E")
+            {
+            }
         }
 
         private class Extension1 : ExtensionBase
