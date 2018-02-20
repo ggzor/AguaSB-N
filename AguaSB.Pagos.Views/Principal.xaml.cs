@@ -14,7 +14,7 @@ namespace AguaSB.Pagos.Views
 
         public FrameworkElement View => this;
 
-        public void Entrar()
+        public void DoFocus()
         {
 
         }

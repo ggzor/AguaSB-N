@@ -46,5 +46,11 @@
     <Compile Include="IView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AguaSB.Views.Utilerias\AguaSB.Views.Utilerias.csproj">
+      <Project>{DC115CE2-1EE9-4B44-816E-5F59E76EAB05}</Project>
+      <Name>AguaSB.Views.Utilerias</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
