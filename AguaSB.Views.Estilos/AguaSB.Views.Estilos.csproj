@@ -141,6 +141,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AguaSB.Views.Animaciones\AguaSB.Views.Animaciones.csproj">
+      <Project>{49641A85-BFCF-4AC4-AA20-2EB09C5C20A4}</Project>
+      <Name>AguaSB.Views.Animaciones</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AguaSB.Views.Conversores\AguaSB.Views.Conversores.csproj">
       <Project>{dd34ba73-bdc9-4989-9116-fbbc0dbcf3b2}</Project>
       <Name>AguaSB.Views.Conversores</Name>

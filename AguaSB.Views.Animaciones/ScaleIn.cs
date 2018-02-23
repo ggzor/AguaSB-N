@@ -1,18 +1,16 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+
+using AguaSB.Views.Animaciones.Pipelines;
+using static AguaSB.Views.Animaciones.Pipelines.PropPath;
 
 namespace AguaSB.Views.Animaciones
 {
     public static class ScaleIn
     {
-        public static void Apply(FrameworkElement elem, Action onCompleted = null)
-        {
-            SetUpElement(elem);
-            BeginAnimations(elem, onCompleted);
-        }
-
         public const double InitialScale = 0.85;
         public const double InitialOpacity = 0.2;
         public const double RenderTransformOrigin = 0.5;
@@ -21,35 +19,41 @@ namespace AguaSB.Views.Animaciones
         public static readonly IEasingFunction EasingFunction = new PowerEase() { Power = 5, EasingMode = EasingMode.EaseOut };
         private static DoubleAnimation DoubleAnimationTo(double to) => new DoubleAnimation(to, Duration) { EasingFunction = EasingFunction };
 
-        private static void SetUpElement(FrameworkElement elem)
+        private static readonly PropertyPath RenderTransformPath = For<FrameworkElement, Transform>(f => f.RenderTransform);
+        private static readonly PropertyPath ScaleXPath = Concat(RenderTransformPath, For<ScaleTransform, double>(s => s.ScaleX));
+        private static readonly PropertyPath ScaleYPath = Concat(RenderTransformPath, For<ScaleTransform, double>(s => s.ScaleY));
+        private static readonly PropertyPath OpacityPath = For<FrameworkElement, double>(f => f.Opacity);
+        private static readonly PropertyPath[] Paths = new[] { ScaleXPath, ScaleYPath, OpacityPath };
+
+        public static IFutureAnimation Create(FrameworkElement elem)
         {
-            elem.Opacity = InitialOpacity;
-            elem.RenderTransform = new ScaleTransform { ScaleX = InitialScale, ScaleY = InitialScale };
-            elem.RenderTransformOrigin = new Point(RenderTransformOrigin, RenderTransformOrigin);
-            elem.Visibility = Visibility.Visible;
+            void SetUpElement()
+            {
+                elem.Opacity = InitialOpacity;
+                elem.RenderTransform = new ScaleTransform { ScaleX = InitialScale, ScaleY = InitialScale };
+                elem.RenderTransformOrigin = new Point(RenderTransformOrigin, RenderTransformOrigin);
+                elem.Visibility = Visibility.Visible;
+            }
+
+            Timeline CreateAnimations()
+            {
+                var timelines = Paths.Select(p => (p, Animation: DoubleAnimationTo(1))).ToArray();
+
+                foreach (var (path, animation) in timelines)
+                {
+                    Storyboard.SetTarget(animation, elem);
+                    Storyboard.SetTargetProperty(animation, path);
+                }
+
+                return new Storyboard { Children = new TimelineCollection(timelines.Select(t => t.Animation)) };
+            }
+
+            return new FutureAnimation(
+                preAction: SetUpElement,
+                timeline: CreateAnimations());
         }
 
-        private static void BeginAnimations(FrameworkElement elem, Action onCompleted)
-        {
-            var animaciones = new Storyboard() { Children = SetUpAnimations() };
-
-            if (onCompleted != null)
-                animaciones.Completed += (s, a) => onCompleted.Invoke();
-
-            animaciones.Begin(elem);
-        }
-
-        private static TimelineCollection SetUpAnimations()
-        {
-            var scaleXAnim = DoubleAnimationTo(1);
-            var scaleYAnim = DoubleAnimationTo(1);
-            var fadeIn = DoubleAnimationTo(1);
-
-            scaleXAnim.SetValue(Storyboard.TargetPropertyProperty, new PropertyPath($"{nameof(FrameworkElement.RenderTransform)}.{nameof(ScaleTransform.ScaleX)}"));
-            scaleYAnim.SetValue(Storyboard.TargetPropertyProperty, new PropertyPath($"{nameof(FrameworkElement.RenderTransform)}.{nameof(ScaleTransform.ScaleY)}"));
-            fadeIn.SetValue(Storyboard.TargetPropertyProperty, new PropertyPath(nameof(FrameworkElement.Opacity)));
-
-            return new TimelineCollection { scaleXAnim, scaleYAnim, fadeIn };
-        }
+        public static void Apply(FrameworkElement elem) =>
+            elem.Begin(Create(elem));
     }
 }

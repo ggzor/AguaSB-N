@@ -1,27 +1,42 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
 using MahApps.Metro.Controls;
 
+using AguaSB.Views.Animaciones.Pipelines;
+using static AguaSB.Views.Animaciones.Pipelines.PropPath;
+
 namespace AguaSB.Views.Estilos.Modern.Ventanas
 {
     public static class AplicadorEsquemasBarraTitulo
     {
-        private static readonly TimeSpan Duracion = TimeSpan.FromSeconds(0.6);
-        private static readonly QuadraticEase Easing = new QuadraticEase { EasingMode = EasingMode.EaseOut };
+        public static readonly TimeSpan Duracion = TimeSpan.FromSeconds(0.6);
+        public static readonly QuadraticEase Easing = new QuadraticEase { EasingMode = EasingMode.EaseOut };
 
-        public static void Aplicar(MetroWindow ventana, EsquemaBarraTitulo esquema)
+        private static readonly PropertyPath RutaCambioColor =
+            Concat(For<MetroWindow, Brush>(m => m.WindowTitleBrush), For<SolidColorBrush, Color>(s => s.Color));
+
+        public static IFutureAnimation Crear(MetroWindow ventana, EsquemaBarraTitulo esquema)
         {
             void AplicarColores()
             {
+                ventana.TitleForeground = new SolidColorBrush(esquema.ColorTexto);
                 ventana.WindowButtonCommands.LightMinButtonStyle = esquema.EstiloBotones.Minimizar;
                 ventana.WindowButtonCommands.LightMaxButtonStyle = esquema.EstiloBotones.Maximizar;
                 ventana.WindowButtonCommands.LightCloseButtonStyle = esquema.EstiloBotones.Cerrar;
-                ventana.TitleForeground = new SolidColorBrush(esquema.ColorTexto);
             }
 
-            void AplicarAnimacion()
+            void PrepararBarra()
+            {
+                if (ventana.WindowTitleBrush is SolidColorBrush brush)
+                    ventana.WindowTitleBrush = new SolidColorBrush(brush.Color);
+                else
+                    throw new InvalidOperationException("Cannot animate the title brush because it is not a SolidColorBrush");
+            }
+
+            Timeline CrearAnimacion()
             {
                 var animacion = new ColorAnimation
                 {
@@ -29,12 +44,23 @@ namespace AguaSB.Views.Estilos.Modern.Ventanas
                     Duration = Duracion,
                     EasingFunction = Easing
                 };
-                ventana.WindowTitleBrush = new SolidColorBrush(((ventana.WindowTitleBrush as SolidColorBrush)?.Color).Value);
-                ventana.WindowTitleBrush.BeginAnimation(SolidColorBrush.ColorProperty, animacion);
+
+                Storyboard.SetTarget(animacion, ventana);
+                Storyboard.SetTargetProperty(animacion, RutaCambioColor);
+
+                return new Storyboard { Children = { animacion } };
             }
 
-            AplicarAnimacion();
-            AplicarColores();
+            return new FutureAnimation(
+                preAction: () =>
+                {
+                    PrepararBarra();
+                    AplicarColores();
+                },
+                timeline: CrearAnimacion());
         }
+
+        public static void Aplicar(MetroWindow ventana, EsquemaBarraTitulo esquema) =>
+            ventana.Begin(Crear(ventana, esquema));
     }
 }
