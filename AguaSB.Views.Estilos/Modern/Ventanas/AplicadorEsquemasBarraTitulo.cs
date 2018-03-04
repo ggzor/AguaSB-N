@@ -51,16 +51,16 @@ namespace AguaSB.Views.Estilos.Modern.Ventanas
                 return new Storyboard { Children = { animacion } };
             }
 
-            return new FutureAnimation(
-                preAction: () =>
+            return CrearAnimacion()
+                .ToFutureAnimation()
+                .Before(() =>
                 {
                     PrepararBarra();
                     AplicarColores();
-                },
-                timeline: CrearAnimacion());
+                });
         }
 
         public static void Aplicar(MetroWindow ventana, EsquemaBarraTitulo esquema) =>
-            ventana.Begin(Crear(ventana, esquema));
+            Crear(ventana, esquema).BeginIn(ventana);
     }
 }

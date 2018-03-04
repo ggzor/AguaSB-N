@@ -57,11 +57,14 @@
     <Compile Include="GenericFader.cs" />
     <Compile Include="IFader.cs" />
     <Compile Include="IFaderBuilder.cs" />
-    <Compile Include="Pipelines\CompositeFutureAnimation.cs" />
+    <Compile Include="Pipelines\ParallelFutureAnimation.cs" />
+    <Compile Include="Pipelines\PostActionedFutureAnimation.cs" />
+    <Compile Include="Pipelines\PreActionedFutureAnimation.cs" />
     <Compile Include="Pipelines\PropertyPathExtensions.cs" />
-    <Compile Include="Pipelines\FutureAnimation.cs" />
+    <Compile Include="Pipelines\StoryboardFutureAnimation.cs" />
     <Compile Include="Pipelines\FutureAnimationExecutionExtensions.cs" />
     <Compile Include="Pipelines\IFutureAnimation.cs" />
+    <Compile Include="Pipelines\SequentialFutureAnimation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

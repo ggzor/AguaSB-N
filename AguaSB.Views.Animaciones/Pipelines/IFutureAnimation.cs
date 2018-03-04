@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Windows.Media.Animation;
+using System.Windows;
 
 namespace AguaSB.Views.Animaciones.Pipelines
 {
     public interface IFutureAnimation
     {
-        Action PreAction { get; }
-
-        Storyboard Storyboard { get; }
-
-        Action PostAction { get; }
+        void Begin(FrameworkElement element, Action onCompleted);
     }
 }

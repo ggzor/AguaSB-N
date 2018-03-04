@@ -52,13 +52,13 @@ namespace AguaSB.Views.Animaciones
 
             void PostAction() => element.Visibility = TargetVisibility;
 
-            return new FutureAnimation(
-                preAction: SetUpElement,
-                timeline: animation,
-                postAction: PostAction);
+            return animation
+                .ToFutureAnimation()
+                .Before(SetUpElement)
+                .Then(PostAction);
         }
 
         public void Apply(FrameworkElement element) =>
-            Create(element).BeginWith(element);
+            Create(element).BeginIn(element);
     }
 }

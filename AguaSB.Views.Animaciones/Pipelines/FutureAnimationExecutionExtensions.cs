@@ -1,29 +1,31 @@
 ﻿using System;
 using System.Linq;
 using System.Windows;
-
+using System.Windows.Media.Animation;
 using MoreLinq;
 
 namespace AguaSB.Views.Animaciones.Pipelines
 {
     public static class FutureAnimationExecutionExtensions
     {
-        public static void Begin(this FrameworkElement element, IFutureAnimation animation)
-        {
-            animation.PreAction();
+        public static readonly Action NoAction = () => { };
 
-            animation.Storyboard.Completed += (s, a) => animation.PostAction();
+        public static void BeginIn(this IFutureAnimation animation, FrameworkElement element) =>
+            animation.Begin(element, NoAction);
 
-            element.BeginStoryboard(animation.Storyboard);
-        }
+        public static IFutureAnimation ToFutureAnimation(this Timeline timeline) =>
+            new StoryboardFutureAnimation(timeline);
+
+        public static IFutureAnimation Append(this IFutureAnimation animation, IFutureAnimation other) =>
+            new SequentialFutureAnimation(first: animation, second: other);
+
+        public static IFutureAnimation Before(this IFutureAnimation animation, Action action) =>
+            new PreActionedFutureAnimation(action, animation);
 
         public static IFutureAnimation Then(this IFutureAnimation animation, Action action) =>
-            new CompositeFutureAnimation(preAction: FutureAnimation.NoAction, postAction: action, animations: animation);
+            new PostActionedFutureAnimation(animation, action);
 
-        public static IFutureAnimation And(this IFutureAnimation animation, params IFutureAnimation[] other) =>
-            new CompositeFutureAnimation(animations: other.Concat(animation).ToArray());
-
-        public static void BeginWith(this IFutureAnimation animation, FrameworkElement element) =>
-            element.Begin(animation);
+        public static IFutureAnimation Pair(this IFutureAnimation animation, params IFutureAnimation[] other) =>
+            new ParallelFutureAnimation(other.Concat(animation).ToArray());
     }
 }

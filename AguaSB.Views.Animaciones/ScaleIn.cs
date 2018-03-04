@@ -48,12 +48,12 @@ namespace AguaSB.Views.Animaciones
                 return new Storyboard { Children = new TimelineCollection(timelines.Select(t => t.Animation)) };
             }
 
-            return new FutureAnimation(
-                preAction: SetUpElement,
-                timeline: CreateAnimations());
+            return CreateAnimations()
+                .ToFutureAnimation()
+                .Before(SetUpElement);
         }
 
         public static void Apply(FrameworkElement elem) =>
-            elem.Begin(Create(elem));
+            Create(elem).BeginIn(elem);
     }
 }

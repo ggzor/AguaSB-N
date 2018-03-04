@@ -44,7 +44,11 @@ namespace AguaSB.Individual.Pagos
                 (this).WhenAnyObservable(v => v.ViewModel.Cargar)
                      .SelectMany(c => Observable.Return(c).Delay(TimeSpan.FromSeconds(1)))
                      .ObserveOnDispatcher()
-                     .Subscribe(u => Fade.Out.Create(PanelCarga).Then(() => navegador.IrA(extensionesView)).BeginWith(PanelCarga))
+                     .Subscribe(u => 
+                        Fade.Out
+                            .Create(PanelCarga)
+                            .Then(() => navegador.IrA(extensionesView))
+                            .BeginIn(PanelCarga))
                      .DisposeWith(d);
             });
         }

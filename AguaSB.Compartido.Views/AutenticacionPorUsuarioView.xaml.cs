@@ -51,7 +51,7 @@ namespace AguaSB.Compartido.Views
                 .WithDuration(TimeSpan.FromSeconds(0.5))
                 .Create(Interfaz)
                 .Then(() => Logo.RenderTransform.BeginAnimation(TranslateTransform.YProperty, animacionDesplazamientoLogo))
-                .BeginWith(Interfaz);
+                .BeginIn(Interfaz);
         }
 
         public void DoFocus() => Usuario.Focus();
