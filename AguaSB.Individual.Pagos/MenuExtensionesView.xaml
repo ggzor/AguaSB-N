@@ -5,7 +5,6 @@
              xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:menu="clr-namespace:AguaSB.Extensiones.Views.Menu;assembly=AguaSB.Extensiones.Views"
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="1024"
              Background="White" Name="This">
@@ -14,6 +13,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Estilos;component/Material/TemaPrimarioClaro.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Estilos;component/EntradaTexto.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Estilos;component/Listas.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -36,28 +36,12 @@
             </Grid>
         </StackPanel>
 
-        <ListView Name="IconosMenu" Margin="16 24" Grid.Row="1">
+        <ListView Name="IconosMenu" Margin="16 24" Grid.Row="1" Style="{StaticResource PlainListView}">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
-            <ListView.Template>
-                <ControlTemplate>
-                    <ItemsPresenter/>
-                </ControlTemplate>
-            </ListView.Template>
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="ListViewItem">
-                                <ContentPresenter/>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </ListView.ItemContainerStyle>
         </ListView>
     </Grid>
 </UserControl>
