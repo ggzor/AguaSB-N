@@ -20,10 +20,10 @@ namespace AguaSB.Views.Animaciones.Pipelines
 
             void CheckForAllAnimationsToComplete()
             {
+                count++;
+
                 if (count == Animations.Length)
                     onCompleted();
-                else
-                    count++;
             }
 
             Animations.ForEach(a => a.Begin(element, CheckForAllAnimationsToComplete));
