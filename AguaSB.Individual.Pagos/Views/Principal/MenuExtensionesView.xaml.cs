@@ -8,11 +8,10 @@ using System.Windows.Controls;
 using ReactiveUI;
 
 using AguaSB.Extensiones.Views.Menu;
-using AguaSB.Views.Utilerias;
 
-namespace AguaSB.Individual.Pagos
+namespace AguaSB.Individual.Pagos.Views.Principal
 {
-    public partial class MenuExtensionesView : UserControl, IViewFor<MenuExtensiones>, IFocusable
+    public partial class MenuExtensionesView : UserControl, IViewFor<MenuExtensiones>
     {
         public MenuExtensionesView()
         {
@@ -29,8 +28,6 @@ namespace AguaSB.Individual.Pagos
                     .Select(c => c.Select(e => e.Seleccionada).Merge());
             });
         }
-
-        public void DoFocus() => Busqueda.Focus();
 
         public IObservable<IObservable<ExtensionMenuView>> ExtensionSeleccionada { get; private set; }
 

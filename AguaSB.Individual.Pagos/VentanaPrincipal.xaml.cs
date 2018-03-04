@@ -10,7 +10,7 @@ using ReactiveUI;
 using AguaSB.Compartido.ViewModels;
 using AguaSB.Extensiones.Views;
 using AguaSB.Individual.Pagos.Views;
-
+using AguaSB.Individual.Pagos.Views.Principal;
 using AguaSB.Views;
 using AguaSB.Views.Animaciones;
 using AguaSB.Views.Animaciones.Pipelines;
@@ -44,7 +44,7 @@ namespace AguaSB.Individual.Pagos
                 (this).WhenAnyObservable(v => v.ViewModel.Cargar)
                      .SelectMany(c => Observable.Return(c).Delay(TimeSpan.FromSeconds(1)))
                      .ObserveOnDispatcher()
-                     .Subscribe(u => 
+                     .Subscribe(u =>
                         Fade.Out
                             .Create(PanelCarga)
                             .Then(() => navegador.IrA(extensionesView))

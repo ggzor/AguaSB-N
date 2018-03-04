@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+
 using AguaSB.Extensiones.Views;
 using AguaSB.Views.Estilos.Modern.Ventanas;
 
-namespace AguaSB.Individual.Pagos.Views
+namespace AguaSB.Individual.Pagos.Views.Principal
 {
     public partial class PrincipalView : UserControl, IViewPrincipal
     {
@@ -18,6 +19,6 @@ namespace AguaSB.Individual.Pagos.Views
         public EsquemaBarraTitulo EsquemaBarraTitulo => EsquemasBarraTitulo.Blanco;
         public FrameworkElement View => this;
 
-        public void DoFocus() => Menu.DoFocus();
+        public void DoFocus() => Busqueda.DoFocus();
     }
 }

@@ -5,7 +5,7 @@ using AguaSB.Extensiones.Views;
 
 using ReactiveUI;
 
-namespace AguaSB.Individual.Pagos
+namespace AguaSB.Individual.Pagos.Views.Principal
 {
     public class MenuExtensiones : ReactiveObject
     {

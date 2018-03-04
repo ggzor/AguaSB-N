@@ -144,16 +144,19 @@
       <DependentUpon>IniciarSesionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\IViewPrincipal.cs" />
-    <Compile Include="MenuExtensiones.cs" />
-    <Compile Include="MenuExtensionesView.xaml.cs">
+    <Compile Include="Views\Principal\BusquedaView.xaml.cs">
+      <DependentUpon>BusquedaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Principal\MenuExtensiones.cs" />
+    <Compile Include="Views\Principal\MenuExtensionesView.xaml.cs">
       <DependentUpon>MenuExtensionesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NavegadorViewsPrincipales.cs" />
+    <Compile Include="Views\NavegadorViewsPrincipales.cs" />
     <Compile Include="VentanaPrincipal.xaml.cs">
       <DependentUpon>VentanaPrincipal.xaml</DependentUpon>
     </Compile>
     <Compile Include="VentanaPrincipalViewModel.cs" />
-    <Compile Include="Views\PrincipalView.xaml.cs">
+    <Compile Include="Views\Principal\PrincipalView.xaml.cs">
       <DependentUpon>PrincipalView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -253,7 +256,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="MenuExtensionesView.xaml">
+    <Page Include="Views\Principal\BusquedaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Principal\MenuExtensionesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -265,7 +272,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PrincipalView.xaml">
+    <Page Include="Views\Principal\PrincipalView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

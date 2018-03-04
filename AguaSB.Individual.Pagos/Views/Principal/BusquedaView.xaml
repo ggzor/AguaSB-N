@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="AguaSB.Individual.Pagos.Views.Principal.BusquedaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Estilos;component/Material/TemaPrimarioClaro.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Estilos;component/EntradaTexto.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <icons:PackIconModern Margin="0 8 0 6" Kind="Magnify" Width="12" Height="12" Foreground="#89000000" 
+                              HorizontalAlignment="Right" VerticalAlignment="Top"/>
+
+        <TextBox Name="Barra" Margin="0" Padding="0 0 12 0" FontSize="{StaticResource t5}" Style="{StaticResource MaterialTextBox}"
+                 material:HintAssist.IsFloating="False" BorderBrush="#70000000"
+                 Tag="Buscar una herramienta de trabajo"/>
+    </Grid>
+</UserControl>
