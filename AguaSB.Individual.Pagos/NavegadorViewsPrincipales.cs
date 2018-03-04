@@ -23,9 +23,6 @@ namespace AguaSB.Individual.Pagos
 
         public void IrA(IViewPrincipal view)
         {
-            view.View.Opacity = 0;
-            Panel.Children.Add(view.View);
-
             var animacionEsquema = AplicadorEsquemasBarraTitulo.Crear(Ventana, view.EsquemaBarraTitulo);
 
             var animacionEntrada = Fade.In
@@ -34,6 +31,8 @@ namespace AguaSB.Individual.Pagos
                 .Create(view.View);
 
             animacionEntrada.Pair(animacionEsquema)
+                .Before(() => Panel.Children.Add(view.View))
+                .Then(() => view.DoFocus())
                 .BeginIn(view.View);
         }
     }
