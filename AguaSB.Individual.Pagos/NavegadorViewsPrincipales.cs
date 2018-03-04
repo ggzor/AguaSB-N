@@ -28,10 +28,13 @@ namespace AguaSB.Individual.Pagos
 
             var animacionEsquema = AplicadorEsquemasBarraTitulo.Crear(Ventana, view.EsquemaBarraTitulo);
 
-            FadeIn.SetDuration(view.View, AplicadorEsquemasBarraTitulo.Duracion);
-            FadeIn.SetEasing(view.View, AplicadorEsquemasBarraTitulo.Easing);
-            FadeIn.Apply(view.View);
-            Ventana.Begin(animacionEsquema);
+            var animacionEntrada = Fade.In
+                .WithDuration(AplicadorEsquemasBarraTitulo.Duracion)
+                .WithEasing(AplicadorEsquemasBarraTitulo.Easing)
+                .Create(view.View);
+
+            animacionEntrada.And(animacionEsquema)
+                .BeginWith(view.View);
         }
     }
 }

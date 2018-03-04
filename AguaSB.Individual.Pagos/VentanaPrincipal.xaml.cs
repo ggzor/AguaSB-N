@@ -10,8 +10,10 @@ using ReactiveUI;
 using AguaSB.Compartido.ViewModels;
 using AguaSB.Extensiones.Views;
 using AguaSB.Individual.Pagos.Views;
+
 using AguaSB.Views;
 using AguaSB.Views.Animaciones;
+using AguaSB.Views.Animaciones.Pipelines;
 
 namespace AguaSB.Individual.Pagos
 {
@@ -36,13 +38,13 @@ namespace AguaSB.Individual.Pagos
                 (this).WhenAnyObservable(v => v.ViewModel.Autenticacion.Autenticar)
                     .SelectMany(c => Observable.Return(c).Delay(TimeSpan.FromSeconds(3.5)))
                     .ObserveOnDispatcher()
-                    .Subscribe(s => FadeIn.Apply(PanelCarga))
+                    .Subscribe(s => Fade.In.Apply(PanelCarga))
                     .DisposeWith(d);
 
                 (this).WhenAnyObservable(v => v.ViewModel.Cargar)
                      .SelectMany(c => Observable.Return(c).Delay(TimeSpan.FromSeconds(1)))
                      .ObserveOnDispatcher()
-                     .Subscribe(u => FadeOut.Apply(PanelCarga, onCompleted: () => navegador.IrA(extensionesView)))
+                     .Subscribe(u => Fade.Out.Create(PanelCarga).Then(() => navegador.IrA(extensionesView)).BeginWith(PanelCarga))
                      .DisposeWith(d);
             });
         }

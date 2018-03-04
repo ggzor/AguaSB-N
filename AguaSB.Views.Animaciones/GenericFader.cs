@@ -6,7 +6,7 @@ using AguaSB.Views.Animaciones.Pipelines;
 
 namespace AguaSB.Views.Animaciones
 {
-    internal class GenericFader : IFader
+    internal sealed partial class GenericFader : IFader
     {
         public Duration Duration { get; }
         public TimeSpan? Delay { get; }
@@ -30,6 +30,8 @@ namespace AguaSB.Views.Animaciones
             TargetOpacity = targetOpacity;
         }
 
+        private static readonly PropertyPath OpacityPath = PropPath.For<FrameworkElement, double>(e => e.Opacity);
+
         public IFutureAnimation Create(FrameworkElement element)
         {
             void SetUpElement()
@@ -45,6 +47,8 @@ namespace AguaSB.Views.Animaciones
                 EasingFunction = Easing,
                 To = TargetOpacity
             };
+            Storyboard.SetTarget(animation, element);
+            Storyboard.SetTargetProperty(animation, OpacityPath);
 
             void PostAction() => element.Visibility = TargetVisibility;
 

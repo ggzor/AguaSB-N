@@ -21,7 +21,7 @@ namespace AguaSB.Views.Animaciones.Pipelines
             new CompositeFutureAnimation(preAction: FutureAnimation.NoAction, postAction: action, animations: animation);
 
         public static IFutureAnimation And(this IFutureAnimation animation, params IFutureAnimation[] other) =>
-            new CompositeFutureAnimation(other.Concat(animation).ToArray());
+            new CompositeFutureAnimation(animations: other.Concat(animation).ToArray());
 
         public static void BeginWith(this IFutureAnimation animation, FrameworkElement element) =>
             element.Begin(animation);

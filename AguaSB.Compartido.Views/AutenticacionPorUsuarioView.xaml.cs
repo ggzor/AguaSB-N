@@ -2,15 +2,16 @@
 using System.Reactive.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 using ReactiveUI;
 
-using AguaSB.Views.Animaciones;
 using AguaSB.Compartido.ViewModels;
+using AguaSB.Views.Animaciones;
+using AguaSB.Views.Animaciones.Pipelines;
 using AguaSB.Views.Conversores.Reactive;
 using AguaSB.Views.Utilerias;
-using System.Windows.Media.Animation;
-using System.Windows.Media;
 
 namespace AguaSB.Compartido.Views
 {
@@ -37,18 +38,20 @@ namespace AguaSB.Compartido.Views
 
         private void Completar()
         {
-            var animacion = new DoubleAnimation
+            var animacionDesplazamientoLogo = new DoubleAnimation
             {
-                Duration = TimeSpan.FromSeconds(0.50),
+                Duration = TimeSpan.FromSeconds(0.5),
                 EasingFunction = new BackEase { Amplitude = 0.3, EasingMode = EasingMode.EaseOut },
                 To = (Contenido.ActualHeight / 2) - 30.0
             };
 
-            animacion.Completed += (s, a) => Logo.Start = true;
+            animacionDesplazamientoLogo.Completed += (s, a) => Logo.Start = true;
 
-            FadeOut.SetDuration(Interfaz, TimeSpan.FromSeconds(0.5));
-            FadeOut.Apply(Interfaz,
-                onCompleted: () => Logo.RenderTransform.BeginAnimation(TranslateTransform.YProperty, animacion));
+            Fade.Out
+                .WithDuration(TimeSpan.FromSeconds(0.5))
+                .Create(Interfaz)
+                .Then(() => Logo.RenderTransform.BeginAnimation(TranslateTransform.YProperty, animacionDesplazamientoLogo))
+                .BeginWith(Interfaz);
         }
 
         public void DoFocus() => Usuario.Focus();

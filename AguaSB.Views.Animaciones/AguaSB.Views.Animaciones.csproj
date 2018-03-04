@@ -55,11 +55,8 @@
   <ItemGroup>
     <Compile Include="Fade.cs" />
     <Compile Include="GenericFader.cs" />
-    <Compile Include="FadeCommon.cs" />
-    <Compile Include="FadeDirection.cs" />
-    <Compile Include="FadeIn.cs" />
-    <Compile Include="FadeOut.cs" />
     <Compile Include="IFader.cs" />
+    <Compile Include="IFaderBuilder.cs" />
     <Compile Include="Pipelines\CompositeFutureAnimation.cs" />
     <Compile Include="Pipelines\PropertyPathExtensions.cs" />
     <Compile Include="Pipelines\FutureAnimation.cs" />
@@ -83,6 +80,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Compile Include="GenericFader.Builder.cs" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
