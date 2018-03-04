@@ -4,7 +4,6 @@ using System.Windows;
 using MahApps.Metro.IconPacks;
 
 using AguaSB.Extensiones.Views;
-using AguaSB.Extensiones.Views.Menu;
 using AguaSB.Views;
 using AguaSB.Views.Navegacion;
 

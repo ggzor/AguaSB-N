@@ -19,14 +19,15 @@ namespace AguaSB.Individual.Pagos
 {
     public partial class VentanaPrincipal : MetroWindow, IViewFor<VentanaPrincipalViewModel>, IVentana
     {
-        public VentanaPrincipal(VentanaPrincipalViewModel viewModel, AutenticacionPorUsuario autenticacion)
+        public VentanaPrincipal(VentanaPrincipalViewModel viewModel, AutenticacionPorUsuario autenticacion, IProveedorExtensionMenuView proveedorExtensionMenuView)
         {
             DataContext = ViewModel = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
             InitializeComponent();
 
             var autenticacionView = new IniciarSesionView(autenticacion);
             var extensionesView = new PrincipalView(
-                ViewModel.Cargar.Select(a => a.Obtener<IExtensionMenu>().ToArray()));
+                ViewModel.Cargar.Select(a => a.Obtener<IExtensionMenu>().ToArray()),
+                proveedorExtensionMenuView);
 
             PanelPrincipal.Children.Add(autenticacionView);
             var navegador = new NavegadorViewsPrincipales(this, PanelPrincipal);

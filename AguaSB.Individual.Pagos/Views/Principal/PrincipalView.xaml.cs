@@ -10,10 +10,13 @@ namespace AguaSB.Individual.Pagos.Views.Principal
 {
     public partial class PrincipalView : UserControl, IViewPrincipal
     {
-        public PrincipalView(IObservable<IReadOnlyCollection<IExtensionMenu>> extensiones)
+        public PrincipalView(IObservable<IReadOnlyCollection<IExtensionMenu>> extensiones, IProveedorExtensionMenuView proveedorExtensionMenuView)
         {
             InitializeComponent();
-            extensiones.Subscribe(c => Menu.ViewModel = new MenuExtensiones(c));
+            extensiones.Subscribe(c =>
+            {
+                Menu.ViewModel = new MenuExtensiones(c, proveedorExtensionMenuView);
+            });
         }
 
         public EsquemaBarraTitulo EsquemaBarraTitulo => EsquemasBarraTitulo.Blanco;

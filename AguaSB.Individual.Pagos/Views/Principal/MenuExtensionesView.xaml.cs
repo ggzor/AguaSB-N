@@ -7,8 +7,6 @@ using System.Windows.Controls;
 
 using ReactiveUI;
 
-using AguaSB.Extensiones.Views.Menu;
-
 namespace AguaSB.Individual.Pagos.Views.Principal
 {
     public partial class MenuExtensionesView : UserControl, IViewFor<MenuExtensiones>
@@ -18,18 +16,11 @@ namespace AguaSB.Individual.Pagos.Views.Principal
             InitializeComponent();
             this.WhenActivated(d =>
             {
-                var viewsObservable = this.WhenAnyValue(v => v.ViewModel.Extensiones)
-                    .Select(c => c.Select(e => new ExtensionMenuView { Extension = e }));
-
-                viewsObservable.Subscribe(c => IconosMenu.ItemsSource = c)
+                this.WhenAnyValue(v => v.ViewModel)
+                    .Subscribe(vm => IconosMenu.ItemsSource = vm.ExtensionesViews.Select(e => e.View))
                     .DisposeWith(d);
-
-                ExtensionSeleccionada = viewsObservable
-                    .Select(c => c.Select(e => e.Seleccionada).Merge());
             });
         }
-
-        public IObservable<IObservable<ExtensionMenuView>> ExtensionSeleccionada { get; private set; }
 
         #region IViewFor
         public MenuExtensiones ViewModel

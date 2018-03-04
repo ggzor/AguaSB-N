@@ -3,7 +3,7 @@ using System.Windows.Controls;
 
 using MahApps.Metro.IconPacks;
 
-namespace AguaSB.Extensiones.Views.Menu
+namespace AguaSB.Extensiones.Views
 {
     public partial class IconoMenuEstatico : UserControl
     {

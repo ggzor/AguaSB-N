@@ -16,6 +16,8 @@ namespace AguaSB.Individual.Pagos.Instaladores
 
             container.Register(Component.For<ICargadorExtensiones>().ImplementedBy<CargadorExtensionesAutorizadas>());
 
+            container.Register(Component.For<IProveedorExtensionMenuView>().ImplementedBy<ProveedorExtensionMenuViewDefault>());
+
             var contenedor = new WindsorContainer();
             contenedor.Install(new InstalarExtensiones());
 
