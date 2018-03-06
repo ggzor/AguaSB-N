@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-using AguaSB.Views.Animaciones.Pipelines;
+using AguaSB.Views.Animaciones.Definition;
 
 namespace AguaSB.Views.Animaciones
 {

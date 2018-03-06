@@ -1,4 +1,4 @@
-﻿namespace AguaSB.Views.Animaciones
+﻿namespace AguaSB.Views.Animaciones.Definition
 {
     public interface IUniformScalerBuilder :
         IAnimationBuilder<IUniformScalerBuilder>,

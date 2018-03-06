@@ -2,6 +2,9 @@
 using System.Windows;
 using System.Windows.Media.Animation;
 
+using AguaSB.Views.Animaciones.Definition;
+using AguaSB.Views.Animaciones.Implementation;
+
 namespace AguaSB.Views.Animaciones
 {
     public static class Scale

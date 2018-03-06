@@ -3,10 +3,10 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-using AguaSB.Views.Animaciones.Pipelines;
+using AguaSB.Views.Animaciones.Definition;
 using static AguaSB.Views.Animaciones.Pipelines.PropPath;
 
-namespace AguaSB.Views.Animaciones
+namespace AguaSB.Views.Animaciones.Implementation
 {
     internal partial class GenericUniformScaler : IUniformScalerBuilder
     {

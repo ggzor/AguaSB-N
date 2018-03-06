@@ -54,20 +54,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Fade.cs" />
-    <Compile Include="GenericFader.cs" />
-    <Compile Include="GenericUniformScaler.cs" />
-    <Compile Include="IAnimationBuilder.cs" />
-    <Compile Include="IFaderBuilder.cs" />
-    <Compile Include="ISingleElementAnimation.cs" />
-    <Compile Include="ITransitionAnimationBuilder.cs" />
-    <Compile Include="IUniformScalerBuilder.cs" />
+    <Compile Include="Implementation\GenericFader.cs" />
+    <Compile Include="Implementation\GenericUniformScaler.cs" />
+    <Compile Include="Definition\IAnimationBuilder.cs" />
+    <Compile Include="Definition\IFaderBuilder.cs" />
+    <Compile Include="Definition\ISingleElementAnimation.cs" />
+    <Compile Include="Definition\ITransitionAnimationBuilder.cs" />
+    <Compile Include="Definition\IUniformScalerBuilder.cs" />
     <Compile Include="Pipelines\ParallelFutureAnimation.cs" />
     <Compile Include="Pipelines\PostActionedFutureAnimation.cs" />
     <Compile Include="Pipelines\PreActionedFutureAnimation.cs" />
     <Compile Include="Pipelines\PropertyPathExtensions.cs" />
     <Compile Include="Pipelines\StoryboardFutureAnimation.cs" />
-    <Compile Include="Pipelines\FutureAnimationExecutionExtensions.cs" />
-    <Compile Include="Pipelines\IFutureAnimation.cs" />
+    <Compile Include="Extensions\FutureAnimationExecutionExtensions.cs" />
+    <Compile Include="IFutureAnimation.cs" />
     <Compile Include="Pipelines\SequentialFutureAnimation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -82,16 +82,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Scale.Uniform.cs" />
-    <Compile Include="ScaleIn.cs" />
-    <Compile Include="SingleElementAnimationExtensions.cs" />
-    <Compile Include="TransitionAnimationBuilderExtensions.cs" />
+    <Compile Include="Scale.cs" />
+    <Compile Include="Extensions\SingleElementAnimationExtensions.cs" />
+    <Compile Include="Extensions\TransitionAnimationBuilderExtensions.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="GenericFader.Builder.cs" />
-    <Compile Include="GenericUniformScaler.Builder.cs" />
+    <Compile Include="Implementation\GenericFader.Builder.cs" />
+    <Compile Include="Implementation\GenericUniformScaler.Builder.cs" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

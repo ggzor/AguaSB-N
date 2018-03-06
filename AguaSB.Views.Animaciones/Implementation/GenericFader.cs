@@ -2,9 +2,10 @@
 using System.Windows;
 using System.Windows.Media.Animation;
 
+using AguaSB.Views.Animaciones.Definition;
 using AguaSB.Views.Animaciones.Pipelines;
 
-namespace AguaSB.Views.Animaciones
+namespace AguaSB.Views.Animaciones.Implementation
 {
     internal sealed partial class GenericFader : IFaderBuilder
     {

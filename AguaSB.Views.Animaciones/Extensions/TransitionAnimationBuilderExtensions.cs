@@ -1,4 +1,6 @@
-﻿namespace AguaSB.Views.Animaciones
+﻿using AguaSB.Views.Animaciones.Definition;
+
+namespace AguaSB.Views.Animaciones
 {
     public static class TransitionAnimationBuilderExtensions
     {

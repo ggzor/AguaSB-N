@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace AguaSB.Views.Animaciones.Pipelines
+namespace AguaSB.Views.Animaciones
 {
     public interface IFutureAnimation
     {

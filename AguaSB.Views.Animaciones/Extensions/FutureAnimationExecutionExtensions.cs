@@ -2,9 +2,12 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Media.Animation;
+
 using MoreLinq;
 
-namespace AguaSB.Views.Animaciones.Pipelines
+using AguaSB.Views.Animaciones.Pipelines;
+
+namespace AguaSB.Views.Animaciones
 {
     public static class FutureAnimationExecutionExtensions
     {
