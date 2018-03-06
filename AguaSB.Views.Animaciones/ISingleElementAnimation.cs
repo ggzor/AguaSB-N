@@ -4,9 +4,8 @@ using AguaSB.Views.Animaciones.Pipelines;
 
 namespace AguaSB.Views.Animaciones
 {
-    public interface IFader
+    public interface ISingleElementAnimation
     {
-        void Apply(FrameworkElement element);
         IFutureAnimation Create(FrameworkElement element);
     }
 }

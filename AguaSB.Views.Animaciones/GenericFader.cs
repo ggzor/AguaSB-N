@@ -6,10 +6,10 @@ using AguaSB.Views.Animaciones.Pipelines;
 
 namespace AguaSB.Views.Animaciones
 {
-    internal sealed partial class GenericFader : IFader
+    internal sealed partial class GenericFader : IFaderBuilder
     {
-        public Duration Duration { get; }
         public TimeSpan? Delay { get; }
+        public Duration Duration { get; }
         public IEasingFunction Easing { get; }
 
         public Visibility InitialVisibility { get; }
@@ -18,12 +18,11 @@ namespace AguaSB.Views.Animaciones
         public Visibility TargetVisibility { get; }
         public double TargetOpacity { get; }
 
-        public GenericFader(Duration duration, TimeSpan? delay, IEasingFunction easing,
-            Visibility initialVisibility, double initialOpacity, Visibility targetVisibility, double targetOpacity)
+        public GenericFader(TimeSpan? delay, Duration duration, IEasingFunction easing, Visibility initialVisibility, double initialOpacity, Visibility targetVisibility, double targetOpacity)
         {
-            Duration = duration;
             Delay = delay;
-            Easing = easing;
+            Duration = duration;
+            Easing = easing ?? throw new ArgumentNullException(nameof(easing));
             InitialVisibility = initialVisibility;
             InitialOpacity = initialOpacity;
             TargetVisibility = targetVisibility;

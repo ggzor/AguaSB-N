@@ -1,11 +1,6 @@
-﻿using System.Windows;
-using System.Windows.Media.Animation;
-
-namespace AguaSB.Views.Animaciones
+﻿namespace AguaSB.Views.Animaciones
 {
-    public interface IFaderBuilder : IFader
+    public interface IFaderBuilder : IAnimationBuilder<IFaderBuilder>, ISingleElementAnimation
     {
-        IFaderBuilder WithDuration(Duration newDuration);
-        IFaderBuilder WithEasing(IEasingFunction newEasing);
     }
 }
