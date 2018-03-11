@@ -27,7 +27,7 @@ namespace AguaSB.Individual.Pagos.Instaladores
                 .DependsOn(new
                 {
                     contenedor,
-                    tiposExtensiones = new[] { typeof(IExtensionView) }
+                    tiposExtensiones = new[] { typeof(IExtension) }
                 }));
         }
     }
