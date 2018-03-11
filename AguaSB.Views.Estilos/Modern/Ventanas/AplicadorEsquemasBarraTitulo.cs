@@ -5,8 +5,8 @@ using System.Windows.Media.Animation;
 
 using MahApps.Metro.Controls;
 
-using AguaSB.Views.Animaciones.Pipelines;
-using static AguaSB.Views.Animaciones.Pipelines.PropPath;
+using AguaSB.Views.Animaciones;
+using static AguaSB.Views.Animaciones.Util.PropPath;
 
 namespace AguaSB.Views.Estilos.Modern.Ventanas
 {

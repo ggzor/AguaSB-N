@@ -132,8 +132,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="AutorizadorCualquierExtension.cs" />
+    <Compile Include="BackNavigationController.cs" />
     <Compile Include="CargadorExtensionesWindsor.cs" />
     <Compile Include="CargadorExtensionesAutorizadas.cs" />
+    <Compile Include="IBackNavigationController.cs" />
+    <Compile Include="IControladorVentanaPrincipal.cs" />
     <Compile Include="Instaladores\AutenticadorFalso.cs" />
     <Compile Include="Instaladores\InstalarAutenticacion.cs" />
     <Compile Include="Instaladores\InstalarCargaExtensiones.cs" />
@@ -156,8 +159,12 @@
       <DependentUpon>VentanaPrincipal.xaml</DependentUpon>
     </Compile>
     <Compile Include="VentanaPrincipalViewModel.cs" />
-    <Compile Include="Views\Principal\PrincipalView.xaml.cs">
+    <Compile Include="Views\NavegadorViews.cs" />
+    <Compile Include="Views\PrincipalView.xaml.cs">
       <DependentUpon>PrincipalView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Principal\MenuPrincipalView.xaml.cs">
+      <DependentUpon>MenuPrincipalView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -272,7 +279,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Principal\PrincipalView.xaml">
+    <Page Include="Views\PrincipalView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Principal\MenuPrincipalView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

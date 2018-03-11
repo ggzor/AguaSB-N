@@ -3,7 +3,7 @@ using System.Windows;
 
 namespace AguaSB.Views.Animaciones.Pipelines
 {
-    public class PostActionedFutureAnimation : IFutureAnimation
+    internal class PostActionedFutureAnimation : IFutureAnimation
     {
         public IFutureAnimation Animation { get; }
         public Action PostAction { get; }

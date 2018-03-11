@@ -14,9 +14,9 @@ namespace AguaSB.Pagos.Views
 
         public FrameworkElement View => this;
 
-        public void DoFocus()
+        public void Entrar(object parametro)
         {
-
+            System.Console.WriteLine($"Entrando con parámetro: {parametro}");
         }
     }
 }

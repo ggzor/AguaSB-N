@@ -12,5 +12,11 @@ namespace AguaSB.Views.Animaciones.Implementation
 
         public IFaderBuilder WithEasing(IEasingFunction newEasing) =>
             new GenericFader(Delay, Duration, newEasing, InitialVisibility, InitialOpacity, TargetVisibility, TargetOpacity);
+
+        public IFaderBuilder WithFrom(double newFrom) =>
+            new GenericFader(Delay, Duration, Easing, InitialVisibility, newFrom, TargetVisibility, TargetOpacity);
+
+        public IFaderBuilder WithTo(double newTo) =>
+            new GenericFader(Delay, Duration, Easing, InitialVisibility, InitialOpacity, TargetVisibility, newTo);
     }
 }

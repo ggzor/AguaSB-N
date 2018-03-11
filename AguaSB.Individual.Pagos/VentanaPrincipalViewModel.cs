@@ -10,8 +10,11 @@ using AguaSB.ViewModels.Controles;
 
 namespace AguaSB.Individual.Pagos
 {
-    public sealed class VentanaPrincipalViewModel : ReactiveObject
+    public sealed class VentanaPrincipalViewModel : ReactiveObject, IControladorVentanaPrincipal
     {
+        public BackNavigationController BackNavigation { get; } = new BackNavigationController();
+        IBackNavigationController IControladorVentanaPrincipal.BackNavigation => BackNavigation;
+
         public ProgressText ProgresoCarga { get; } = new ProgressText();
 
         public ReactiveCommand<Sesion, AgregadoExtensiones> Cargar { get; }

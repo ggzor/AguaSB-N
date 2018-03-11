@@ -53,7 +53,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\CompositeSingleElementAnimation.cs" />
     <Compile Include="Fade.cs" />
+    <Compile Include="FutureAnimation.cs" />
     <Compile Include="Implementation\GenericFader.cs" />
     <Compile Include="Implementation\GenericUniformScaler.cs" />
     <Compile Include="Definition\IAnimationBuilder.cs" />
@@ -64,7 +66,7 @@
     <Compile Include="Pipelines\ParallelFutureAnimation.cs" />
     <Compile Include="Pipelines\PostActionedFutureAnimation.cs" />
     <Compile Include="Pipelines\PreActionedFutureAnimation.cs" />
-    <Compile Include="Pipelines\PropertyPathExtensions.cs" />
+    <Compile Include="Util\PropertyPathExtensions.cs" />
     <Compile Include="Pipelines\StoryboardFutureAnimation.cs" />
     <Compile Include="Extensions\FutureAnimationExecutionExtensions.cs" />
     <Compile Include="IFutureAnimation.cs" />

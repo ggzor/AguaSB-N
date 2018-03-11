@@ -18,7 +18,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Button Name="Boton" Width="190" Height="190">
+    <Button Name="Boton" Width="190" Height="190" FocusVisualStyle="{x:Null}">
         <Button.Template>
             <ControlTemplate TargetType="Button">
                 <Border Name="Borde" Background="White" BorderThickness="2">

@@ -13,7 +13,7 @@ using AguaSB.Individual.Pagos.Views;
 using AguaSB.Individual.Pagos.Views.Principal;
 using AguaSB.Views;
 using AguaSB.Views.Animaciones;
-using AguaSB.Views.Animaciones.Pipelines;
+using AguaSB.Views.Conversores.Reactive;
 
 namespace AguaSB.Individual.Pagos
 {
@@ -27,7 +27,8 @@ namespace AguaSB.Individual.Pagos
             var autenticacionView = new IniciarSesionView(autenticacion);
             var extensionesView = new PrincipalView(
                 ViewModel.Cargar.Select(a => a.Obtener<IExtensionMenu>().ToArray()),
-                proveedorExtensionMenuView);
+                proveedorExtensionMenuView,
+                ViewModel);
 
             PanelPrincipal.Children.Add(autenticacionView);
             var navegador = new NavegadorViewsPrincipales(this, PanelPrincipal);
@@ -51,6 +52,12 @@ namespace AguaSB.Individual.Pagos
                             .Then(() => navegador.IrA(extensionesView))
                             .BeginIn(PanelCarga))
                      .DisposeWith(d);
+
+                this.OneWayBind(ViewModel, vm => vm.BackNavigation.IsEnabled, v => v.PanelBotonAtras.Visibility, BoolToVisibility.Convert)
+                    .DisposeWith(d);
+
+                this.BindCommand(ViewModel, vm => vm.BackNavigation.Execute, v => v.BotonAtras)
+                    .DisposeWith(d);
             });
         }
 

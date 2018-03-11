@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Media.Animation;
 
 using AguaSB.Views.Animaciones.Definition;
-using AguaSB.Views.Animaciones.Pipelines;
+using AguaSB.Views.Animaciones.Util;
 
 namespace AguaSB.Views.Animaciones.Implementation
 {

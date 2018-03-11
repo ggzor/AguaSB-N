@@ -4,7 +4,7 @@ using System.Windows.Media.Animation;
 
 namespace AguaSB.Views.Animaciones.Pipelines
 {
-    public class StoryboardFutureAnimation : IFutureAnimation
+    internal class StoryboardFutureAnimation : IFutureAnimation
     {
         public Timeline Timeline { get; }
 

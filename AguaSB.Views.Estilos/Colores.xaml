@@ -4,7 +4,13 @@
     <Color x:Key="PrimaryLight">#1F7A8C</Color>
     <Color x:Key="PrimaryError">#F93943</Color>
 
+    <Color x:Key="PrimaryLight90">#338696</Color>
+    <Color x:Key="PrimaryLight80">#4792A0</Color>
+
     <SolidColorBrush x:Key="PrimaryDarkBrush" Color="{StaticResource PrimaryDark}"/>
     <SolidColorBrush x:Key="PrimaryLightBrush" Color="{StaticResource PrimaryLight}"/>
     <SolidColorBrush x:Key="PrimaryErrorBrush" Color="{StaticResource PrimaryError}"/>
+
+    <SolidColorBrush x:Key="PrimaryLight90Brush" Color="{StaticResource PrimaryLight90}"/>
+    <SolidColorBrush x:Key="PrimaryLight80Brush" Color="{StaticResource PrimaryLight80}"/>
 </ResourceDictionary>

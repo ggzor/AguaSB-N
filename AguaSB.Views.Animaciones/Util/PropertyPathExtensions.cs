@@ -3,7 +3,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Windows;
 
-namespace AguaSB.Views.Animaciones.Pipelines
+namespace AguaSB.Views.Animaciones.Util
 {
     public static class PropPath
     {

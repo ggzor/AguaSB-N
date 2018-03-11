@@ -1,11 +1,11 @@
 ﻿using System.Windows;
 
-using AguaSB.Views.Utilerias;
-
 namespace AguaSB.Views
 {
-    public interface IView : IFocusable
+    public interface IView
     {
         FrameworkElement View { get; }
+
+        void Entrar(object parametro);
     }
 }

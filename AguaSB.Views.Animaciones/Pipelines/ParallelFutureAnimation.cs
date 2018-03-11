@@ -1,15 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 
 using MoreLinq;
 
 namespace AguaSB.Views.Animaciones.Pipelines
 {
-    public class ParallelFutureAnimation : IFutureAnimation
+    internal class ParallelFutureAnimation : IFutureAnimation
     {
-        public IFutureAnimation[] Animations { get; }
+        public IReadOnlyCollection<IFutureAnimation> Animations { get; }
 
-        public ParallelFutureAnimation(params IFutureAnimation[] animations)
+        public ParallelFutureAnimation(IReadOnlyCollection<IFutureAnimation> animations)
         {
             Animations = animations ?? throw new ArgumentNullException(nameof(animations));
         }
@@ -22,7 +23,7 @@ namespace AguaSB.Views.Animaciones.Pipelines
             {
                 count++;
 
-                if (count == Animations.Length)
+                if (count == Animations.Count)
                     onCompleted();
             }
 

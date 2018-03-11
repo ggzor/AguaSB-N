@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media.Animation;
@@ -29,6 +30,9 @@ namespace AguaSB.Views.Animaciones
             new PostActionedFutureAnimation(animation, action);
 
         public static IFutureAnimation Pair(this IFutureAnimation animation, params IFutureAnimation[] other) =>
-            new ParallelFutureAnimation(other.Concat(animation).ToArray());
+            other.Concat(animation).Pair();
+
+        public static IFutureAnimation Pair(this IEnumerable<IFutureAnimation> animations) =>
+            new ParallelFutureAnimation(animations.ToArray());
     }
 }

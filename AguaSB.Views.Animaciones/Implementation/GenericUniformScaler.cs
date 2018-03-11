@@ -4,7 +4,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 
 using AguaSB.Views.Animaciones.Definition;
-using static AguaSB.Views.Animaciones.Pipelines.PropPath;
+using static AguaSB.Views.Animaciones.Util.PropPath;
 
 namespace AguaSB.Views.Animaciones.Implementation
 {
@@ -36,8 +36,7 @@ namespace AguaSB.Views.Animaciones.Implementation
             {
                 var transform = GetOrCreateTransform(element);
 
-                transform.CenterX = 0.5;
-                transform.CenterY = 0.5;
+                element.RenderTransformOrigin = new Point(0.5, 0.5);
 
                 transform.ScaleX = From;
                 transform.ScaleY = From;
