@@ -28,7 +28,7 @@ namespace AguaSB.Individual.Pagos.Views
         {
             Scale.Uniform
                 .WithFromTo(EscalaTrasero, 1.0)
-                .WithDuration(TimeSpan.FromMilliseconds(500))
+                .WithDuration(TimeSpan.FromMilliseconds(400))
                 .WithEasing(Easing),
             Fade.In
                 .WithDuration(TimeSpan.FromMilliseconds(200))
@@ -66,7 +66,7 @@ namespace AguaSB.Individual.Pagos.Views
             Scale.Uniform
                 .WithFromTo(EscalaFrontal, 1)
                 .WithEasing(Easing)
-                .WithDuration(TimeSpan.FromMilliseconds(500))
+                .WithDuration(TimeSpan.FromMilliseconds(400))
         }.Compose();
         #endregion
 
