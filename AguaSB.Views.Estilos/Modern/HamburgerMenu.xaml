@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls">
+    <Style x:Key="HamburgerMenuCreatorsItemStyle" BasedOn="{StaticResource HamburgerMenuItemStyle}" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="metro:ItemHelper.ActiveSelectionBackgroundBrush" Value="Transparent"/>
+        <Setter Property="metro:ItemHelper.ActiveSelectionForegroundBrush" Value="{DynamicResource AccentBaseColorBrush}"/>
+        <Setter Property="metro:ItemHelper.DisabledForegroundBrush" Value="{DynamicResource GrayNormalBrush}"/>
+        <Setter Property="metro:ItemHelper.DisabledSelectedBackgroundBrush" Value="Transparent"/>
+        <Setter Property="metro:ItemHelper.DisabledSelectedForegroundBrush" Value="{DynamicResource GrayNormalBrush}"/>
+        <Setter Property="metro:ItemHelper.HoverBackgroundBrush" Value="{DynamicResource GrayBrush9}"/>
+        <Setter Property="metro:ItemHelper.HoverSelectedBackgroundBrush" Value="{DynamicResource GrayBrush9}"/>
+        <Setter Property="metro:ItemHelper.SelectedBackgroundBrush" Value="Transparent"/>
+        <Setter Property="metro:ItemHelper.SelectedForegroundBrush" Value="{DynamicResource AccentBaseColorBrush}"/>
+    </Style>
+
+    <Style x:Key="HamburgerMenuCreatorsStyle" BasedOn="{StaticResource {x:Type metro:HamburgerMenu}}" TargetType="{x:Type metro:HamburgerMenu}">
+        <Setter Property="ItemContainerStyle" Value="{StaticResource HamburgerMenuCreatorsItemStyle}"/>
+        <Setter Property="OptionsItemContainerStyle" Value="{StaticResource HamburgerMenuCreatorsItemStyle}"/>
+        <Setter Property="PaneBackground" Value="{DynamicResource WhiteBrush}"/>
+        <Setter Property="PaneForeground" Value="{DynamicResource TextBrush}"/>
+        <Setter Property="ShowSelectionIndicator" Value="True"/>
+    </Style>
+</ResourceDictionary>
