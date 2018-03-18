@@ -53,9 +53,12 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Definition\IActionDelayer.cs" />
+    <Compile Include="Delay.cs" />
     <Compile Include="Extensions\CompositeSingleElementAnimation.cs" />
     <Compile Include="Fade.cs" />
     <Compile Include="FutureAnimation.cs" />
+    <Compile Include="Implementation\AwaitTaskActionDelayer.cs" />
     <Compile Include="Implementation\GenericFader.cs" />
     <Compile Include="Implementation\GenericUniformScaler.cs" />
     <Compile Include="Definition\IAnimationBuilder.cs" />
