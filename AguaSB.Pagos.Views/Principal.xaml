@@ -4,41 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
-             xmlns:local="clr-namespace:AguaSB.Pagos.Views"
              mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="1024"
              x:Name="This">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Themes/HamburgerMenuTemplate.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Estilos;component/Modern/HamburgerMenu.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/AguaSB.Views.Extensiones;component/Neon/EstilosHamburgerMenu.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-
-            <DataTemplate x:Key="ElementoMenu" DataType="{x:Type local:IExtensionPrincipalPagos}">
-                <Grid Height="48">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="48" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <ContentControl Grid.Column="0" Content="{Binding Icono}" Focusable="False" IsTabStop="False" 
-                                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Grid.Column="1" VerticalAlignment="Center" FontSize="16" Text="{Binding Titulo}" />
-                </Grid>
-            </DataTemplate>
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <metro:HamburgerMenu Name="Hamburger" HamburgerWidth="48" IsPaneOpen="True" HamburgerVisibility="Collapsed"
-                         ItemsSource="{Binding ElementName=This, Path=Extensiones}"
-                         ItemTemplate="{StaticResource ElementoMenu}" OptionsItemTemplate="{StaticResource ElementoMenu}"
-                         SelectedIndex="0" Style="{StaticResource HamburgerMenuCreatorsStyle}"
-                         OpenPaneLength="320" VerticalScrollBarOnLeftSide="False">
-        <metro:HamburgerMenu.ContentTemplate>
-            <DataTemplate DataType="{x:Type local:IExtensionPrincipalPagos}">
-                <metro:TransitioningContentControl Grid.Row="1" Content="{Binding View}"
-                                                   RestartTransitionOnContentChange="True" 
-                                                   Transition="Default"/>
-            </DataTemplate>
-        </metro:HamburgerMenu.ContentTemplate>
-    </metro:HamburgerMenu>
+    <metro:HamburgerMenu Name="Hamburger" ItemsSource="{Binding ElementName=This, Path=Extensiones}" 
+                         Style="{StaticResource HamburgerMenuExtensiones}"/>
 </UserControl>
