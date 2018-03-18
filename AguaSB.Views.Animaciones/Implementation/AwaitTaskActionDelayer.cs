@@ -1,7 +1,8 @@
-﻿using AguaSB.Views.Animaciones.Definition;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
+
+using AguaSB.Views.Animaciones.Definition;
 
 namespace AguaSB.Views.Animaciones.Implementation
 {
