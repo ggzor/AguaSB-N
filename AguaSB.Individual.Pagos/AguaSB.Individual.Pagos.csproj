@@ -242,6 +242,10 @@
       <Project>{9FE14771-E82A-4912-9F4E-3CD90E2DCFF5}</Project>
       <Name>AguaSB.ViewModels.Controles</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Views.Animaciones.Neon\AguaSB.Views.Animaciones.Neon.csproj">
+      <Project>{9194d9cf-fd66-497b-af9a-ca22a255ddc2}</Project>
+      <Name>AguaSB.Views.Animaciones.Neon</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AguaSB.Views.Animaciones\AguaSB.Views.Animaciones.csproj">
       <Project>{49641a85-bfcf-4ac4-aa20-2eb09c5c20a4}</Project>
       <Name>AguaSB.Views.Animaciones</Name>
