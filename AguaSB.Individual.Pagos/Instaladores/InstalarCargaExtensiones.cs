@@ -4,7 +4,8 @@ using Castle.Windsor;
 
 using AguaSB.Compartido.Interfaces;
 using AguaSB.Extensiones;
-using AguaSB.Extensiones.Views.Implementacion;
+using AguaSB.Extensiones.Views;
+using AguaSB.Views.Extensiones;
 
 namespace AguaSB.Individual.Pagos.Instaladores
 {

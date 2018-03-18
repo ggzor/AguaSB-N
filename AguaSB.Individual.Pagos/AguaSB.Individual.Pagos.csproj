@@ -222,10 +222,6 @@
       <Project>{140DE8CB-3E78-4E99-9AD4-FAF3B96B4542}</Project>
       <Name>AguaSB.Configuracion</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AguaSB.Extensiones.Views.Implementacion\AguaSB.Extensiones.Views.Implementacion.csproj">
-      <Project>{25E06F5C-DF1B-4B9D-AFFA-49896A0C75E5}</Project>
-      <Name>AguaSB.Extensiones.Views.Implementacion</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AguaSB.Extensiones.Views\AguaSB.Extensiones.Views.csproj">
       <Project>{7427d46e-bcab-4d2f-9bb2-0a5c25446480}</Project>
       <Name>AguaSB.Extensiones.Views</Name>
@@ -265,6 +261,10 @@
     <ProjectReference Include="..\AguaSB.Views.Estilos\AguaSB.Views.Estilos.csproj">
       <Project>{acf0a419-99ea-43d4-99ca-a1a60488bf4c}</Project>
       <Name>AguaSB.Views.Estilos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Views.Extensiones\AguaSB.Views.Extensiones.csproj">
+      <Project>{65948CB7-B5DB-486C-9544-88E2236CA6C4}</Project>
+      <Name>AguaSB.Views.Extensiones</Name>
     </ProjectReference>
     <ProjectReference Include="..\AguaSB.Views.Utilerias\AguaSB.Views.Utilerias.csproj">
       <Project>{dc115ce2-1ee9-4b44-816e-5f59e76eab05}</Project>

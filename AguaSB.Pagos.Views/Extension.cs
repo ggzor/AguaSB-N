@@ -3,9 +3,9 @@ using System.Windows;
 
 using MahApps.Metro.IconPacks;
 
-using AguaSB.Extensiones.Views.Implementacion;
 using AguaSB.Extensiones.Views;
 using AguaSB.Views;
+using AguaSB.Views.Extensiones;
 using AguaSB.Views.Navegacion;
 
 namespace AguaSB.Pagos.Views

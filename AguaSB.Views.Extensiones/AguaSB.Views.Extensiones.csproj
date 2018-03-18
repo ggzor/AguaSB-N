@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{411F3038-35D3-4275-A634-B3EED455258B}</ProjectGuid>
+    <ProjectGuid>{65948CB7-B5DB-486C-9544-88E2236CA6C4}</ProjectGuid>
     <OutputType>library</OutputType>
-    <RootNamespace>AguaSB.Pagos.Views</RootNamespace>
-    <AssemblyName>AguaSB.Pagos.Views</AssemblyName>
+    <RootNamespace>AguaSB.Views.Extensiones</RootNamespace>
+    <AssemblyName>AguaSB.Views.Extensiones</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -43,6 +43,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Reactive, Version=4.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.4.0.0-preview00001\lib\net46\System.Reactive.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net462\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -60,19 +63,11 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extension.cs" />
-    <Compile Include="IExtensionPrincipalPagos.cs" />
-    <Compile Include="Pagar\BusquedaPagarView.xaml.cs">
-      <DependentUpon>BusquedaPagarView.xaml</DependentUpon>
+    <Compile Include="ExtensionMenuViewDefault.xaml.cs">
+      <DependentUpon>ExtensionMenuViewDefault.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pagar\Controles\ResultadoBusquedaPagosView.xaml.cs">
-      <DependentUpon>ResultadoBusquedaPagosView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pagar\PagarView.xaml.cs">
-      <DependentUpon>PagarView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Principal.xaml.cs">
-      <DependentUpon>Principal.xaml</DependentUpon>
+    <Compile Include="IconoMenuEstatico.xaml.cs">
+      <DependentUpon>IconoMenuEstatico.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -87,6 +82,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ProveedorExtensionMenuViewDefault.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -99,51 +95,27 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Pagar\BusquedaPagarView.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="ExtensionMenuViewDefault.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="Pagar\Controles\ResultadoBusquedaPagosView.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="IconoMenuEstatico.xaml">
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pagar\PagarView.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Principal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AguaSB.Extensiones.Views\AguaSB.Extensiones.Views.csproj">
-      <Project>{7427D46E-BCAB-4D2F-9BB2-0A5C25446480}</Project>
+      <Project>{7427d46e-bcab-4d2f-9bb2-0a5c25446480}</Project>
       <Name>AguaSB.Extensiones.Views</Name>
     </ProjectReference>
     <ProjectReference Include="..\AguaSB.Extensiones\AguaSB.Extensiones.csproj">
-      <Project>{DE76DF8B-6473-4DA3-B5E0-2506C56C93AE}</Project>
+      <Project>{de76df8b-6473-4da3-b5e0-2506c56c93ae}</Project>
       <Name>AguaSB.Extensiones</Name>
     </ProjectReference>
     <ProjectReference Include="..\AguaSB.Views.Estilos\AguaSB.Views.Estilos.csproj">
       <Project>{acf0a419-99ea-43d4-99ca-a1a60488bf4c}</Project>
       <Name>AguaSB.Views.Estilos</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AguaSB.Views.Extensiones\AguaSB.Views.Extensiones.csproj">
-      <Project>{65948CB7-B5DB-486C-9544-88E2236CA6C4}</Project>
-      <Name>AguaSB.Views.Extensiones</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AguaSB.Views.Navegacion\AguaSB.Views.Navegacion.csproj">
-      <Project>{747D050E-0340-4A2F-897E-95DE9D7D4E5B}</Project>
-      <Name>AguaSB.Views.Navegacion</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AguaSB.Views.Utilerias\AguaSB.Views.Utilerias.csproj">
-      <Project>{dc115ce2-1ee9-4b44-816e-5f59e76eab05}</Project>
-      <Name>AguaSB.Views.Utilerias</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AguaSB.Views\AguaSB.Views.csproj">
-      <Project>{FEF2C4F0-9231-4246-A231-25E8A8831240}</Project>
-      <Name>AguaSB.Views</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

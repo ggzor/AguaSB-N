@@ -9,7 +9,6 @@ using ReactiveUI;
 
 using AguaSB.Compartido.ViewModels;
 using AguaSB.Extensiones.Views;
-using AguaSB.Extensiones.Views.Implementacion;
 using AguaSB.Individual.Pagos.Views;
 using AguaSB.Views;
 using AguaSB.Views.Animaciones;
@@ -38,7 +37,7 @@ namespace AguaSB.Individual.Pagos
             (this).WhenActivated(d =>
             {
                 (this).WhenAnyObservable(v => v.ViewModel.Autenticacion.Autenticar)
-                    .SelectMany(c => Observable.Return(c).Delay(TimeSpan.FromSeconds(3.5)))
+                    .SelectMany(c => Observable.Return(c).Delay(TimeSpan.FromSeconds(3.8)))
                     .ObserveOnDispatcher()
                     .Subscribe(s => Fade.In.Apply(PanelCarga))
                     .DisposeWith(d);

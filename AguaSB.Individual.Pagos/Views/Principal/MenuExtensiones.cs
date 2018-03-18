@@ -4,7 +4,6 @@ using System.Linq;
 using System.Reactive.Linq;
 
 using AguaSB.Extensiones.Views;
-using AguaSB.Extensiones.Views.Implementacion;
 
 namespace AguaSB.Individual.Pagos.Views.Principal
 {

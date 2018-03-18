@@ -33,7 +33,7 @@ namespace AguaSB.Individual.Pagos
 
         private async Task<AgregadoExtensiones> CargarImpl(Sesion sesion)
         {
-            await Task.Delay(3000).ConfigureAwait(true); // Esperar animación
+            await Task.Delay(3200).ConfigureAwait(true); // Esperar animación
 
             ProgresoCarga.Set("Cargando interfaz", "El programa podría dejar de responder por unos momentos");
 

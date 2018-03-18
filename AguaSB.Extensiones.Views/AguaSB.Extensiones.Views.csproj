@@ -51,7 +51,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IExtensionMenu.cs" />
+    <Compile Include="IExtensionMenuView.cs" />
     <Compile Include="IExtensionView.cs" />
+    <Compile Include="IProveedorExtensionMenuView.cs" />
+    <Compile Include="Navegacion\IExtensionMenuNavegable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

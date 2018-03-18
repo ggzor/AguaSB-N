@@ -1,4 +1,4 @@
-﻿namespace AguaSB.Extensiones.Views.Implementacion
+﻿namespace AguaSB.Extensiones.Views
 {
     public interface IProveedorExtensionMenuView
     {
