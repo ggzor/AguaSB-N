@@ -3,7 +3,7 @@ using System.Reactive.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace AguaSB.Extensiones.Views
+namespace AguaSB.Extensiones.Views.Implementacion
 {
     public partial class ExtensionMenuViewDefault : UserControl, IExtensionMenuView
     {

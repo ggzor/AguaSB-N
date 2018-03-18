@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace AguaSB.Extensiones.Views
+namespace AguaSB.Extensiones.Views.Implementacion
 {
     public interface IExtensionMenuView
     {

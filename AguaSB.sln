@@ -57,6 +57,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AguaSB.Nucleo", "AguaSB.Nuc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AguaSB.Views.Animaciones.Neon", "AguaSB.Views.Animaciones.Neon\AguaSB.Views.Animaciones.Neon.csproj", "{9194D9CF-FD66-497B-AF9A-CA22A255DDC2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AguaSB.Extensiones.Views.Implementacion", "AguaSB.Extensiones.Views.Implementacion\AguaSB.Extensiones.Views.Implementacion.csproj", "{25E06F5C-DF1B-4B9D-AFFA-49896A0C75E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -171,6 +173,10 @@ Global
 		{9194D9CF-FD66-497B-AF9A-CA22A255DDC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9194D9CF-FD66-497B-AF9A-CA22A255DDC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9194D9CF-FD66-497B-AF9A-CA22A255DDC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25E06F5C-DF1B-4B9D-AFFA-49896A0C75E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25E06F5C-DF1B-4B9D-AFFA-49896A0C75E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25E06F5C-DF1B-4B9D-AFFA-49896A0C75E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25E06F5C-DF1B-4B9D-AFFA-49896A0C75E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

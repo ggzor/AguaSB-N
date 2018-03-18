@@ -222,6 +222,10 @@
       <Project>{140DE8CB-3E78-4E99-9AD4-FAF3B96B4542}</Project>
       <Name>AguaSB.Configuracion</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AguaSB.Extensiones.Views.Implementacion\AguaSB.Extensiones.Views.Implementacion.csproj">
+      <Project>{25E06F5C-DF1B-4B9D-AFFA-49896A0C75E5}</Project>
+      <Name>AguaSB.Extensiones.Views.Implementacion</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AguaSB.Extensiones.Views\AguaSB.Extensiones.Views.csproj">
       <Project>{7427d46e-bcab-4d2f-9bb2-0a5c25446480}</Project>
       <Name>AguaSB.Extensiones.Views</Name>

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Windows;
-
-using AguaSB.Views.Navegacion;
+﻿using System.Windows;
 
 namespace AguaSB.Extensiones.Views
 {
     public interface IExtensionMenu : IExtensionView
     {
-        IObservable<IClaveNavegacion> Navegacion { get; }
-
         FrameworkElement Icono { get; }
 
         string Titulo { get; }

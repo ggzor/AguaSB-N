@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 
 using AguaSB.Extensiones.Views;
+using AguaSB.Extensiones.Views.Implementacion;
 using AguaSB.Individual.Pagos.Views.Principal;
 using AguaSB.Views.Estilos.Modern.Ventanas;
 

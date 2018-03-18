@@ -9,8 +9,8 @@ using ReactiveUI;
 
 using AguaSB.Compartido.ViewModels;
 using AguaSB.Extensiones.Views;
+using AguaSB.Extensiones.Views.Implementacion;
 using AguaSB.Individual.Pagos.Views;
-using AguaSB.Individual.Pagos.Views.Principal;
 using AguaSB.Views;
 using AguaSB.Views.Animaciones;
 using AguaSB.Views.Conversores.Reactive;
